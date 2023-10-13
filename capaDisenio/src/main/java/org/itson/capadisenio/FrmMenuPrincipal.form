@@ -71,14 +71,14 @@
             <Component class="javax.swing.JButton" name="btnCrearSala">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Bot&#xf3;n Crear Sala.png"/>
+                  <Image iconType="3" name="/botones/Bot&#xf3;n Crear Sala.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Bot&#xf3;n Crear Sala.png"/>
+                  <Image iconType="3" name="/botones/Bot&#xf3;n Crear Sala.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/BotonCrear2.png"/>
+                  <Image iconType="3" name="/botones/BotonCrear2.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -94,14 +94,14 @@
             <Component class="javax.swing.JButton" name="btnUnirseSala">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Bot&#xf3;n Unirse Sala.png"/>
+                  <Image iconType="3" name="/botones/Bot&#xf3;n Unirse Sala.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Bot&#xf3;n Unirse Sala.png"/>
+                  <Image iconType="3" name="/botones/Bot&#xf3;n Unirse Sala.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/BotonUnirse2.png"/>
+                  <Image iconType="3" name="/botones/BotonUnirse2.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -116,14 +116,14 @@
             <Component class="javax.swing.JButton" name="btnAjustes">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Bot&#xf3;n Ajustes.png"/>
+                  <Image iconType="3" name="/botones/Bot&#xf3;n Ajustes.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Bot&#xf3;n Ajustes.png"/>
+                  <Image iconType="3" name="/botones/Bot&#xf3;n Ajustes.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/BotonAjustes2.png"/>
+                  <Image iconType="3" name="/botones/BotonAjustes2.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -138,14 +138,14 @@
             <Component class="javax.swing.JButton" name="btnSalir">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Bot&#xf3;n Quit.png"/>
+                  <Image iconType="3" name="/botones/Bot&#xf3;n Quit.png"/>
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Bot&#xf3;n Quit.png"/>
+                  <Image iconType="3" name="/botones/Bot&#xf3;n Quit.png"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/BotonQuit2.png"/>
+                  <Image iconType="3" name="/botones/BotonQuit2.png"/>
                 </Property>
               </Properties>
               <Events>

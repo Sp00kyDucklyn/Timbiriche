@@ -4,11 +4,14 @@
  */
 package org.itson.capadisenio;
 
+/**
+ * Librerias usadas
+ */
 import javax.swing.ImageIcon;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
 
@@ -55,10 +58,10 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         PanelBotones.setOpaque(false);
         PanelBotones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCrearSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botón Crear Sala.png"))); // NOI18N
+        btnCrearSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear Sala.png"))); // NOI18N
         btnCrearSala.setContentAreaFilled(false);
-        btnCrearSala.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botón Crear Sala.png"))); // NOI18N
-        btnCrearSala.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/BotonCrear2.png"))); // NOI18N
+        btnCrearSala.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear Sala.png"))); // NOI18N
+        btnCrearSala.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/BotonCrear2.png"))); // NOI18N
         btnCrearSala.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCrearSalaMouseEntered(evt);
@@ -71,10 +74,10 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
         PanelBotones.add(btnCrearSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 440, 110));
 
-        btnUnirseSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botón Unirse Sala.png"))); // NOI18N
+        btnUnirseSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Unirse Sala.png"))); // NOI18N
         btnUnirseSala.setContentAreaFilled(false);
-        btnUnirseSala.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botón Unirse Sala.png"))); // NOI18N
-        btnUnirseSala.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/BotonUnirse2.png"))); // NOI18N
+        btnUnirseSala.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Unirse Sala.png"))); // NOI18N
+        btnUnirseSala.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/BotonUnirse2.png"))); // NOI18N
         btnUnirseSala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUnirseSalaActionPerformed(evt);
@@ -82,10 +85,10 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
         PanelBotones.add(btnUnirseSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 410, 100));
 
-        btnAjustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botón Ajustes.png"))); // NOI18N
+        btnAjustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Ajustes.png"))); // NOI18N
         btnAjustes.setContentAreaFilled(false);
-        btnAjustes.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botón Ajustes.png"))); // NOI18N
-        btnAjustes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/BotonAjustes2.png"))); // NOI18N
+        btnAjustes.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Ajustes.png"))); // NOI18N
+        btnAjustes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/BotonAjustes2.png"))); // NOI18N
         btnAjustes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAjustesActionPerformed(evt);
@@ -93,10 +96,10 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
         PanelBotones.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 390, 100));
 
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botón Quit.png"))); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Quit.png"))); // NOI18N
         btnSalir.setContentAreaFilled(false);
-        btnSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botón Quit.png"))); // NOI18N
-        btnSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/BotonQuit2.png"))); // NOI18N
+        btnSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Quit.png"))); // NOI18N
+        btnSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/BotonQuit2.png"))); // NOI18N
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -160,11 +163,20 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método que al final no se utilizo
+     * @param evt atributo evento
+     */
     private void btnCrearSalaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearSalaMouseEntered
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnCrearSalaMouseEntered
 
+    /**
+     * Método para darle una acción al botón, en este caso moverse
+     * de la pantalla menu principal a crear sala.
+     * @param evt atributo evento 
+     */
     private void btnCrearSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearSalaActionPerformed
         // TODO add your handling code here:
         FrmCrearSala crearSala = new FrmCrearSala();
@@ -172,6 +184,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCrearSalaActionPerformed
 
+    /**
+     * Método para darle una acción al botón, en este caso moverse
+     * de la pantalla menu principal a unirse sala.
+     * @param evt atributo evento
+     */
     private void btnUnirseSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirseSalaActionPerformed
         // TODO add your handling code here:
         FrmUnirseSala unirSala = new FrmUnirseSala();
@@ -179,6 +196,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnUnirseSalaActionPerformed
 
+    /**
+     * Método para darle una acción al botón, en este caso moverse
+     * de la pantalla menu principal a ajustes.
+     * @param evt atributo evento
+     */
     private void btnAjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjustesActionPerformed
         // TODO add your handling code here:
         FrmAjustes ajustes = new FrmAjustes();
@@ -186,6 +208,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAjustesActionPerformed
 
+    /**
+     * Método para darle una acción al botón, en este caso moverse
+     * de la pantalla menu principal a salir juego.
+     * @param evt atributo evento
+     */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
