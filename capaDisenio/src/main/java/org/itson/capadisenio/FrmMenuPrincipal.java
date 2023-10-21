@@ -7,6 +7,8 @@ package org.itson.capadisenio;
 /**
  * Librerias usadas
  */
+import java.awt.Graphics;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
@@ -18,10 +20,19 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form FrmMenuPrincipal
      */
+    FondoMenu fondo = new FondoMenu();
+    
     public FrmMenuPrincipal() {
+//        this.add(fondo);
         initComponents();
+//        this.setContentPane(fondo);
+//        fondo.add(this.PanelBotones);
+//        fondo.add(this.PanelTitulo);
+        
 //        botonCrearSala = new ImageIcon("BotonCrear2.png");
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,7 +49,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         btnUnirseSala = new javax.swing.JButton();
         btnAjustes = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        PanelTitulo = new javax.swing.JPanel();
         lblTitulo1 = new javax.swing.JLabel();
         lblTitulo2 = new javax.swing.JLabel();
         lblTitulo3 = new javax.swing.JLabel();
@@ -109,39 +120,39 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
         Panel1.add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 540, 450));
 
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelTitulo.setOpaque(false);
+        PanelTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo1.setBackground(new java.awt.Color(255, 255, 255));
         lblTitulo1.setFont(new java.awt.Font("Britannic Bold", 1, 96)); // NOI18N
         lblTitulo1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo1.setText("GUERRA");
-        jPanel1.add(lblTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 380, 80));
+        PanelTitulo.add(lblTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 380, 80));
 
         lblTitulo2.setFont(new java.awt.Font("Britannic Bold", 1, 96)); // NOI18N
         lblTitulo2.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo2.setText("PUNTOS");
-        jPanel1.add(lblTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+        PanelTitulo.add(lblTitulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
 
         lblTitulo3.setFont(new java.awt.Font("Britannic Bold", 1, 64)); // NOI18N
         lblTitulo3.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo3.setText("DE");
-        jPanel1.add(lblTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        PanelTitulo.add(lblTitulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         lblTitulo4.setBackground(new java.awt.Color(255, 255, 255));
         lblTitulo4.setFont(new java.awt.Font("Britannic Bold", 1, 96)); // NOI18N
         lblTitulo4.setText("GUERRA");
-        jPanel1.add(lblTitulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 380, 80));
+        PanelTitulo.add(lblTitulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 380, 80));
 
         lblTitulo5.setFont(new java.awt.Font("Britannic Bold", 1, 96)); // NOI18N
         lblTitulo5.setText("PUNTOS");
-        jPanel1.add(lblTitulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
+        PanelTitulo.add(lblTitulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
         lblTitulo6.setFont(new java.awt.Font("Britannic Bold", 1, 64)); // NOI18N
         lblTitulo6.setText("DE");
-        jPanel1.add(lblTitulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+        PanelTitulo.add(lblTitulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
-        Panel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 470, 180));
+        Panel1.add(PanelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 470, 180));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FondoModif.png"))); // NOI18N
         Panel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1209, 680));
@@ -256,11 +267,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel1;
     private javax.swing.JPanel PanelBotones;
+    private javax.swing.JPanel PanelTitulo;
     private javax.swing.JButton btnAjustes;
     private javax.swing.JButton btnCrearSala;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUnirseSala;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;

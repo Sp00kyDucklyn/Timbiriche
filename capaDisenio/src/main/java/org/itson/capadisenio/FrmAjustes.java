@@ -4,6 +4,14 @@
  */
 package org.itson.capadisenio;
 
+
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author equipo 1
@@ -13,10 +21,62 @@ public class FrmAjustes extends javax.swing.JFrame {
     /**
      * Creates new form FrmAjustes
      */
+    
+    
     public FrmAjustes() {
         initComponents();
+        mostrar(posicion);
     }
-
+    int posicion = 0;
+    
+    public String[] obtenerImg(){
+        File f = new File(getClass().getResource("/avatares").getFile());
+        String[] Imagenes = f.list();
+        return Imagenes;
+    }
+    
+    public void mostrar(int index){
+        String[] Imagen = obtenerImg();
+        String img = Imagen[index];
+        ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/"+img));
+        Image image = icon.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH);
+        lblImagen.setIcon(new ImageIcon(image));
+    }
+    
+    public void moverAbajo(){
+        new Thread();
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FrmAjustes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        int p = this.lblImagen.getX();
+        if(p>-1){
+            posicion++;
+            if(posicion >= obtenerImg().length){
+                posicion = 0;
+            } 
+            mostrar(posicion);
+        }
+    }
+    
+    public void moverArriba(){
+        new Thread();
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FrmAjustes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        int p = this.lblImagen.getX();
+        if(p>-1){
+            posicion--;
+            if(posicion >= obtenerImg().length){
+                posicion = 0;
+            } 
+            mostrar(posicion);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,9 +87,11 @@ public class FrmAjustes extends javax.swing.JFrame {
     private void initComponents() {
 
         btnReturn = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        lblMago = new javax.swing.JLabel();
+        btnSeleccion = new javax.swing.JButton();
+        btnFlechaAbajo = new javax.swing.JButton();
+        lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1209, 680));
@@ -44,17 +106,29 @@ public class FrmAjustes extends javax.swing.JFrame {
         });
         getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 73, -1));
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(btnSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Flecha abajo (1).png"))); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 80, 80));
+        btnFlechaAbajo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Flecha abajo (1).png"))); // NOI18N
+        btnFlechaAbajo.setContentAreaFilled(false);
+        btnFlechaAbajo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnFlechaAbajoMousePressed(evt);
+            }
+        });
+        btnFlechaAbajo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnFlechaAbajoKeyPressed(evt);
+            }
+        });
+        jPanel1.add(btnFlechaAbajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 80, 80));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 680));
 
-        lblMago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatares/mago.png"))); // NOI18N
-        lblMago.setPreferredSize(new java.awt.Dimension(100, 100));
-        jPanel1.add(lblMago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -270, 700, 1240));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 710, 680));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 710, 680));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -67,6 +141,20 @@ public class FrmAjustes extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void btnFlechaAbajoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFlechaAbajoMousePressed
+        // TODO add your handling code here:
+        moverAbajo();
+    }//GEN-LAST:event_btnFlechaAbajoMousePressed
+
+    private void btnFlechaAbajoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnFlechaAbajoKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_DOWN){
+             moverAbajo();
+        }else if(evt.getKeyCode() == KeyEvent.VK_UP){
+            moverArriba();
+        }
+    }//GEN-LAST:event_btnFlechaAbajoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -104,9 +192,11 @@ public class FrmAjustes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFlechaAbajo;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSeleccion;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblMago;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblImagen;
     // End of variables declaration//GEN-END:variables
 }

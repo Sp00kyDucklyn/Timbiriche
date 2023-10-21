@@ -27,6 +27,10 @@ public class FrmUnirseSala extends javax.swing.JFrame {
     private void initComponents() {
 
         btnReturn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        btnAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1209, 680));
@@ -40,6 +44,22 @@ public class FrmUnirseSala extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 73, -1));
+
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setForeground(new java.awt.Color(153, 204, 255));
+        jPanel1.setToolTipText("");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblCodigo.setText("Ingresa el código para unirte a la partida");
+        jPanel1.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
+
+        txtCodigo.setText("jTextField1");
+        jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
+
+        btnAceptar.setText("Siguiente");
+        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 610, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
         pack();
         setLocationRelativeTo(null);
@@ -88,6 +108,10 @@ public class FrmUnirseSala extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnReturn;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 }

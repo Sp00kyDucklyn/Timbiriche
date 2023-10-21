@@ -6,14 +6,14 @@ package org.itson.capadisenio;
 
 /**
  *
- * @author equipo 1
+ * @author hoshi
  */
-public class FrmCrearSala extends javax.swing.JFrame {
+public class FrmSalaJugadores extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmCrearSala
+     * Creates new form FrmSalaJugadores
      */
-    public FrmCrearSala() {
+    public FrmSalaJugadores() {
         initComponents();
     }
 
@@ -28,9 +28,6 @@ public class FrmCrearSala extends javax.swing.JFrame {
 
         btnReturn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        lblNumJugadores = new javax.swing.JLabel();
-        cmbJugadores = new javax.swing.JComboBox<>();
-        btnCrearPartida = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1209, 680));
@@ -46,26 +43,21 @@ public class FrmCrearSala extends javax.swing.JFrame {
         getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 73, -1));
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNumJugadores.setText("Número de jugadores");
-        jPanel1.add(lblNumJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, -1, -1));
-
-        cmbJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", " " }));
-        cmbJugadores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbJugadoresActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cmbJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 170, -1));
-
-        btnCrearPartida.setText("Crear Sala");
-        jPanel1.add(btnCrearPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, -1, -1));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1210, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 680, Short.MAX_VALUE)
+        );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
@@ -73,11 +65,8 @@ public class FrmCrearSala extends javax.swing.JFrame {
         FrmMenuPrincipal menu = new FrmMenuPrincipal();
         menu.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnReturnActionPerformed
 
-    private void cmbJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJugadoresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbJugadoresActionPerformed
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,29 +85,26 @@ public class FrmCrearSala extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCrearSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSalaJugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCrearSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSalaJugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCrearSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSalaJugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCrearSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmSalaJugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmCrearSala().setVisible(true);
+                new FrmSalaJugadores().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearPartida;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JComboBox<String> cmbJugadores;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblNumJugadores;
     // End of variables declaration//GEN-END:variables
 }
