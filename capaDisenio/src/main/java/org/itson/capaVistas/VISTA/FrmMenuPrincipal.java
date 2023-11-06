@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package org.itson.capadisenio;
+package org.itson.capaVistas.VISTA;
 
 /**
  * Librerias usadas
@@ -47,7 +47,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         PanelBotones = new javax.swing.JPanel();
         btnCrearSala = new javax.swing.JButton();
         btnUnirseSala = new javax.swing.JButton();
-        btnAjustes = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         PanelTitulo = new javax.swing.JPanel();
         lblTitulo1 = new javax.swing.JLabel();
@@ -59,7 +58,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1209, 680));
         setResizable(false);
 
         Panel1.setMinimumSize(new java.awt.Dimension(1280, 729));
@@ -96,17 +94,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
         PanelBotones.add(btnUnirseSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 410, 100));
 
-        btnAjustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Ajustes.png"))); // NOI18N
-        btnAjustes.setContentAreaFilled(false);
-        btnAjustes.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Ajustes.png"))); // NOI18N
-        btnAjustes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/BotonAjustes2.png"))); // NOI18N
-        btnAjustes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAjustesActionPerformed(evt);
-            }
-        });
-        PanelBotones.add(btnAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 390, 100));
-
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Quit.png"))); // NOI18N
         btnSalir.setContentAreaFilled(false);
         btnSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Quit.png"))); // NOI18N
@@ -116,7 +103,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        PanelBotones.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 370, 100));
+        PanelBotones.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 370, 100));
 
         Panel1.add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 540, 450));
 
@@ -161,27 +148,18 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * Método que al final no se utilizo
-     * @param evt atributo evento
-     */
-    private void btnCrearSalaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearSalaMouseEntered
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnCrearSalaMouseEntered
 
     /**
      * Método para darle una acción al botón, en este caso moverse
@@ -196,6 +174,15 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearSalaActionPerformed
 
     /**
+     * Método que al final no se utilizo
+     * @param evt atributo evento
+     */
+    private void btnCrearSalaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearSalaMouseEntered
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnCrearSalaMouseEntered
+
+    /**
      * Método para darle una acción al botón, en este caso moverse
      * de la pantalla menu principal a unirse sala.
      * @param evt atributo evento
@@ -206,18 +193,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         unirSala.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnUnirseSalaActionPerformed
-
-    /**
-     * Método para darle una acción al botón, en este caso moverse
-     * de la pantalla menu principal a ajustes.
-     * @param evt atributo evento
-     */
-    private void btnAjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjustesActionPerformed
-        // TODO add your handling code here:
-        FrmAjustes ajustes = new FrmAjustes();
-        ajustes.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAjustesActionPerformed
 
     /**
      * Método para darle una acción al botón, en este caso moverse
@@ -268,7 +243,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel1;
     private javax.swing.JPanel PanelBotones;
     private javax.swing.JPanel PanelTitulo;
-    private javax.swing.JButton btnAjustes;
     private javax.swing.JButton btnCrearSala;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUnirseSala;

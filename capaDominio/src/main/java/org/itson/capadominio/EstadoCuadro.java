@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.itson.capadisenio.tablero;
+package org.itson.capadominio;
 
 /**
  *
  * @author hoshi
  */
-public class Tablero {
-    
+public enum EstadoCuadro {
+    INCOMPLETO, COMPLETO, RECLAMADO; 
 }
