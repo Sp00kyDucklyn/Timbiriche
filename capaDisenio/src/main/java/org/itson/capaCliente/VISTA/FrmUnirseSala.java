@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package org.itson.capaVistas.VISTA;
+package org.itson.capaCliente.VISTA;
 
 /**
  *
  * @author equipo 1
  */
-public class FrmCrearSala extends javax.swing.JFrame {
+public class FrmUnirseSala extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmCrearSala
+     * Creates new form FrmUnirseSala
      */
-    public FrmCrearSala() {
+    public FrmUnirseSala() {
         initComponents();
     }
 
@@ -28,10 +28,9 @@ public class FrmCrearSala extends javax.swing.JFrame {
 
         btnReturn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        lblNumJugadores = new javax.swing.JLabel();
-        cmbJugadores = new javax.swing.JComboBox<>();
-        btnCrearPartida = new javax.swing.JButton();
-        btnSig = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        btnAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,30 +45,18 @@ public class FrmCrearSala extends javax.swing.JFrame {
         getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 73, -1));
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setForeground(new java.awt.Color(153, 204, 255));
+        jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNumJugadores.setText("Número de jugadores");
-        jPanel1.add(lblNumJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, -1, -1));
+        lblCodigo.setText("Ingresa el código para unirte a la partida");
+        jPanel1.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
 
-        cmbJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", " " }));
-        cmbJugadores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbJugadoresActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cmbJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 170, -1));
+        txtCodigo.setText("jTextField1");
+        jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
 
-        btnCrearPartida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear.png"))); // NOI18N
-        btnCrearPartida.setContentAreaFilled(false);
-        jPanel1.add(btnCrearPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
-
-        btnSig.setText("sig");
-        btnSig.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSigActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSig, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 610, -1, -1));
+        btnAceptar.setText("Siguiente");
+        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 610, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
@@ -83,17 +70,6 @@ public class FrmCrearSala extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReturnActionPerformed
-
-    private void cmbJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJugadoresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbJugadoresActionPerformed
-
-    private void btnSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigActionPerformed
-        // TODO add your handling code here:
-        FrmAjustes ajustes = new FrmAjustes();
-        ajustes.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSigActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,30 +88,29 @@ public class FrmCrearSala extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(FrmCrearSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(FrmUnirseSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(FrmCrearSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(FrmUnirseSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(FrmCrearSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(FrmUnirseSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(FrmCrearSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(FrmUnirseSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new FrmCrearSala().setVisible(true);
+//                new FrmUnirseSala().setVisible(true);
 //            }
 //        });
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearPartida;
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JButton btnSig;
-    private javax.swing.JComboBox<String> cmbJugadores;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblNumJugadores;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 }

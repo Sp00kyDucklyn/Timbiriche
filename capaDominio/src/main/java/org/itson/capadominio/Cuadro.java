@@ -10,7 +10,7 @@ import static org.itson.capadominio.EstadoCuadro.RECLAMADO;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public class Cuadro {
     

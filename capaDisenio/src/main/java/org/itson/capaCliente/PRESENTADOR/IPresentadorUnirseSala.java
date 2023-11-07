@@ -2,15 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package org.itson.capaVistas.MODELO;
-
-import java.awt.Graphics2D;
+package org.itson.capaCliente.PRESENTADOR;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
-public interface IFiguras {
+public interface IPresentadorUnirseSala {
     
-    public void pintar(Graphics2D g2);
+    public void ingresarCodigo();
+    
+    public void seleccionSigAjustes();
+    
 }

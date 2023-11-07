@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public class Jugador {
     

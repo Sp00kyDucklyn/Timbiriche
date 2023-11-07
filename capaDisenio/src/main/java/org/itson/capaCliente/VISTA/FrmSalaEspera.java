@@ -2,20 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package org.itson.capaVistas.VISTA;
+package org.itson.capaCliente.VISTA;
+
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
- * @author equipo 1
+ * @author hoshi
  */
-public class FrmUnirseSala extends javax.swing.JFrame {
+public class FrmSalaEspera extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmUnirseSala
-     */
-    public FrmUnirseSala() {
+     * Creates new form FrmSalaJugadores
+     */ 
+    
+    public FrmSalaEspera(ImageIcon imagenSeleccionada, FrmAjustes ajustes) {
         initComponents();
+       
+        imagenSeleccionada = ajustes.getImagenSeleccionada();
+        if (imagenSeleccionada != null) {
+            lblJugador1.setIcon(imagenSeleccionada); // Asegúrate de que lbl esté configurado correctamente
+        }
+        System.out.println(imagenSeleccionada);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,9 +40,7 @@ public class FrmUnirseSala extends javax.swing.JFrame {
 
         btnReturn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        lblCodigo = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        btnAceptar = new javax.swing.JButton();
+        lblJugador1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -45,23 +55,12 @@ public class FrmUnirseSala extends javax.swing.JFrame {
         getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 73, -1));
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel1.setForeground(new java.awt.Color(153, 204, 255));
-        jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblCodigo.setText("Ingresa el código para unirte a la partida");
-        jPanel1.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
-
-        txtCodigo.setText("jTextField1");
-        jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
-
-        btnAceptar.setText("Siguiente");
-        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 610, -1, -1));
+        jPanel1.add(lblJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 190, 160));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
@@ -69,6 +68,7 @@ public class FrmUnirseSala extends javax.swing.JFrame {
         FrmMenuPrincipal menu = new FrmMenuPrincipal();
         menu.setVisible(true);
         this.dispose();
+
     }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
@@ -88,29 +88,27 @@ public class FrmUnirseSala extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(FrmUnirseSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(FrmSalaEspera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(FrmUnirseSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(FrmSalaEspera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(FrmUnirseSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(FrmSalaEspera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(FrmUnirseSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(FrmSalaEspera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new FrmUnirseSala().setVisible(true);
+//                new FrmSalaEspera().setVisible(true);
 //            }
 //        });
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnReturn;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblCodigo;
-    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JLabel lblJugador1;
     // End of variables declaration//GEN-END:variables
 }

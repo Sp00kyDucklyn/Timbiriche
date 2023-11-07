@@ -6,7 +6,7 @@ package org.itson.capadominio;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public class Partida {
     

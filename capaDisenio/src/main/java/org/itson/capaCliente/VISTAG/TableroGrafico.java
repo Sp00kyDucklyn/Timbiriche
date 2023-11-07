@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.itson.capaVistas.MODELO;
+package org.itson.capaCliente.VISTAG;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -18,7 +18,7 @@ import org.itson.capadominio.Tablero;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public class TableroGrafico extends JPanel{
 

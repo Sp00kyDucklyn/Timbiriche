@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package org.itson.capaVistas.VISTA;
+package org.itson.capaCliente.VISTA;
 
 
 import java.awt.Image;
@@ -188,7 +188,7 @@ public class FrmAjustes extends javax.swing.JFrame {
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         // TODO add your handling code here:
-        FrmSalaJugadores sala = new FrmSalaJugadores(imagenSeleccionada, this);
+        FrmSalaEspera sala = new FrmSalaEspera(imagenSeleccionada, this);
         sala.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSiguienteActionPerformed

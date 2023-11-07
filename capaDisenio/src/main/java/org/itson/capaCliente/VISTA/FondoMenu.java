@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.itson.capaVistas.VISTA;
+package org.itson.capaCliente.VISTA;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

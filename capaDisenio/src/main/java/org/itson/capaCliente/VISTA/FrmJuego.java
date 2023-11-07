@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package org.itson.capaVistas.VISTA;
+package org.itson.capaCliente.VISTA;
 
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
-import org.itson.capaVistas.MODELO.TableroGrafico;
+import org.itson.capaCliente.VISTAG.TableroGrafico;
 import org.itson.capadominio.Jugador;
 import org.itson.capadominio.Tablero;
 
@@ -15,14 +15,14 @@ import org.itson.capadominio.Tablero;
  *
  * @author hoshi
  */
-public class FrmTablero extends javax.swing.JFrame {
+public class FrmJuego extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmTablero
+     * Creates new form FrmJuego
      */
     TableroGrafico tablero;
     Jugador jugador;
-    public FrmTablero() {
+    public FrmJuego() {
         Tablero tablerito = new Tablero(2);
         jugador = new Jugador();
         jugador.setColor("#00FFFF");
@@ -120,21 +120,23 @@ public class FrmTablero extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmTablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmTablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmTablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmTablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmTablero().setVisible(true);
+                new FrmJuego().setVisible(true);
             }
         });
     }

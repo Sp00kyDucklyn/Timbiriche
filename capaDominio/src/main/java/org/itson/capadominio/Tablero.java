@@ -12,7 +12,7 @@ import static org.itson.capadominio.Posicion.VERTICAL;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public class Tablero {
     
