@@ -10,11 +10,7 @@ package org.itson.capaCliente.PRESENTADOR;
  */
 public interface IPresentadorAjustes {
     
-    public void seleccionColor();
-    
-    public void seleccionAvatar();
-    
-    public void nombreJugador();
+    public void crearJugador();
     
     public void seleccionSigSalaEspera();
     

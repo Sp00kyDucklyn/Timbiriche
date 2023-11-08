@@ -10,7 +10,7 @@ import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
 
 /**
  *
- * @author hoshi
+ * @author Equipo 1
  */
 public class FrmSalaEspera extends javax.swing.JFrame {
 

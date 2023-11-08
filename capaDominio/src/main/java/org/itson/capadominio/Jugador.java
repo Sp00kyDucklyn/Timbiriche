@@ -51,6 +51,21 @@ public class Jugador {
         lineas = new ArrayList<>();
     }
 
+    
+    /**
+     * Constructor de la clase Jugador con parámetros. Inicializa el avatar,
+     * color, y nombre para el jugador.
+     * 
+     * @param avatar
+     * @param color
+     * @param nombre 
+     */
+    public Jugador(String avatar, String color, String nombre) {
+        this.avatar = avatar;
+        this.color = color;
+        this.nombre = nombre;
+    }
+
     /**
      * Obtiene el puntaje actual del jugador.
      *

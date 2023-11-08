@@ -64,7 +64,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         PanelBotones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCrearSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear Sala.png"))); // NOI18N
+        btnCrearSala.setBorderPainted(false);
         btnCrearSala.setContentAreaFilled(false);
+        btnCrearSala.setFocusable(false);
         btnCrearSala.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear Sala.png"))); // NOI18N
         btnCrearSala.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/BotonCrear2.png"))); // NOI18N
         btnCrearSala.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,7 +82,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         PanelBotones.add(btnCrearSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 440, 110));
 
         btnUnirseSala.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Unirse Sala.png"))); // NOI18N
+        btnUnirseSala.setBorderPainted(false);
         btnUnirseSala.setContentAreaFilled(false);
+        btnUnirseSala.setFocusable(false);
         btnUnirseSala.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Unirse Sala.png"))); // NOI18N
         btnUnirseSala.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/BotonUnirse2.png"))); // NOI18N
         btnUnirseSala.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +95,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         PanelBotones.add(btnUnirseSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 410, 100));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Quit.png"))); // NOI18N
+        btnSalir.setBorderPainted(false);
         btnSalir.setContentAreaFilled(false);
+        btnSalir.setFocusable(false);
         btnSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Quit.png"))); // NOI18N
         btnSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/BotonQuit2.png"))); // NOI18N
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +105,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        PanelBotones.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 370, 100));
+        PanelBotones.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 330, 100));
 
         Panel1.add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 540, 360));
 
@@ -110,7 +116,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         lblTitulo1.setFont(new java.awt.Font("Britannic Bold", 1, 96)); // NOI18N
         lblTitulo1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo1.setText("GUERRA");
-        PanelTitulo.add(lblTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 380, 80));
+        PanelTitulo.add(lblTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 450, 80));
 
         lblTitulo2.setFont(new java.awt.Font("Britannic Bold", 1, 96)); // NOI18N
         lblTitulo2.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,7 +131,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         lblTitulo4.setBackground(new java.awt.Color(255, 255, 255));
         lblTitulo4.setFont(new java.awt.Font("Britannic Bold", 1, 96)); // NOI18N
         lblTitulo4.setText("GUERRA");
-        PanelTitulo.add(lblTitulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 380, 80));
+        PanelTitulo.add(lblTitulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 450, 80));
 
         lblTitulo5.setFont(new java.awt.Font("Britannic Bold", 1, 96)); // NOI18N
         lblTitulo5.setText("PUNTOS");
@@ -135,7 +141,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         lblTitulo6.setText("DE");
         PanelTitulo.add(lblTitulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
-        Panel1.add(PanelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 470, 180));
+        Panel1.add(PanelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 560, 190));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FondoModif.png"))); // NOI18N
         Panel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1209, 680));

@@ -33,21 +33,6 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     
 
     @Override
-    public void seleccionColor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void seleccionAvatar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void nombreJugador() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void seleccionSigSalaEspera() {
         presentadorS.abrirPantalla();
         vistaAjustes.dispose();
@@ -68,6 +53,11 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     @Override
     public void abrirPantalla() {
         vistaAjustes.setVisible(true);
+    }
+
+    @Override
+    public void crearJugador() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
