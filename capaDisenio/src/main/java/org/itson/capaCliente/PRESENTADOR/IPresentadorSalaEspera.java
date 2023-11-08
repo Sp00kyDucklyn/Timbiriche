@@ -4,11 +4,14 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capadominio.Jugador;
+
 /**
  *
  * @author equipo 1
  */
 public interface IPresentadorSalaEspera {
+    public Jugador regresarJugador();
     
     public void seleccionIniciar();
     
@@ -21,5 +24,7 @@ public interface IPresentadorSalaEspera {
     public void abrirPantallaAnterior();
     
     public void abrirPantallaJuego();
+    
+    public void recibirJugador(Jugador jugador);
     
 }

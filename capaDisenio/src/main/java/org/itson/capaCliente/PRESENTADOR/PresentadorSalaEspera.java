@@ -4,7 +4,9 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capaCliente.MODELO.ModeloSalaEspera;
 import org.itson.capaCliente.VISTA.FrmSalaEspera;
+import org.itson.capadominio.Jugador;
 
 /**
  *
@@ -12,15 +14,17 @@ import org.itson.capaCliente.VISTA.FrmSalaEspera;
  */
 public class PresentadorSalaEspera implements IPresentadorSalaEspera{
     
-    IPresentadorJuego presentadorJ;
-    IPresentadorAjustes presentadorA;
-    FrmSalaEspera salaEspera;
+    private IPresentadorJuego presentadorJ;
+    private IPresentadorAjustes presentadorA;
+    private FrmSalaEspera salaEspera;
+    private ModeloSalaEspera modeloSala;
 
     public PresentadorSalaEspera(IPresentadorAjustes presentadorA) {
         
         salaEspera = new FrmSalaEspera(this);
         presentadorJ = new PresentadorJuego(this);
         this.presentadorA = presentadorA;
+        modeloSala=new ModeloSalaEspera();
         
     }
     
@@ -42,6 +46,7 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera{
     @Override
     public void abrirPantalla() {
        salaEspera.setVisible(true);
+       salaEspera.MostrarJugador();
     }
 
     @Override
@@ -54,6 +59,16 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera{
     public void abrirPantallaJuego() {
        presentadorJ.abrirPantalla();
        salaEspera.dispose();
+    }
+
+    @Override
+    public void recibirJugador(Jugador jugador) {
+        modeloSala.setJugador(jugador);
+    }
+
+    @Override
+    public Jugador regresarJugador() {
+        return modeloSala.getJugador();
     }
     
 }

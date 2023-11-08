@@ -22,6 +22,8 @@ public class FrmAjustes extends javax.swing.JFrame {
     /**
      * Creates new form FrmAjustes
      */
+    private String color;
+    
     
     private String[] imagenes;
     IPresentadorAjustes presentadorA;
@@ -175,7 +177,7 @@ public class FrmAjustes extends javax.swing.JFrame {
         colorAzul.setBackground(new java.awt.Color(0, 0, 255));
         jPanel2.add(colorAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 90, 50));
 
-        colorAmarillo.setBackground(new java.awt.Color(255, 255, 0));
+        colorAmarillo.setBackground(new java.awt.Color(153, 0, 153));
         jPanel2.add(colorAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 90, 50));
 
         colorVerde.setBackground(new java.awt.Color(0, 255, 0));
@@ -246,11 +248,8 @@ public class FrmAjustes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSeleccionActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        // TODO add your handling code here:
-//         if(){
-//            presentadorA.crearJugador(); 
-//         }
-        presentadorA.seleccionSigSalaEspera();
+        
+        presentadorA.crearJugador(color, this.txtNombre.getText(),imagenSeleccionada);
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void checkRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRojoActionPerformed

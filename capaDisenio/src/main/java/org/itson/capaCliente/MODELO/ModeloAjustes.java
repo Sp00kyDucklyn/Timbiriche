@@ -13,31 +13,25 @@ import org.itson.capadominio.Jugador;
  * @author equipo 1
  */
 public class ModeloAjustes {
-    
+
     Jugador jugador = new Jugador();
-    IPresentadorAjustes presentadorA;
-    
-    String color;
-    String nombre;
-    String avatar;
 
     public ModeloAjustes() {
-      
+
     }
-    
-    public void crearJugador(String color, String nombre, String avatar){
+
+    public void crearJugador(String color, String nombre, String avatar) {
         this.jugador = new Jugador(avatar, color, nombre);
     }
-    
-    public Jugador getJugador(){
-       return jugador; 
+
+    public Jugador getJugador() {
+        return jugador;
     }
-    
+
     public String obtenerImagen() {
         String imagenSeleccionada = jugador.getAvatar();
-         
+
         if (imagenSeleccionada != null) {
-            
 
             return "La imagen ha sido establecida correctamente.";
         } else {

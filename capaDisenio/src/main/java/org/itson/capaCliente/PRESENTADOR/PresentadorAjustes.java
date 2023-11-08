@@ -4,6 +4,7 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capaCliente.MODELO.ModeloAjustes;
 import org.itson.capaCliente.VISTA.FrmAjustes;
 
 /**
@@ -16,9 +17,10 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     IPresentadorUnirseSala presentadorU;
     IPresentadorSalaEspera presentadorS;
     FrmAjustes vistaAjustes;
+    ModeloAjustes modeloA;
 
     public PresentadorAjustes(IPresentadorCrearSala presentadorC){
-        
+        modeloA= new ModeloAjustes();
         vistaAjustes = new FrmAjustes(this);
         this.presentadorC = presentadorC;
         presentadorS = new PresentadorSalaEspera(this);
@@ -28,14 +30,18 @@ public class PresentadorAjustes implements IPresentadorAjustes{
         this.presentadorU = presentadorU;
         presentadorS = new PresentadorSalaEspera(this);
         vistaAjustes = new FrmAjustes(this);
+        modeloA= new ModeloAjustes();
     }
     
     
 
     @Override
     public void seleccionSigSalaEspera() {
+        this.enviarJugador();
         presentadorS.abrirPantalla();
+        
         vistaAjustes.dispose();
+        
     }
 
     @Override
@@ -53,11 +59,19 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     @Override
     public void abrirPantalla() {
         vistaAjustes.setVisible(true);
+        
+    }
+
+    
+    @Override
+    public void crearJugador(String color, String nombre, String avatar) {
+        modeloA.crearJugador(color, nombre, avatar);
+        this.seleccionSigSalaEspera();
     }
 
     @Override
-    public void crearJugador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void enviarJugador() {
+        presentadorS.recibirJugador(modeloA.getJugador());
     }
     
 }

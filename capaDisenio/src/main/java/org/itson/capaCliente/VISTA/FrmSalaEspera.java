@@ -7,6 +7,7 @@ package org.itson.capaCliente.VISTA;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
+import org.itson.capadominio.Jugador;
 
 /**
  *
@@ -17,11 +18,13 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     /**
      * Creates new form FrmSalaJugadores
      */ 
-    IPresentadorSalaEspera presentadorS;
+    private IPresentadorSalaEspera presentadorS;
     
     public FrmSalaEspera(IPresentadorSalaEspera presentadorS) {
         initComponents();
         this.presentadorS = presentadorS;
+        
+        
 //        imagenSeleccionada = ajustes.getImagenSeleccionada();
 //        if (imagenSeleccionada != null) {
 //            lblJugador1.setIcon(imagenSeleccionada); // Asegúrate de que lbl esté configurado correctamente
@@ -31,7 +34,16 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
     
     
-    
+    public void MostrarJugador(){
+        
+        Jugador jugador =presentadorS.regresarJugador();
+        if (jugador==null){
+            return;
+        }
+        lblJugador1.setText(jugador.getNombre());
+       ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/"+jugador.getAvatar()));
+       lblAvatar.setIcon(icon);
+    }
     
 
     /**
@@ -45,8 +57,9 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
         btnReturn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        lblJugador1 = new javax.swing.JLabel();
+        lblAvatar = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        lblJugador1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +75,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 190, 160));
+        jPanel1.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 190, 160));
 
         jButton1.setText("sig");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +84,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, -1, -1));
+        jPanel1.add(lblJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 100, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
@@ -127,6 +141,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblJugador1;
     // End of variables declaration//GEN-END:variables
 }

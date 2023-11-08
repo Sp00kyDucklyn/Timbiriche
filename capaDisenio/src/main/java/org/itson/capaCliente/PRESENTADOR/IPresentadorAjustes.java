@@ -10,7 +10,8 @@ package org.itson.capaCliente.PRESENTADOR;
  */
 public interface IPresentadorAjustes {
     
-    public void crearJugador();
+    
+    public void enviarJugador();
     
     public void seleccionSigSalaEspera();
     
@@ -19,4 +20,6 @@ public interface IPresentadorAjustes {
     public void btnRegresarUnirseSala();
     
     public void abrirPantalla();
+   
+    public void crearJugador(String color, String nombre, String avatar);
 }
