@@ -18,4 +18,9 @@ public interface IPresentadorAjustes {
     
     public void seleccionSigSalaEspera();
     
+    public void btnRegresarCrearSala();
+    
+    public void btnRegresarUnirseSala();
+    
+    public void abrirPantalla();
 }

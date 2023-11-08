@@ -6,6 +6,7 @@ package org.itson.capaCliente.VISTA;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
 
 /**
  *
@@ -16,16 +17,20 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     /**
      * Creates new form FrmSalaJugadores
      */ 
+    IPresentadorSalaEspera presentadorS;
     
-    public FrmSalaEspera(ImageIcon imagenSeleccionada, FrmAjustes ajustes) {
+    public FrmSalaEspera(IPresentadorSalaEspera presentadorS) {
         initComponents();
-       
-        imagenSeleccionada = ajustes.getImagenSeleccionada();
-        if (imagenSeleccionada != null) {
-            lblJugador1.setIcon(imagenSeleccionada); // Asegúrate de que lbl esté configurado correctamente
-        }
-        System.out.println(imagenSeleccionada);
+        this.presentadorS = presentadorS;
+//        imagenSeleccionada = ajustes.getImagenSeleccionada();
+//        if (imagenSeleccionada != null) {
+//            lblJugador1.setIcon(imagenSeleccionada); // Asegúrate de que lbl esté configurado correctamente
+//        }
+//        System.out.println(imagenSeleccionada);
     }
+
+    
+    
     
     
 
@@ -41,6 +46,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
         btnReturn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblJugador1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,6 +64,14 @@ public class FrmSalaEspera extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(lblJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 190, 160));
 
+        jButton1.setText("sig");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
         pack();
@@ -65,11 +79,14 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
-        FrmMenuPrincipal menu = new FrmMenuPrincipal();
-        menu.setVisible(true);
-        this.dispose();
+        presentadorS.abrirPantallaAnterior();
 
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        presentadorS.abrirPantallaJuego();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,6 +125,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReturn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblJugador1;
     // End of variables declaration//GEN-END:variables

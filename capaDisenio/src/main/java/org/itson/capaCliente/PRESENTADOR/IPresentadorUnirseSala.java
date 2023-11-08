@@ -14,4 +14,8 @@ public interface IPresentadorUnirseSala {
     
     public void seleccionSigAjustes();
     
+    public void abrirPantalla();
+    
+    public void regresarMenu();
+    
 }

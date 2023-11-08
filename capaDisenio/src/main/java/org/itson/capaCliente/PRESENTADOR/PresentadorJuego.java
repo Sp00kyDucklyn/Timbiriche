@@ -4,11 +4,22 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capaCliente.VISTA.FrmJuego;
+
 /**
  *
  * @author equipo 1
  */
 public class PresentadorJuego implements IPresentadorJuego{
+    
+    FrmJuego vistaJuego;
+    IPresentadorSalaEspera presentadorS;
+
+    public PresentadorJuego(IPresentadorSalaEspera presentadorS) {
+        vistaJuego = new FrmJuego();
+        this.presentadorS = presentadorS;
+    }
+    
 
     @Override
     public void colocaLinea() {
@@ -33,6 +44,11 @@ public class PresentadorJuego implements IPresentadorJuego{
     @Override
     public void iniciarPartida() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void abrirPantalla() {
+       vistaJuego.setVisible(true);
     }
     
 }

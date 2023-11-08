@@ -10,6 +10,7 @@ package org.itson.capaCliente.VISTA;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import org.itson.capaCliente.PRESENTADOR.IPresentadorMenuPrincipal;
 
 /**
  *
@@ -21,17 +22,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
      * Creates new form FrmMenuPrincipal
      */
     FondoMenu fondo = new FondoMenu();
-    
-    public FrmMenuPrincipal() {
-//        this.add(fondo);
+    IPresentadorMenuPrincipal presentadorM;
+
+    public FrmMenuPrincipal(IPresentadorMenuPrincipal presentadorM) {
         initComponents();
-//        this.setContentPane(fondo);
-//        fondo.add(this.PanelBotones);
-//        fondo.add(this.PanelTitulo);
-        
-//        botonCrearSala = new ImageIcon("BotonCrear2.png");
+        this.presentadorM = presentadorM;
     }
-    
     
 
     /**
@@ -105,7 +101,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
         PanelBotones.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 370, 100));
 
-        Panel1.add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 540, 450));
+        Panel1.add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 540, 360));
 
         PanelTitulo.setOpaque(false);
         PanelTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -168,9 +164,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
      */
     private void btnCrearSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearSalaActionPerformed
         // TODO add your handling code here:
-        FrmCrearSala crearSala = new FrmCrearSala();
-        crearSala.setVisible(true);
-        this.dispose();
+        presentadorM.activarBtnCrear();
     }//GEN-LAST:event_btnCrearSalaActionPerformed
 
     /**
@@ -189,9 +183,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
      */
     private void btnUnirseSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirseSalaActionPerformed
         // TODO add your handling code here:
-        FrmUnirseSala unirSala = new FrmUnirseSala();
-        unirSala.setVisible(true);
-        this.dispose();
+      presentadorM.activarBtnUnirse();
     }//GEN-LAST:event_btnUnirseSalaActionPerformed
 
     /**
@@ -201,43 +193,43 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
      */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        presentadorM.salirPantalla();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmMenuPrincipal().setVisible(true);
-            }
-        });
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FrmMenuPrincipal().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel1;

@@ -18,4 +18,8 @@ public interface IPresentadorCrearSala {
     
     public void apareceSigAjustes();
     
+    public void abrirPantalla();
+    
+    public void regresarMenu();
+    
 }

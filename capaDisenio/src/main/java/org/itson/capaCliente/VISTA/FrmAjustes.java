@@ -11,6 +11,7 @@ import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import org.itson.capaCliente.PRESENTADOR.IPresentadorAjustes;
 
 /**
  *
@@ -23,10 +24,13 @@ public class FrmAjustes extends javax.swing.JFrame {
      */
     
     private String[] imagenes;
-    public FrmAjustes() {
+    IPresentadorAjustes presentadorA;
+    
+    public FrmAjustes(IPresentadorAjustes presentadorA) {
         initComponents();
         mostrar(posicion);
         imagenes = obtenerImg();
+        this.presentadorA = presentadorA;
     }
     private int posicion = 0;
     //Esto cambiara a uno de tipo jugador, que va a estar guardando el avatar
@@ -155,10 +159,7 @@ public class FrmAjustes extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
-        FrmMenuPrincipal menu = new FrmMenuPrincipal();
-        menu.setVisible(true);
-        this.dispose();
-        
+        presentadorA.btnRegresarCrearSala();
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnFlechaAbajoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFlechaAbajoMousePressed
@@ -188,9 +189,7 @@ public class FrmAjustes extends javax.swing.JFrame {
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         // TODO add your handling code here:
-        FrmSalaEspera sala = new FrmSalaEspera(imagenSeleccionada, this);
-        sala.setVisible(true);
-        this.dispose();
+        presentadorA.seleccionSigSalaEspera();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     public ImageIcon getImagenSeleccionada() {

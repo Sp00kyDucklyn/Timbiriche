@@ -4,6 +4,9 @@
  */
 package org.itson.capaCliente.VISTA;
 
+import org.itson.capaCliente.PRESENTADOR.IPresentadorMenuPrincipal;
+import org.itson.capaCliente.PRESENTADOR.IPresentadorUnirseSala;
+
 /**
  *
  * @author equipo 1
@@ -13,8 +16,10 @@ public class FrmUnirseSala extends javax.swing.JFrame {
     /**
      * Creates new form FrmUnirseSala
      */
-    public FrmUnirseSala() {
+    IPresentadorUnirseSala presentadorS;
+    public FrmUnirseSala(IPresentadorUnirseSala presentadorS) {
         initComponents();
+        this.presentadorS = presentadorS;
     }
 
     /**
@@ -56,6 +61,11 @@ public class FrmUnirseSala extends javax.swing.JFrame {
         jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
 
         btnAceptar.setText("Siguiente");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 610, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
@@ -66,10 +76,13 @@ public class FrmUnirseSala extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
-        FrmMenuPrincipal menu = new FrmMenuPrincipal();
-        menu.setVisible(true);
-        this.dispose();
+        presentadorS.regresarMenu();
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+        presentadorS.seleccionSigAjustes();
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments

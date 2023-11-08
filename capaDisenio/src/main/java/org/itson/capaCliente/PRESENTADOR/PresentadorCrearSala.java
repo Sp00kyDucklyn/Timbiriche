@@ -4,12 +4,24 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capaCliente.VISTA.FrmCrearSala;
+
 /**
  *
  * @author equipo 1
  */
 public class PresentadorCrearSala implements IPresentadorCrearSala{
+    
+    FrmCrearSala vistaCrear;
+    IPresentadorMenuPrincipal presentadorM;
+    IPresentadorAjustes presentadorA;
 
+    public PresentadorCrearSala(IPresentadorMenuPrincipal presentadorM) {
+        this.presentadorM = presentadorM;
+        presentadorA = new PresentadorAjustes(this);
+        vistaCrear = new FrmCrearSala(this);
+    }
+    
     @Override
     public void seleccionarCantJugadores() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -27,7 +39,19 @@ public class PresentadorCrearSala implements IPresentadorCrearSala{
 
     @Override
     public void apareceSigAjustes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        presentadorA.abrirPantalla();
+        vistaCrear.dispose();
+    }
+
+    @Override
+    public void abrirPantalla() {
+        vistaCrear.setVisible(true);
+    }
+
+    @Override
+    public void regresarMenu() {
+       presentadorM.abrirMenuVista();
+       vistaCrear.dispose();
     }
     
 }

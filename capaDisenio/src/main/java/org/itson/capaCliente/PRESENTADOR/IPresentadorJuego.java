@@ -20,6 +20,6 @@ public interface IPresentadorJuego {
     
     public void iniciarPartida();
     
-    
+    public void abrirPantalla();
     
 }

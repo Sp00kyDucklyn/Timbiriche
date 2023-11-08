@@ -4,6 +4,9 @@
  */
 package org.itson.capaCliente.VISTA;
 
+import org.itson.capaCliente.PRESENTADOR.IPresentadorCrearSala;
+import org.itson.capaCliente.PRESENTADOR.IPresentadorMenuPrincipal;
+
 /**
  *
  * @author equipo 1
@@ -13,8 +16,11 @@ public class FrmCrearSala extends javax.swing.JFrame {
     /**
      * Creates new form FrmCrearSala
      */
-    public FrmCrearSala() {
+    IPresentadorCrearSala presentadorC;
+    
+    public FrmCrearSala(IPresentadorCrearSala presentadorC) {
         initComponents();
+        this.presentadorC = presentadorC;
     }
 
     /**
@@ -79,9 +85,7 @@ public class FrmCrearSala extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
-        FrmMenuPrincipal menu = new FrmMenuPrincipal();
-        menu.setVisible(true);
-        this.dispose();
+        presentadorC.regresarMenu();
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void cmbJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJugadoresActionPerformed
@@ -90,9 +94,7 @@ public class FrmCrearSala extends javax.swing.JFrame {
 
     private void btnSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigActionPerformed
         // TODO add your handling code here:
-        FrmAjustes ajustes = new FrmAjustes();
-        ajustes.setVisible(true);
-        this.dispose();
+        presentadorC.apareceSigAjustes();
     }//GEN-LAST:event_btnSigActionPerformed
 
     /**

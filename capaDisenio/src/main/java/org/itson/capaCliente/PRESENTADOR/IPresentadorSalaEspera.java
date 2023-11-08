@@ -16,4 +16,10 @@ public interface IPresentadorSalaEspera {
     
     public void verificaSalaLlena();
     
+    public void abrirPantalla();
+    
+    public void abrirPantallaAnterior();
+    
+    public void abrirPantallaJuego();
+    
 }
