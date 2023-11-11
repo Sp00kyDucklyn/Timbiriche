@@ -60,6 +60,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         Panel1.setPreferredSize(new java.awt.Dimension(1209, 680));
         Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        PanelBotones.setFocusable(false);
         PanelBotones.setOpaque(false);
         PanelBotones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

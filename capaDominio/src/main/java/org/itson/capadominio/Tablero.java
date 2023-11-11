@@ -71,8 +71,8 @@ public class Tablero {
     public void llenarTablero(int popo) {
 
         if (popo == 2) {
-            int numero = 100;
-            int numero2 = 100;
+            int numero = 0;
+            int numero2 = 0;
             List<Punto> puntito = new ArrayList<>();
             List<Linea> lineasHorizontales = new ArrayList<>();
             List<Linea> lineasVerticales = new ArrayList<>();
@@ -84,7 +84,7 @@ public class Tablero {
                     numero = numero + 50;
                 }
                 numero2 = numero2 + 50;
-                numero = 100;
+                numero = 0;
             }
 
             int tilin = 0;

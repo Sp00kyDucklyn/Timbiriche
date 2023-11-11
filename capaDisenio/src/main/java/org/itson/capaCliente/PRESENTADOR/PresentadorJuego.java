@@ -4,7 +4,10 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capaCliente.MODELO.ModeloJuego;
+import org.itson.capaCliente.MODELO.ModeloSalaEspera;
 import org.itson.capaCliente.VISTA.FrmJuego;
+import org.itson.capadominio.Jugador;
 
 /**
  *
@@ -12,12 +15,14 @@ import org.itson.capaCliente.VISTA.FrmJuego;
  */
 public class PresentadorJuego implements IPresentadorJuego{
     
-    FrmJuego vistaJuego;
-    IPresentadorSalaEspera presentadorS;
+    private FrmJuego vistaJuego;
+    private IPresentadorSalaEspera presentadorS;
+    private ModeloJuego modeloJ;
 
     public PresentadorJuego(IPresentadorSalaEspera presentadorS) {
         vistaJuego = new FrmJuego();
         this.presentadorS = presentadorS;
+        modeloJ = new ModeloJuego();
     }
     
 
@@ -48,7 +53,14 @@ public class PresentadorJuego implements IPresentadorJuego{
 
     @Override
     public void abrirPantalla() {
+       vistaJuego.setJugador(modeloJ.getJugador());
        vistaJuego.setVisible(true);
+       
+    }
+
+    @Override
+    public void recibirJugador(Jugador jugador) {
+        modeloJ.setJugador(jugador);
     }
     
 }

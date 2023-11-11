@@ -41,7 +41,9 @@ public class FrmUnirseSala extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
+        btnReturn.setBorderPainted(false);
         btnReturn.setContentAreaFilled(false);
+        btnReturn.setFocusable(false);
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);

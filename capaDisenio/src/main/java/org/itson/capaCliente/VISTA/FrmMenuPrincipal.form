@@ -53,6 +53,7 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="PanelBotones">
           <Properties>
+            <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Constraints>

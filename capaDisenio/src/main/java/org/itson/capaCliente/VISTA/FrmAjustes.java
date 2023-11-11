@@ -115,14 +115,16 @@ public class FrmAjustes extends javax.swing.JFrame {
         colorVerde = new javax.swing.JPanel();
         checkRojo = new javax.swing.JCheckBox();
         checkAzul = new javax.swing.JCheckBox();
-        checkAmarillo = new javax.swing.JCheckBox();
+        checkMorado = new javax.swing.JCheckBox();
         checkVerde = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
+        btnReturn.setBorderPainted(false);
         btnReturn.setContentAreaFilled(false);
+        btnReturn.setFocusable(false);
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);
@@ -197,12 +199,12 @@ public class FrmAjustes extends javax.swing.JFrame {
         });
         jPanel2.add(checkAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
 
-        checkAmarillo.addActionListener(new java.awt.event.ActionListener() {
+        checkMorado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkAmarilloActionPerformed(evt);
+                checkMoradoActionPerformed(evt);
             }
         });
-        jPanel2.add(checkAmarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
+        jPanel2.add(checkMorado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
         checkVerde.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,11 +257,12 @@ public class FrmAjustes extends javax.swing.JFrame {
     private void checkRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRojoActionPerformed
         if(checkRojo.isSelected()){
             checkAzul.setEnabled(false);
-            checkAmarillo.setEnabled(false);
+            checkMorado.setEnabled(false);
             checkVerde.setEnabled(false);
+            color ="#F2040F";
         }else{
             checkAzul.setEnabled(true);
-            checkAmarillo.setEnabled(true);
+            checkMorado.setEnabled(true);
             checkVerde.setEnabled(true);
         }
     }//GEN-LAST:event_checkRojoActionPerformed
@@ -267,35 +270,38 @@ public class FrmAjustes extends javax.swing.JFrame {
     private void checkAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAzulActionPerformed
         if(checkAzul.isSelected()){
             checkRojo.setEnabled(false);
-            checkAmarillo.setEnabled(false);
+            checkMorado.setEnabled(false);
             checkVerde.setEnabled(false);
+            color="#040FF2";
         }else{
             checkRojo.setEnabled(true);
-            checkAmarillo.setEnabled(true);
+            checkMorado.setEnabled(true);
             checkVerde.setEnabled(true);
         }
     }//GEN-LAST:event_checkAzulActionPerformed
 
-    private void checkAmarilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAmarilloActionPerformed
-        if(checkAmarillo.isSelected()){
+    private void checkMoradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMoradoActionPerformed
+        if(checkMorado.isSelected()){
             checkAzul.setEnabled(false);
             checkRojo.setEnabled(false);
             checkVerde.setEnabled(false);
+            color="#8604F2";
         }else{
             checkAzul.setEnabled(true);
             checkRojo.setEnabled(true);
             checkVerde.setEnabled(true);
         }
-    }//GEN-LAST:event_checkAmarilloActionPerformed
+    }//GEN-LAST:event_checkMoradoActionPerformed
 
     private void checkVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVerdeActionPerformed
         if(checkVerde.isSelected()){
             checkAzul.setEnabled(false);
-            checkAmarillo.setEnabled(false);
+            checkMorado.setEnabled(false);
             checkRojo.setEnabled(false);
+            color="#28F204";
         }else{
             checkAzul.setEnabled(true);
-            checkAmarillo.setEnabled(true);
+            checkMorado.setEnabled(true);
             checkRojo.setEnabled(true);
         }
     }//GEN-LAST:event_checkVerdeActionPerformed
@@ -344,8 +350,8 @@ public class FrmAjustes extends javax.swing.JFrame {
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnSeleccion;
     private javax.swing.JButton btnSiguiente;
-    private javax.swing.JCheckBox checkAmarillo;
     private javax.swing.JCheckBox checkAzul;
+    private javax.swing.JCheckBox checkMorado;
     private javax.swing.JCheckBox checkRojo;
     private javax.swing.JCheckBox checkVerde;
     private javax.swing.JPanel colorAmarillo;

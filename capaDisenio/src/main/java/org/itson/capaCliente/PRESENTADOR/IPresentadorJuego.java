@@ -4,6 +4,8 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capadominio.Jugador;
+
 /**
  *
  * @author equipo 1
@@ -22,4 +24,5 @@ public interface IPresentadorJuego {
     
     public void abrirPantalla();
     
+    public void recibirJugador(Jugador jugador);    
 }

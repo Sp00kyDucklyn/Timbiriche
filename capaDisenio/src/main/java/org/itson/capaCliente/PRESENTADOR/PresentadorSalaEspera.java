@@ -57,6 +57,7 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera{
 
     @Override
     public void abrirPantallaJuego() {
+       enviarJugador();
        presentadorJ.abrirPantalla();
        salaEspera.dispose();
     }
@@ -69,6 +70,11 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera{
     @Override
     public Jugador regresarJugador() {
         return modeloSala.getJugador();
+    }
+
+    @Override
+    public void enviarJugador() {
+       presentadorJ.recibirJugador(modeloSala.getJugador());
     }
     
 }

@@ -4,6 +4,7 @@
  */
 package org.itson.capaCliente.VISTA;
 
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
@@ -22,6 +23,8 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     
     public FrmSalaEspera(IPresentadorSalaEspera presentadorS) {
         initComponents();
+        Color color = new Color(0,0,0,0); 
+        botonseguir.setBackground(color);
         this.presentadorS = presentadorS;
         
         
@@ -58,14 +61,16 @@ public class FrmSalaEspera extends javax.swing.JFrame {
         btnReturn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblAvatar = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botonseguir = new javax.swing.JButton();
         lblJugador1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
+        btnReturn.setBorderPainted(false);
         btnReturn.setContentAreaFilled(false);
+        btnReturn.setFocusable(false);
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);
@@ -75,18 +80,22 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 190, 160));
+        jPanel1.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, -1, 180));
 
-        jButton1.setText("sig");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonseguir.setBackground(new java.awt.Color(242, 242, 242));
+        botonseguir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/felchaAdelante.png"))); // NOI18N
+        botonseguir.setBorderPainted(false);
+        botonseguir.setFocusPainted(false);
+        botonseguir.setFocusable(false);
+        botonseguir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonseguirActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, -1, -1));
+        jPanel1.add(botonseguir, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 60, 40));
         jPanel1.add(lblJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 100, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,10 +106,10 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnReturnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void botonseguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonseguirActionPerformed
+
         presentadorS.abrirPantallaJuego();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonseguirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,8 +147,8 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonseguir;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblJugador1;

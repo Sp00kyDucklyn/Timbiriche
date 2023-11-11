@@ -25,6 +25,8 @@ public interface IPresentadorSalaEspera {
     
     public void abrirPantallaJuego();
     
+    public void enviarJugador();
+    
     public void recibirJugador(Jugador jugador);
     
 }

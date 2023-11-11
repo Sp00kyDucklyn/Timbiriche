@@ -4,6 +4,7 @@
  */
 package org.itson.capaCliente.VISTA;
 
+import java.awt.Color;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
@@ -21,16 +22,15 @@ public class FrmJuego extends javax.swing.JFrame {
      * Creates new form FrmJuego
      */
     TableroGrafico tablero;
-    Jugador jugador;
+    
     public FrmJuego() {
         Tablero tablerito = new Tablero(2);
-        jugador = new Jugador();
-        jugador.setColor("#00FFFF");
-        jugador.setNombre("diego");
-        tablero = new TableroGrafico(tablerito,jugador);
+        tablero = new TableroGrafico(tablerito,new Jugador());
         initComponents();
         
-        this.setContentPane(tablero);
+        ELPEPEpanel.add(tablero);
+        tablero.setSize(ELPEPEpanel.getSize());
+//        this.setContentPane(tablero);
 //        this.setContentPane(jPanel1);
         
 //        tablero.setActionMap(jPanel1.getActionMap());
@@ -42,6 +42,10 @@ public class FrmJuego extends javax.swing.JFrame {
     public void tableroPanel(){
         System.out.println("loq sea");
     }
+    
+    public void setJugador(Jugador jugador){
+        tablero.setJugador(jugador);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,6 +54,8 @@ public class FrmJuego extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        ELPEPEpanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(682, 402));
@@ -67,15 +73,32 @@ public class FrmJuego extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout ELPEPEpanelLayout = new javax.swing.GroupLayout(ELPEPEpanel);
+        ELPEPEpanel.setLayout(ELPEPEpanelLayout);
+        ELPEPEpanelLayout.setHorizontalGroup(
+            ELPEPEpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 497, Short.MAX_VALUE)
+        );
+        ELPEPEpanelLayout.setVerticalGroup(
+            ELPEPEpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 502, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 682, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(249, Short.MAX_VALUE)
+                .addComponent(ELPEPEpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ELPEPEpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -142,5 +165,6 @@ public class FrmJuego extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ELPEPEpanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -37,13 +37,16 @@ public class FrmCrearSala extends javax.swing.JFrame {
         lblNumJugadores = new javax.swing.JLabel();
         cmbJugadores = new javax.swing.JComboBox<>();
         btnCrearPartida = new javax.swing.JButton();
-        btnSig = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
+        btnReturn.setBorderPainted(false);
         btnReturn.setContentAreaFilled(false);
+        btnReturn.setFocusable(false);
+        btnReturn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
+        btnReturn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);
@@ -66,16 +69,22 @@ public class FrmCrearSala extends javax.swing.JFrame {
         jPanel1.add(cmbJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 170, -1));
 
         btnCrearPartida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear.png"))); // NOI18N
+        btnCrearPartida.setBorderPainted(false);
         btnCrearPartida.setContentAreaFilled(false);
-        jPanel1.add(btnCrearPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
-
-        btnSig.setText("sig");
-        btnSig.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSigActionPerformed(evt);
+        btnCrearPartida.setFocusable(false);
+        btnCrearPartida.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear.png"))); // NOI18N
+        btnCrearPartida.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear.png"))); // NOI18N
+        btnCrearPartida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrearPartidaMouseEntered(evt);
             }
         });
-        jPanel1.add(btnSig, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 610, -1, -1));
+        btnCrearPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearPartidaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCrearPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
@@ -92,10 +101,14 @@ public class FrmCrearSala extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbJugadoresActionPerformed
 
-    private void btnSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigActionPerformed
+    private void btnCrearPartidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPartidaMouseEntered
         // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearPartidaMouseEntered
+
+    private void btnCrearPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPartidaActionPerformed
+        presentadorC.crearCodigo();
         presentadorC.apareceSigAjustes();
-    }//GEN-LAST:event_btnSigActionPerformed
+    }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,7 +148,6 @@ public class FrmCrearSala extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearPartida;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JButton btnSig;
     private javax.swing.JComboBox<String> cmbJugadores;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNumJugadores;
