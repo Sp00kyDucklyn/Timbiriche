@@ -45,7 +45,8 @@ public class FrmSalaEspera extends javax.swing.JFrame {
         }
         lblJugador1.setText(jugador.getNombre());
        ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/"+jugador.getAvatar()));
-       lblAvatar.setIcon(icon);
+       ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar.getWidth(), lblAvatar.getHeight(), Image.SCALE_SMOOTH));
+       lblAvatar.setIcon(iconoRedimensionado);
     }
     
 
@@ -80,7 +81,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, -1, 180));
+        jPanel1.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 170, 140));
 
         botonseguir.setBackground(new java.awt.Color(242, 242, 242));
         botonseguir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/felchaAdelante.png"))); // NOI18N

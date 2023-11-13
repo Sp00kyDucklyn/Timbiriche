@@ -106,7 +106,7 @@ public class FrmCrearSala extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearPartidaMouseEntered
 
     private void btnCrearPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPartidaActionPerformed
-        presentadorC.crearCodigo();
+//        presentadorC.crearCodigo();
         presentadorC.apareceSigAjustes();
     }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
