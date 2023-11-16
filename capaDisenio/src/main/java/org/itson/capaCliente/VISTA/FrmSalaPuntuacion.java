@@ -38,7 +38,6 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 255));
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/Botón Crear.png"))); // NOI18N

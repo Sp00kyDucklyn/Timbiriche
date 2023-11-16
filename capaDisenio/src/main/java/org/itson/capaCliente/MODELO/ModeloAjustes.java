@@ -7,6 +7,7 @@ package org.itson.capaCliente.MODELO;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorAjustes;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Tablero;
 
 /**
  *
@@ -14,10 +15,15 @@ import org.itson.capadominio.Jugador;
  */
 public class ModeloAjustes {
 
-    Jugador jugador = new Jugador();
+    private Jugador jugador;
+    private Tablero tablero;
 
     public ModeloAjustes() {
 
+    }
+
+    public ModeloAjustes(Tablero tablero) {
+        this.tablero = tablero;
     }
 
     public void crearJugador(String color, String nombre, String avatar) {
@@ -38,5 +44,16 @@ public class ModeloAjustes {
             return "No se encontró ninguna imagen seleccionada.";
         }
     }
+
+    public Tablero getTablero() {
+        return tablero;
+    }
+
+    public void setTablero(Tablero tablero) {
+        this.tablero = tablero;
+    }
+
+    
+    
 
 }

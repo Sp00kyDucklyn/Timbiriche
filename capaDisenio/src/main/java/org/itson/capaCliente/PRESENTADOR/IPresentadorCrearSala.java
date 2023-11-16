@@ -4,6 +4,8 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capadominio.Tablero;
+
 /**
  *
  * @author equipo 1
@@ -12,7 +14,9 @@ public interface IPresentadorCrearSala {
     
     public void seleccionarCantJugadores();
     
-    public void seleccionCrearJuego();
+    public void enviarTablero();
+    
+    public void crearTablero(int numero);
     
     public void crearCodigo();
     

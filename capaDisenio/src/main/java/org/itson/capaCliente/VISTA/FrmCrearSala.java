@@ -99,6 +99,7 @@ public class FrmCrearSala extends javax.swing.JFrame {
 
     private void cmbJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJugadoresActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_cmbJugadoresActionPerformed
 
     private void btnCrearPartidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPartidaMouseEntered
@@ -107,7 +108,9 @@ public class FrmCrearSala extends javax.swing.JFrame {
 
     private void btnCrearPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPartidaActionPerformed
 //        presentadorC.crearCodigo();
-        presentadorC.apareceSigAjustes();
+        String selectedString = (String) cmbJugadores.getSelectedItem();
+        int selectedInt = Integer.parseInt(selectedString);
+        presentadorC.crearTablero(selectedInt);
     }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
     /**

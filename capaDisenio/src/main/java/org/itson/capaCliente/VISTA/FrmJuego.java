@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
+import org.itson.capaCliente.PRESENTADOR.IPresentadorJuego;
 import org.itson.capaCliente.VISTAG.TableroGrafico;
 import org.itson.capadominio.Jugador;
 import org.itson.capadominio.Tablero;
@@ -22,13 +23,15 @@ public class FrmJuego extends javax.swing.JFrame {
      * Creates new form FrmJuego
      */
     TableroGrafico tablero;
+    IPresentadorJuego presentadorJ;
     
-    public FrmJuego() {
-        Tablero tablerito = new Tablero(2);
-        tablero = new TableroGrafico(tablerito,new Jugador());
+    public FrmJuego(IPresentadorJuego presentadorJ) {
+        this.presentadorJ = presentadorJ;
+        tablero = new TableroGrafico(new Tablero(),new Jugador());
         initComponents();
         
         ELPEPEpanel.add(tablero);
+        tablero.setBackground(new Color(153,204,255));
         tablero.setSize(ELPEPEpanel.getSize());
 //        this.setContentPane(tablero);
 //        this.setContentPane(jPanel1);
@@ -43,9 +46,17 @@ public class FrmJuego extends javax.swing.JFrame {
         System.out.println("loq sea");
     }
     
-    public void setJugador(Jugador jugador){
+    public void setJugador(Jugador jugador) {
         tablero.setJugador(jugador);
     }
+
+    public void mandarTablero() {
+        Tablero tablerito = presentadorJ.regresarTablero();
+        tablero.setTablero(tablerito);
+        tablero.crearTableroGrafico();
+    }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +70,7 @@ public class FrmJuego extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(682, 402));
+        setPreferredSize(new java.awt.Dimension(1200, 604));
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 formMouseMoved(evt);
@@ -72,59 +84,60 @@ public class FrmJuego extends javax.swing.JFrame {
                 formMousePressed(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ELPEPEpanel.setBackground(new java.awt.Color(153, 204, 255));
+        ELPEPEpanel.setPreferredSize(new java.awt.Dimension(650, 570));
+        ELPEPEpanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                ELPEPEpanelMouseMoved(evt);
+            }
+        });
+        ELPEPEpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ELPEPEpanelMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ELPEPEpanelLayout = new javax.swing.GroupLayout(ELPEPEpanel);
         ELPEPEpanel.setLayout(ELPEPEpanelLayout);
         ELPEPEpanelLayout.setHorizontalGroup(
             ELPEPEpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 497, Short.MAX_VALUE)
+            .addGap(0, 690, Short.MAX_VALUE)
         );
         ELPEPEpanelLayout.setVerticalGroup(
             ELPEPEpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(249, Short.MAX_VALUE)
-                .addComponent(ELPEPEpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ELPEPEpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(ELPEPEpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 690, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         // TODO add your handling code here:
-        Insets insets = this.getInsets();
-        int adjustedX = evt.getX() - insets.left;
-        int adjustedY = evt.getY() - insets.top;
-        evt = new MouseEvent(evt.getComponent(), evt.getID(), evt.getWhen(), evt.getModifiersEx(), adjustedX, adjustedY, evt.getClickCount(), evt.isPopupTrigger());
-        tablero.verificarLinea(evt);
+        
     }//GEN-LAST:event_formMousePressed
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
         // TODO add your handling code here:
-        Insets insets = this.getInsets();
-        int adjustedX = evt.getX() - insets.left;
-        int adjustedY = evt.getY() - insets.top;
-        evt = new MouseEvent(evt.getComponent(), evt.getID(), evt.getWhen(), evt.getModifiersEx(), adjustedX, adjustedY, evt.getClickCount(), evt.isPopupTrigger());
-        tablero.pintarLineaPanthom(evt);
+       
     }//GEN-LAST:event_formMouseMoved
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_formMouseClicked
+
+    private void ELPEPEpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELPEPEpanelMousePressed
+        // TODO add your handling code here:
+        tablero.verificarLinea(evt);
+    }//GEN-LAST:event_ELPEPEpanelMousePressed
+
+    private void ELPEPEpanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELPEPEpanelMouseMoved
+        // TODO add your handling code here:
+        tablero.pintarLineaPanthom(evt);
+    }//GEN-LAST:event_ELPEPEpanelMouseMoved
 
 //    /**
 //     * @param args the command line arguments

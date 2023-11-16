@@ -5,6 +5,7 @@
 package org.itson.capaCliente.PRESENTADOR;
 
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Tablero;
 
 /**
  *
@@ -12,6 +13,8 @@ import org.itson.capadominio.Jugador;
  */
 public interface IPresentadorSalaEspera {
     public Jugador regresarJugador();
+    
+    public Tablero regresarTablero();
     
     public void seleccionIniciar();
     
@@ -27,6 +30,10 @@ public interface IPresentadorSalaEspera {
     
     public void enviarJugador();
     
+    public void enviarTablero();
+    
     public void recibirJugador(Jugador jugador);
+    
+    public void recibirTablero(Tablero tablero);
     
 }

@@ -6,6 +6,7 @@ package org.itson.capaCliente.PRESENTADOR;
 
 import org.itson.capaCliente.MODELO.ModeloAjustes;
 import org.itson.capaCliente.VISTA.FrmAjustes;
+import org.itson.capadominio.Tablero;
 
 /**
  *
@@ -26,20 +27,20 @@ public class PresentadorAjustes implements IPresentadorAjustes{
         presentadorS = new PresentadorSalaEspera(this);
     }
 
-    public PresentadorAjustes(IPresentadorUnirseSala presentadorU) {
-        this.presentadorU = presentadorU;
-        presentadorS = new PresentadorSalaEspera(this);
-        vistaAjustes = new FrmAjustes(this);
-        modeloA= new ModeloAjustes();
-    }
-    
+//    public PresentadorAjustes(IPresentadorUnirseSala presentadorU) {
+//        this.presentadorU = presentadorU;
+//        presentadorS = new PresentadorSalaEspera(this);
+//        vistaAjustes = new FrmAjustes(this);
+//        modeloA= new ModeloAjustes();
+//    }
+//    
     
 
     @Override
     public void seleccionSigSalaEspera() {
         this.enviarJugador();
+        this.enviarTablero();
         presentadorS.abrirPantalla();
-        
         vistaAjustes.dispose();
         
     }
@@ -73,5 +74,22 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     public void enviarJugador() {
         presentadorS.recibirJugador(modeloA.getJugador());
     }
+    
+    @Override
+    public void recibirTablero(Tablero tablero) {
+        modeloA.setTablero(tablero);
+    }
+    
+    @Override
+    public Tablero regresarTablero() {
+       return modeloA.getTablero();
+    }
+
+    @Override
+    public void enviarTablero() {
+        presentadorS.recibirTablero(modeloA.getTablero());
+    }
+
+    
     
 }

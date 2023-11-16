@@ -9,6 +9,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Tablero;
 
 /**
  *
@@ -26,8 +27,6 @@ public class FrmSalaEspera extends javax.swing.JFrame {
         Color color = new Color(0,0,0,0); 
         botonseguir.setBackground(color);
         this.presentadorS = presentadorS;
-        
-        
 //        imagenSeleccionada = ajustes.getImagenSeleccionada();
 //        if (imagenSeleccionada != null) {
 //            lblJugador1.setIcon(imagenSeleccionada); // Asegúrate de que lbl esté configurado correctamente
@@ -35,10 +34,12 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 //        System.out.println(imagenSeleccionada);
     }
 
+    public void mandarTablero(){
+         Tablero tablerito = presentadorS.regresarTablero();
+    }
     
     
     public void MostrarJugador(){
-        
         Jugador jugador =presentadorS.regresarJugador();
         if (jugador==null){
             return;

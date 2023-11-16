@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorAjustes;
+import org.itson.capadominio.Tablero;
 
 /**
  *
@@ -39,6 +40,15 @@ public class FrmAjustes extends javax.swing.JFrame {
     private String imagen = null;
     private String imagenSeleccionada = null;
     
+    public void mostrarTablero(){
+        Tablero tablerito = presentadorA.regresarTablero();
+        if (tablerito==null){
+            System.out.println(tablerito);
+            return;
+        }
+    }
+    
+    
     public String[] obtenerImg(){
         File f = new File(getClass().getResource("/avatares").getFile());
         String[] Imagenes = f.list();
@@ -47,9 +57,7 @@ public class FrmAjustes extends javax.swing.JFrame {
     
     public void mostrar(int index){
         String[] Imagen = obtenerImg();
-        
         imagen = Imagen[index];
-        System.out.println(imagen);
         ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/"+imagen));
         Image image = icon.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH);
         lblImagen.setIcon(new ImageIcon(image));
@@ -252,6 +260,7 @@ public class FrmAjustes extends javax.swing.JFrame {
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         
         presentadorA.crearJugador(color, this.txtNombre.getText(),imagenSeleccionada);
+        
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void checkRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRojoActionPerformed

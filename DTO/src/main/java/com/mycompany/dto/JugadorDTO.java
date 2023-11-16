@@ -6,7 +6,7 @@ package org.itson.capadominio;
 
 /**
  *
- * @author oscar
+ * @author equipo 1
  */
 public class JugadorDTO {
 

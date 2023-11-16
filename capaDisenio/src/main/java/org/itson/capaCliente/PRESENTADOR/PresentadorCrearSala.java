@@ -4,7 +4,9 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import org.itson.capaCliente.MODELO.ModeloCrearSala;
 import org.itson.capaCliente.VISTA.FrmCrearSala;
+import org.itson.capadominio.Tablero;
 
 /**
  *
@@ -15,9 +17,11 @@ public class PresentadorCrearSala implements IPresentadorCrearSala{
     FrmCrearSala vistaCrear;
     IPresentadorMenuPrincipal presentadorM;
     IPresentadorAjustes presentadorA;
+    ModeloCrearSala modeloC;
 
     public PresentadorCrearSala(IPresentadorMenuPrincipal presentadorM) {
         this.presentadorM = presentadorM;
+        modeloC = new ModeloCrearSala();
         presentadorA = new PresentadorAjustes(this);
         vistaCrear = new FrmCrearSala(this);
     }
@@ -28,17 +32,13 @@ public class PresentadorCrearSala implements IPresentadorCrearSala{
     }
 
     @Override
-    public void seleccionCrearJuego() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void crearCodigo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void apareceSigAjustes() {
+        this.enviarTablero();
         presentadorA.abrirPantalla();
         vistaCrear.dispose();
     }
@@ -54,4 +54,16 @@ public class PresentadorCrearSala implements IPresentadorCrearSala{
        vistaCrear.dispose();
     }
     
+    @Override
+    public void crearTablero(int numero) {
+        modeloC.crearTablero(numero);
+        this.apareceSigAjustes();
+    }
+    
+
+    @Override
+    public void enviarTablero() {
+        presentadorA.recibirTablero(modeloC.getTablero());
+    }
+
 }

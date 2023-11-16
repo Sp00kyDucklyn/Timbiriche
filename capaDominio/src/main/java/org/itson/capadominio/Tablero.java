@@ -69,7 +69,6 @@ public class Tablero {
      * @param popo Un valor que se utiliza para llenar el tablero.
      */
     public void llenarTablero(int popo) {
-
         if (popo == 2) {
             int numero = 0;
             int numero2 = 0;
@@ -160,8 +159,9 @@ public class Tablero {
 //            for (Cuadro cuadro : cuadradito) {
 //                System.out.println(cuadro);
 //            }
+
         } else if(popo == 3){
-             int numero = 0;
+            int numero = 0;
             int numero2 = 0;
             List<Punto> puntito = new ArrayList<>();
             List<Linea> lineasHorizontales = new ArrayList<>();
@@ -171,9 +171,9 @@ public class Tablero {
                 for (int j = 0; j < 20; j++) {
                     Punto punto = new Punto(numero, numero2);
                     puntito.add(punto);
-                    numero = numero + 50;
+                    numero = numero + 25;
                 }
-                numero2 = numero2 + 50;
+                numero2 = numero2 + 25;
                 numero = 0;
             }
 
@@ -199,57 +199,92 @@ public class Tablero {
             lineasH = lineasHorizontales;
             lineasV = lineasVerticales;
             puntitos = puntito;
-            for (Linea linea : lineasHorizontales) {
-                System.out.println(linea);
-            }
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("-----------------------------------------------");
-//            System.out.println("-----------------------------------------------");
-            for (Linea linea : lineasVerticales) {
-                System.out.println(linea);
-            }
 
-//            int fila = 0;
-//            int columna = 0;
-//            int numCuadro = 0;
-//            for (int i = 0; i < ((tilina - 1) * (tilina - 1)); i++) {
-//                Cuadro cuadro = null;
-//                cuadro = new Cuadro();
-//                cuadro.setLineaArriba(lineasHorizontales.get(i));
-//                cuadro.setLineaAbajo(lineasHorizontales.get(i + (tilina - 1)));
-//                if (fila == 9) {
-//                    fila = 0;
-//                    columna = 0;
-//                    numCuadro++;
-//                }
-//
-//                cuadro.setLineaIzquierda(lineasVerticales.get((columna * (tilina - 1)) + numCuadro));
-//                cuadro.setLineaDerecha(lineasVerticales.get(((columna + 1) * (tilina - 1)) + numCuadro));
-//
-//                columna++;
-//                agregarCuadrado(cuadro);
-//                fila++;
-//            }
+            int fila = 0;
+            int columna = 0;
+            int numCuadro = 0;
+            for (int i = 0; i < ((tilina - 1) * (tilina - 1)); i++) {
+                Cuadro cuadro = null;
+                cuadro = new Cuadro();
+                cuadro.setLineaArriba(lineasHorizontales.get(i));
+                cuadro.setLineaAbajo(lineasHorizontales.get(i + (tilina - 1)));
+                if (fila == 19) {
+                    fila = 0;
+                    columna = 0;
+                    numCuadro++;
+                }
+
+                cuadro.setLineaIzquierda(lineasVerticales.get((columna * (tilina - 1)) + numCuadro));
+                cuadro.setLineaDerecha(lineasVerticales.get(((columna + 1) * (tilina - 1)) + numCuadro));
+
+                columna++;
+                agregarCuadrado(cuadro);
+                fila++;
+            }
             
         }else if(popo == 4){
+            int numero = 0;
+            int numero2 = 0;
+            List<Punto> puntito = new ArrayList<>();
+            List<Linea> lineasHorizontales = new ArrayList<>();
+            List<Linea> lineasVerticales = new ArrayList<>();
+
+            for (int i = 0; i < 40; i++) {
+                for (int j = 0; j < 40; j++) {
+                    Punto punto = new Punto(numero, numero2);
+                    puntito.add(punto);
+                    numero = numero + 15;
+                }
+                numero2 = numero2 + 15;
+                numero = 0;
+            }
+
+            int tilin = 0;
+
+            for (int i = 0; i < 40; i++) {
+                for (int j = 0; j < 39; j++) {
+                    Linea linea = new Linea(puntito.get(tilin + j), puntito.get(tilin + 1 + j), HORIZONTAL);
+                    lineasHorizontales.add(linea);
+                }
+                tilin = tilin + 40;
+            }
+
+            int tilina = 40;
+
+            for (int i = 0; i < 40; i++) {
+                for (int j = 0; j < 39; j++) {
+                    Linea linea = new Linea(puntito.get(i + j * tilina), puntito.get(i + (j + 1) * tilina), VERTICAL);
+                    lineasVerticales.add(linea);
+                }
+            }
+
+            lineasH = lineasHorizontales;
+            lineasV = lineasVerticales;
+            puntitos = puntito;
             
+            int fila = 0;
+            int columna = 0;
+            int numCuadro = 0;
+            for (int i = 0; i < ((tilina - 1) * (tilina - 1)); i++) {
+                Cuadro cuadro = null;
+                cuadro = new Cuadro();
+                cuadro.setLineaArriba(lineasHorizontales.get(i));
+                cuadro.setLineaAbajo(lineasHorizontales.get(i + (tilina - 1)));
+                if (fila == 39) {
+                    fila = 0;
+                    columna = 0;
+                    numCuadro++;
+                }
+
+                cuadro.setLineaIzquierda(lineasVerticales.get((columna * (tilina - 1)) + numCuadro));
+                cuadro.setLineaDerecha(lineasVerticales.get(((columna + 1) * (tilina - 1)) + numCuadro));
+
+                columna++;
+                agregarCuadrado(cuadro);
+                fila++;
+            }
         }
+
 
     }
 

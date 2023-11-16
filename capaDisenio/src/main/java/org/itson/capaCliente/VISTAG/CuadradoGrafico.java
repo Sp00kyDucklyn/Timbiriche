@@ -27,7 +27,14 @@ public class CuadradoGrafico implements IFiguras{
     @Override
     public void pintar(Graphics2D g2) {
         Punto puntoInicio = cuadro.getLineaArriba().getPuntoInicio();
-        g2.drawString(letra, puntoInicio.getX()+(tamanio/2), puntoInicio.getY()+(tamanio/2));
+        if(tamanio == 50){
+            g2.drawString(letra, puntoInicio.getX()+(tamanio/2),(float)(puntoInicio.getY()+(tamanio/2)));
+        }else if(tamanio == 25){
+            g2.drawString(letra, puntoInicio.getX()+(tamanio/3),(float)(puntoInicio.getY()+(tamanio/1.5)));
+        }else if(tamanio == 15){
+            g2.drawString(letra, (puntoInicio.getX()+(tamanio/2)),(float)(puntoInicio.getY()+(tamanio/1.5)));
+        }
+        
 //        g2.setColor(Color.red);
 //        g2.drawRect(puntoInicio.getX(), puntoInicio.getY(), tamanio, tamanio);
         
