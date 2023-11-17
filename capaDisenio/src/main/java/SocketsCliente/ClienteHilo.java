@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author oscar
+ * @author equipo 1
  */
 public class ClienteHilo extends Thread {
 

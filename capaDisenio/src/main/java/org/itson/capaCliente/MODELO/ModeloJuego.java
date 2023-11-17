@@ -5,6 +5,7 @@
 package org.itson.capaCliente.MODELO;
 
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
 
 /**
@@ -13,7 +14,7 @@ import org.itson.capadominio.Tablero;
  */
 public class ModeloJuego {
     private Jugador jugador;
-    private Tablero tablero;
+    private Partida partida;
     
     public ModeloJuego( ) {
         
@@ -28,11 +29,18 @@ public class ModeloJuego {
     }
 
     public Tablero getTablero() {
-        return tablero;
+        return partida.getTablero();
     }
 
     public void setTablero(Tablero tablero) {
-        this.tablero = tablero;
+        partida.setTablero(tablero);
+    }
+    
+    public Partida getPartida() {
+        return partida;
     }
 
+    public void setPartida(Partida partida) {
+        this.partida = partida;
+    }
 }

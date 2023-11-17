@@ -2,29 +2,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.itson.capadominio;
+package com.mycompany.dto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author equipo 1
  */
 public class JugadorDTO {
-
     private String avatar;
     private String color;
     private int puntaje;
     private String nombre;
+    
+    private List<LineaDTO> lineaDTO;
 
     public JugadorDTO() {
+        puntaje = 0;
+        lineaDTO = new ArrayList<>();
     }
-    
 
     public JugadorDTO(String avatar, String color, int puntaje, String nombre) {
         this.avatar = avatar;
         this.color = color;
         this.puntaje = puntaje;
         this.nombre = nombre;
+        lineaDTO = new ArrayList<>();
     }
+
+    
 
     public String getAvatar() {
         return avatar;
@@ -56,6 +64,14 @@ public class JugadorDTO {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public List<LineaDTO> getLineaDTO() {
+        return lineaDTO;
+    }
+
+    public void setLineaDTO(List<LineaDTO> lineaDTO) {
+        this.lineaDTO = lineaDTO;
     }
 
 }

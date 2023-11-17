@@ -110,7 +110,7 @@ public class FrmCrearSala extends javax.swing.JFrame {
 //        presentadorC.crearCodigo();
         String selectedString = (String) cmbJugadores.getSelectedItem();
         int selectedInt = Integer.parseInt(selectedString);
-        presentadorC.crearTablero(selectedInt);
+        presentadorC.crearPartida(selectedInt);
     }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
     /**

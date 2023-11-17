@@ -4,17 +4,13 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
-import org.itson.capadominio.Tablero;
+import org.itson.capadominio.Partida;
 
 /**
  *
  * @author equipo 1
  */
 public interface IPresentadorAjustes {
-    
-    public Tablero regresarTablero();
-    
-    public void enviarJugador();
     
     public void seleccionSigSalaEspera();
     
@@ -26,7 +22,8 @@ public interface IPresentadorAjustes {
    
     public void crearJugador(String color, String nombre, String avatar);
     
-    public void recibirTablero(Tablero tablero);
+    public Partida regresarPartida();
     
-    public void enviarTablero();
+    public void recibirPartida(Partida partida);
+    
 }

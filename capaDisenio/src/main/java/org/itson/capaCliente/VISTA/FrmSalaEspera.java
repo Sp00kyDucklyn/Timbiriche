@@ -9,11 +9,11 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
 import org.itson.capadominio.Jugador;
-import org.itson.capadominio.Tablero;
+import org.itson.capadominio.Partida;
 
 /**
  *
- * @author Equipo 1
+ * @author equipo 1
  */
 public class FrmSalaEspera extends javax.swing.JFrame {
 
@@ -34,8 +34,8 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 //        System.out.println(imagenSeleccionada);
     }
 
-    public void mandarTablero(){
-         Tablero tablerito = presentadorS.regresarTablero();
+    public void mandarPartida() {
+        Partida partida = presentadorS.regresarPartida();
     }
     
     

@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorAjustes;
-import org.itson.capadominio.Tablero;
+import org.itson.capadominio.Partida;
 
 /**
  *
@@ -41,9 +41,8 @@ public class FrmAjustes extends javax.swing.JFrame {
     private String imagenSeleccionada = null;
     
     public void mostrarTablero(){
-        Tablero tablerito = presentadorA.regresarTablero();
-        if (tablerito==null){
-            System.out.println(tablerito);
+        Partida partida = presentadorA.regresarPartida();
+        if (partida==null){
             return;
         }
     }

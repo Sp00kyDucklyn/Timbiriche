@@ -7,6 +7,7 @@ package org.itson.capaCliente.MODELO;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorAjustes;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
 
 /**
@@ -16,14 +17,14 @@ import org.itson.capadominio.Tablero;
 public class ModeloAjustes {
 
     private Jugador jugador;
-    private Tablero tablero;
+    private Partida partida;
 
     public ModeloAjustes() {
 
     }
 
-    public ModeloAjustes(Tablero tablero) {
-        this.tablero = tablero;
+    public ModeloAjustes(Partida partida) {
+        this.partida = partida;
     }
 
     public void crearJugador(String color, String nombre, String avatar) {
@@ -45,12 +46,12 @@ public class ModeloAjustes {
         }
     }
 
-    public Tablero getTablero() {
-        return tablero;
+    public Partida getPartida() {
+        return partida;
     }
 
-    public void setTablero(Tablero tablero) {
-        this.tablero = tablero;
+    public void setPartida(Partida partida) {
+        this.partida = partida;
     }
 
     

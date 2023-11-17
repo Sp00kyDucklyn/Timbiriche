@@ -8,6 +8,7 @@ import org.itson.capaCliente.MODELO.ModeloJuego;
 import org.itson.capaCliente.MODELO.ModeloSalaEspera;
 import org.itson.capaCliente.VISTA.FrmJuego;
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
 
 /**
@@ -66,19 +67,22 @@ public class PresentadorJuego implements IPresentadorJuego{
     }
 
     @Override
-    public void recibirTablero(Tablero tablero) {
-       modeloJ.setTablero(tablero);
-        System.out.println(tablero);
-    }
-
-    @Override
     public Tablero regresarTablero() {
         return modeloJ.getTablero();
     }
-    
+
     @Override
-    public void enviarTablero() {
-        presentadorS.recibirTablero(modeloJ.getTablero());
+    public Partida regresarPartida() {
+        return modeloJ.getPartida();
     }
-    
+
+    @Override
+    public void recibirPartida(Partida partida) {
+        modeloJ.setPartida(partida);
+    }
+
+    @Override
+    public void enviarPartida() {
+       presentadorS.recibirPartida(modeloJ.getPartida());
+    }
 }

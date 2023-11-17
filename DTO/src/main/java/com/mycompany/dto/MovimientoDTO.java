@@ -6,35 +6,34 @@ package com.mycompany.dto;
 
 /**
  *
- * @author oscar
+ * @author equipo 1
  */
 public class MovimientoDTO {
-//    private Linea linea;
-//    private Jugador jugador;
-//
-//    public MovimientoDTO() {
-//    }
-//
-//    public MovimientoDTO(Linea linea, Jugador jugador) {
-//        this.linea = linea;
-//        this.jugador = jugador;
-//    }
-//
-//    public Linea getLinea() {
-//        return linea;
-//    }
-//
-//    public void setLinea(Linea linea) {
-//        this.linea = linea;
-//    }
-//
-//    public Jugador getJugador() {
-//        return jugador;
-//    }
-//
-//    public void setJugador(Jugador jugador) {
-//        this.jugador = jugador;
-//    }
+    private LineaDTO linea;
+    private JugadorDTO jugador;
+
+    public MovimientoDTO() {
+    }
+
+    public MovimientoDTO(LineaDTO linea, JugadorDTO jugador) {
+        this.linea = linea;
+        this.jugador = jugador;
+    }
     
-    
+    public LineaDTO getLinea() {
+        return linea;
+    }
+
+    public void setLinea(LineaDTO linea) {
+        this.linea = linea;
+    }
+
+    public JugadorDTO getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(JugadorDTO jugador) {
+        this.jugador = jugador;
+    }
+
 }

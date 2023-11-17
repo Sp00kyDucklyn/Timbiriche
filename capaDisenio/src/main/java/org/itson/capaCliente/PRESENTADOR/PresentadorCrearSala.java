@@ -6,6 +6,7 @@ package org.itson.capaCliente.PRESENTADOR;
 
 import org.itson.capaCliente.MODELO.ModeloCrearSala;
 import org.itson.capaCliente.VISTA.FrmCrearSala;
+import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
 
 /**
@@ -38,7 +39,7 @@ public class PresentadorCrearSala implements IPresentadorCrearSala{
 
     @Override
     public void apareceSigAjustes() {
-        this.enviarTablero();
+        presentadorA.recibirPartida(modeloC.getPartida());
         presentadorA.abrirPantalla();
         vistaCrear.dispose();
     }
@@ -53,17 +54,13 @@ public class PresentadorCrearSala implements IPresentadorCrearSala{
        presentadorM.abrirMenuVista();
        vistaCrear.dispose();
     }
-    
+
     @Override
-    public void crearTablero(int numero) {
-        modeloC.crearTablero(numero);
+    public void crearPartida(int numero) {
+        modeloC.crearPartida(numero);
         this.apareceSigAjustes();
     }
     
 
-    @Override
-    public void enviarTablero() {
-        presentadorA.recibirTablero(modeloC.getTablero());
-    }
 
 }

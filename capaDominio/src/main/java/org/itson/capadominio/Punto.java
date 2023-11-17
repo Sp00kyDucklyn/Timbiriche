@@ -22,6 +22,7 @@ public class Punto {
      * Constructor por defecto de la clase Punto. Inicializa las coordenadas x e y con valores por defecto (0).
      */
     public Punto() {
+        
     }
 
     /**

@@ -7,6 +7,7 @@ package org.itson.capaCliente.PRESENTADOR;
 import org.itson.capaCliente.MODELO.ModeloSalaEspera;
 import org.itson.capaCliente.VISTA.FrmSalaEspera;
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
 
 /**
@@ -58,10 +59,10 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera{
 
     @Override
     public void abrirPantallaJuego() {
-       enviarJugador();
-       enviarTablero();
-       presentadorJ.abrirPantalla();
-       salaEspera.dispose();
+        presentadorJ.recibirJugador(modeloSala.getJugador());
+        presentadorJ.recibirPartida(modeloSala.getPartida());
+        presentadorJ.abrirPantalla();
+        salaEspera.dispose();
     }
 
     @Override
@@ -74,25 +75,14 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera{
         return modeloSala.getJugador();
     }
 
-    @Override
-    public void enviarJugador() {
-       presentadorJ.recibirJugador(modeloSala.getJugador());
-    }
-    
-    @Override
-    public void recibirTablero(Tablero tablero) {
-        modeloSala.setTablero(tablero);
-        System.out.println(tablero);
-    }
-    
-    @Override
-    public Tablero regresarTablero() {
-       return modeloSala.getTablero();
+
+     @Override
+    public Partida regresarPartida() {
+        return modeloSala.getPartida();
     }
 
     @Override
-    public void enviarTablero() {
-       presentadorJ.recibirTablero(modeloSala.getTablero());
+    public void recibirPartida(Partida partida) {
+        modeloSala.setPartida(partida);
     }
-    
 }

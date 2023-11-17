@@ -4,6 +4,9 @@
  */
 package org.itson.capadominio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author equipo 1
@@ -18,49 +21,33 @@ public class Partida {
     // Tablero asociado con la partida
     private Tablero tablero;
 
-    // Marcador asociado con la partida
-    private Marcador marcador;
-
-    // Número de jugadores en la partida
+    private List <Jugador> listaJugador;
+    
     private int numJugadores;
+
 
     /**
      * Constructor de la clase Partida. Inicializa el tablero y el marcador con instancias por defecto.
      */
-    public Partida() {
-        tablero = new Tablero();
-        marcador = new Marcador();
+    public Partida() {    
+        this.tablero = new Tablero();
+        this.listaJugador = new ArrayList<>();
     }
 
     /**
      * Constructor de la clase Partida con parámetros. Inicializa la partida con un tablero, un marcador y el número de jugadores especificado.
      *
      * @param tablero El tablero asociado con la partida.
-     * @param marcador El marcador asociado con la partida.
-     * @param numJugadores El número de jugadores en la partida.
+     * @param listaJugador El marcador asociado con el jugador.
      */
-    public Partida(Tablero tablero, Marcador marcador, int numJugadores) {
+    public Partida(Tablero tablero, List<Jugador> listaJugador) {    
         this.tablero = tablero;
-        this.marcador = marcador;
-        this.numJugadores = numJugadores;
+        this.listaJugador = listaJugador;
     }
-
-    /**
-     * Obtiene el número de jugadores en la partida.
-     *
-     * @return El número de jugadores en la partida.
-     */
-    public int getNumJugadores() {
-        return numJugadores;
-    }
-
-    /**
-     * Establece el número de jugadores en la partida.
-     *
-     * @param numJugadores El número de jugadores que se va a establecer.
-     */
-    public void setNumJugadores(int numJugadores) {
-        this.numJugadores = numJugadores;
+    
+    public Partida(int numero) {    
+        this.tablero = new Tablero(numero);
+        this.numJugadores = numero;
     }
 
     /**
@@ -81,23 +68,23 @@ public class Partida {
         this.tablero = tablero;
     }
 
-    /**
-     * Obtiene el marcador asociado con la partida.
-     *
-     * @return El marcador asociado con la partida.
-     */
-    public Marcador getMarcador() {
-        return marcador;
+    public List <Jugador> getListaJugador() {
+        return listaJugador;
     }
 
-    /**
-     * Establece el marcador asociado con la partida.
-     *
-     * @param marcador El marcador que se va a establecer.
-     */
-    public void setMarcador(Marcador marcador) {
-        this.marcador = marcador;
+    public void setListaJugador(List <Jugador> listaJugador) {
+        this.listaJugador = listaJugador;
+    }
+
+    public int getNumJugadores() {
+        return numJugadores;
+    }
+
+    public void setNumJugadores(int numJugadores) {
+        this.numJugadores = numJugadores;
     }
     
-    
+    public void agregarJugador(Jugador jugador){
+        listaJugador.add(jugador);
+    }
 }

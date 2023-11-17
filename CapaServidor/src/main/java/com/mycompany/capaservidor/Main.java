@@ -4,17 +4,21 @@
  */
 package com.mycompany.capaservidor;
 
+import java.io.IOException;
+
 /**
  *
- * @author oscar
+ * @author equipo 1
  */
 public class Main {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
+        Server server = new Server();
+        
     }
     
 }

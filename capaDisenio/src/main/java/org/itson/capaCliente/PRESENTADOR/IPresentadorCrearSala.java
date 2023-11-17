@@ -14,9 +14,7 @@ public interface IPresentadorCrearSala {
     
     public void seleccionarCantJugadores();
     
-    public void enviarTablero();
-    
-    public void crearTablero(int numero);
+    public void crearPartida(int numero);
     
     public void crearCodigo();
     

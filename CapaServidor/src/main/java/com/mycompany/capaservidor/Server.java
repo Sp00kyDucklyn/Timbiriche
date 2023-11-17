@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author oscar
+ * @author equipo 1
  */
 public class Server {
 
@@ -26,9 +26,10 @@ public class Server {
             Socket conexionS = socketServidor.accept();
             listaS.add(conexionS);
             ClienteConexion clienteConexion = new ClienteConexion(this, conexionS);
-
+            
         }
     }
+    
     public void EnviarTodos(Object object) throws IOException{
         for (Socket socket : listaS) {
             ObjectOutputStream objOS= new ObjectOutputStream(socket.getOutputStream());

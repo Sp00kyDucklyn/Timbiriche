@@ -4,7 +4,8 @@
  */
 package org.itson.capaCliente.MODELO;
 
-import org.itson.capadominio.Tablero;
+import org.itson.capadominio.Partida;
+
 
 /**
  *
@@ -12,17 +13,17 @@ import org.itson.capadominio.Tablero;
  */
 public class ModeloCrearSala {
     
-    private Tablero tablero;
+    private Partida partida;
 
     public ModeloCrearSala() {
     }
     
-    public void crearTablero(int numero){
-       this.tablero = new Tablero(numero);
+    public void crearPartida(int numero){
+       this.partida = new Partida(numero);
     }
     
-     public Tablero getTablero() {
-        return tablero;
+     public Partida getPartida() {
+        return partida;
     }
 
     

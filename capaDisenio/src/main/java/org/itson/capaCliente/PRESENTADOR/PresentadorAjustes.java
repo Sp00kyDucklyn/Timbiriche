@@ -6,6 +6,7 @@ package org.itson.capaCliente.PRESENTADOR;
 
 import org.itson.capaCliente.MODELO.ModeloAjustes;
 import org.itson.capaCliente.VISTA.FrmAjustes;
+import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
 
 /**
@@ -38,8 +39,8 @@ public class PresentadorAjustes implements IPresentadorAjustes{
 
     @Override
     public void seleccionSigSalaEspera() {
-        this.enviarJugador();
-        this.enviarTablero();
+        presentadorS.recibirJugador(modeloA.getJugador());
+        presentadorS.recibirPartida(modeloA.getPartida());
         presentadorS.abrirPantalla();
         vistaAjustes.dispose();
         
@@ -60,7 +61,6 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     @Override
     public void abrirPantalla() {
         vistaAjustes.setVisible(true);
-        
     }
 
     
@@ -71,25 +71,12 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     }
 
     @Override
-    public void enviarJugador() {
-        presentadorS.recibirJugador(modeloA.getJugador());
-    }
-    
-    @Override
-    public void recibirTablero(Tablero tablero) {
-        modeloA.setTablero(tablero);
-    }
-    
-    @Override
-    public Tablero regresarTablero() {
-       return modeloA.getTablero();
+    public Partida regresarPartida() {
+        return modeloA.getPartida();
     }
 
     @Override
-    public void enviarTablero() {
-        presentadorS.recibirTablero(modeloA.getTablero());
+    public void recibirPartida(Partida partida) {
+        modeloA.setPartida(partida);
     }
-
-    
-    
 }

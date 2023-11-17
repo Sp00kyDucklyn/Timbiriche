@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author oscar
+ * @author equipo 1
  */
 public class ClienteConexion extends Thread{
     
@@ -23,9 +23,6 @@ public class ClienteConexion extends Thread{
         this.servidor = servidor;
         this.socket = socket;
     }
-    
-    
-    
     
     @Override
     public void run() {
