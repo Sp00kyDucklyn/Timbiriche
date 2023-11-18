@@ -7,8 +7,10 @@ package com.mycompany.capaservidor;
 import com.mycompany.dto.JugadorDTO;
 import com.mycompany.dto.JugadoresDTO;
 import com.mycompany.dto.PartidaDTO;
+import com.mycompany.dto.PosicionDTO;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,21 +23,30 @@ public class ClienteConexion extends Thread{
     private PartidaServidor partidaS;
     private Server servidor;
     private Socket socket;
+    private ObjectInputStream entrada;
+  
+    
 
     public ClienteConexion(Server servidor, Socket socket) {
-        this.partidaS = PartidaServidor.getInstance();
-        this.servidor = servidor;
-        this.socket = socket;
+        try {
+            
+            entrada = new ObjectInputStream(socket.getInputStream());
+            this.partidaS = PartidaServidor.getInstance();
+            this.servidor = servidor;
+            this.socket = socket;
+        } catch (IOException ex) {
+            Logger.getLogger(ClienteConexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override
     public void run() {
         try {
-            ObjectInputStream obj= new ObjectInputStream(socket.getInputStream());
             while(true){
-                Object object= obj.readObject();
+                Object object= entrada.readObject();
                 if(object instanceof PartidaDTO){
                     PartidaDTO partidaDTO = (PartidaDTO) object;
+                    System.out.println("skibidi");
                     partidaS.crearPartida(partidaDTO);    
                 }
                 if(object instanceof JugadorDTO){

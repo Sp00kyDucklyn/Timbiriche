@@ -10,32 +10,47 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author equipo 1
+ * @author ivan tapia
  */
-public class Server {
+public class Server extends Thread{
 
-    List<Socket> listaS = new ArrayList<>();
-
-    public Server() throws IOException {
-        ServerSocket socketServidor = new ServerSocket(1542);
-
-        while (true) {
-            Socket conexionS = socketServidor.accept();
-            listaS.add(conexionS);
-            ClienteConexion clienteConexion = new ClienteConexion(this, conexionS);
-            
+    @Override
+    public void run() {
+        try {
+            ServerSocket socketServidor = new ServerSocket(1542);
+            System.out.println("Luis pablo");
+            while (true) {
+                Socket conexionS = socketServidor.accept();
+                System.out.println(conexionS);
+                ObjectOutputStream objOS= new ObjectOutputStream(conexionS.getOutputStream());
+                listaS.add(objOS);
+                ClienteConexion clienteConexion = new ClienteConexion(this, conexionS);
+                clienteConexion.start();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void EnviarTodos(Object object) throws IOException{
-        for (Socket socket : listaS) {
-            ObjectOutputStream objOS= new ObjectOutputStream(socket.getOutputStream());
-            objOS.writeObject(object);
-            objOS.flush();
-        }
+    List<ObjectOutputStream> listaS = new ArrayList<>();
+
+    public Server() {
+        
     }
+    
+    public void EnviarTodos(Object object) throws IOException {
+
+        for (ObjectOutputStream o : listaS) {
+            o.writeObject(object);
+            o.flush();
+        }
+        
+    }
+    
 
 }
