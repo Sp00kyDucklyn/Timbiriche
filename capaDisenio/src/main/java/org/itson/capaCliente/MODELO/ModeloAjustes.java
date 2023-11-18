@@ -4,6 +4,11 @@
  */
 package org.itson.capaCliente.MODELO;
 
+import SocketsCliente.Cliente;
+import com.mycompany.dto.JugadorDTO;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorAjustes;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
 import org.itson.capadominio.Jugador;
@@ -29,6 +34,17 @@ public class ModeloAjustes {
 
     public void crearJugador(String color, String nombre, String avatar) {
         this.jugador = new Jugador(avatar, color, nombre);
+        JugadorDTO jugadordto = new JugadorDTO();
+        jugadordto.setNombre(this.jugador.getNombre());
+        jugadordto.setColor(this.jugador.getColor());
+        jugadordto.setAvatar(this.jugador.getAvatar());
+        Cliente cliente = Cliente.getInstance();
+        try {
+            cliente.enviarServidor(jugadordto);
+        } catch (IOException ex) {
+            Logger.getLogger(ModeloAjustes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     public Jugador getJugador() {

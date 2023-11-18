@@ -6,8 +6,10 @@ package observer;
 
 /**
  *
- * @author danie
+ * @author danie ft. El camion y su fiel dromedario la cabra
  */
 public interface Observable {
-    
+    public void agregarObserver(Observer observer);
+    public void eliminarObserver(Observer observer);
+    public void notificarObservers(Object object);
 }

@@ -4,6 +4,8 @@
  */
 package org.itson.capaCliente.MODELO;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.itson.capadominio.Jugador;
 import org.itson.capadominio.Partida;
 
@@ -14,11 +16,14 @@ import org.itson.capadominio.Partida;
 public class ModeloSalaEspera {
     private Jugador jugador;
     private Partida partida;
+    private List<Jugador> jugadores;
     
     public ModeloSalaEspera() {
+        jugadores = new ArrayList<>();
     }
 
     public ModeloSalaEspera(Jugador jugador,Partida partida) {
+        jugadores = new ArrayList<>();
         this.jugador = jugador;
         this.partida = partida;
     }
@@ -38,6 +43,16 @@ public class ModeloSalaEspera {
     public void setPartida(Partida partida) {
         this.partida = partida;
     }
+
+    public List<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(List<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+    
+    
 
     
     

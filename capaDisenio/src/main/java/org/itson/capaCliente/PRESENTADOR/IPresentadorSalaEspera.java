@@ -4,6 +4,7 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import java.util.List;
 import org.itson.capadominio.Jugador;
 import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
@@ -34,5 +35,7 @@ public interface IPresentadorSalaEspera {
     public Partida regresarPartida();
     
     public void recibirPartida(Partida partida);
+    
+    public List<Jugador> regresarJugadores();
     
 }

@@ -6,8 +6,8 @@ package observer;
 
 /**
  *
- * @author danie
+ * @author danie ft. el roble rojo y su mejor amigo el bus
  */
 public interface Observer {
-    
+    public void update(Object object);
 }
