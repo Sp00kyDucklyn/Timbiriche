@@ -3,12 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.dto;
-
+import java.io.Serializable;
 /**
  *
  * @author equipo 1
  */
-public class LineaDTO {
+public class LineaDTO implements Serializable{
    
     private PuntoDTO puntoInicio;
     private PuntoDTO puntoFin;

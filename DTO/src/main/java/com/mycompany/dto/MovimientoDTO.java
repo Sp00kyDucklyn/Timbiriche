@@ -4,11 +4,13 @@
  */
 package com.mycompany.dto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author equipo 1
  */
-public class MovimientoDTO {
+public class MovimientoDTO implements Serializable{
     private LineaDTO linea;
     private JugadorDTO jugador;
 

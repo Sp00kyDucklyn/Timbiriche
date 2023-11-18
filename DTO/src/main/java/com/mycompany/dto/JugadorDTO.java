@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.dto;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author equipo 1
  */
-public class JugadorDTO {
+public class JugadorDTO implements Serializable{
     private String avatar;
     private String color;
     private int puntaje;
@@ -31,9 +31,7 @@ public class JugadorDTO {
         this.nombre = nombre;
         lineaDTO = new ArrayList<>();
     }
-
     
-
     public String getAvatar() {
         return avatar;
     }

@@ -134,7 +134,7 @@ public class PartidaServidor {
     
 //    public TableroDTO getTableroDTO(){
 //        TableroDTO tableroDTO = new TableroDTO();
-//        
+//        |
 //        tableroDTO.setCuadraditoDTO(this.getCuadradoDTO());
 //        tableroDTO.setLineasHDTO(this.getLineaHDTO());
 //        tableroDTO.setLineasVDTO(this.getLineaVDTO());

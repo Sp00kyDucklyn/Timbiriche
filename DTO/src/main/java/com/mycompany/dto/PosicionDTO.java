@@ -3,11 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.dto;
-
+import java.io.Serializable;
 /**
  *
  * @author equipo 1
  */
-public enum PosicionDTO {
+public enum PosicionDTO implements Serializable{
     VERTICAL, HORIZONTAL;
 }

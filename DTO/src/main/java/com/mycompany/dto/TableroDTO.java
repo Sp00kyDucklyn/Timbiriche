@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.dto;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author equipo 1
  */
-public class TableroDTO {
+public class TableroDTO implements Serializable{
     
     // Lista de cuadros en el tablero
     private List<CuadroDTO> cuadraditoDTO;
