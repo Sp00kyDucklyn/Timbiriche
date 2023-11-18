@@ -8,6 +8,6 @@ import java.io.Serializable;
  *
  * @author equipo 1
  */
-public enum EstadoCuadroDTO {
+public enum EstadoCuadroDTO implements Serializable{
     INCOMPLETO, COMPLETO, RECLAMADO;
 }

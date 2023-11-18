@@ -10,7 +10,7 @@ import static com.mycompany.dto.EstadoCuadroDTO.INCOMPLETO;
  *
  * @author equipo 1
  */
-public class CuadroDTO {
+public class CuadroDTO implements Serializable{
     private LineaDTO lineaIzquierda;
     private LineaDTO lineaDerecha;
     private LineaDTO lineaArriba;

@@ -10,6 +10,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import observer.Observer;
 
 /**
  *
@@ -28,6 +29,7 @@ public class Cliente {
             
             try {
                 socket=new Socket("localhost", 1542);
+               
                 instance= new Cliente(socket);
                 
             } catch (Exception e) {
@@ -39,7 +41,7 @@ public class Cliente {
 
     public Cliente(Socket socket) throws IOException {
         this.socket = socket;
-        clienteConexion= new ClienteHilo(socket);
+        clienteConexion= new ClienteHilo(this.socket);
         clienteConexion.start();
         
     }
@@ -48,6 +50,10 @@ public class Cliente {
     public void enviarServidor(Object object) throws IOException{
         clienteConexion.enviarServidor(object);
        
+    }
+    
+    public void agregarObserver(Observer observer){
+        clienteConexion.agregarObserver(observer);
     }
     
 }

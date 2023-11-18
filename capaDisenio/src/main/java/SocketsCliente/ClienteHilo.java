@@ -4,46 +4,59 @@
  */
 package SocketsCliente;
 
+import com.mycompany.dto.JugadorDTO;
+import com.mycompany.dto.JugadoresDTO;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import observer.Observable;
+import observer.Observer;
 
 /**
  *
  * @author equipo 1
  */
-public class ClienteHilo extends Thread {
+public class ClienteHilo extends Thread implements Observable{
 
-    private Socket socket;
+    private Socket socketv;
     private ObjectInputStream entrada;
     private ObjectOutputStream salida;
+    private List<Observer> observador;
 
-    public ClienteHilo(Socket socket) throws IOException {
-        this.socket = socket;
-        entrada = new ObjectInputStream(socket.getInputStream());
-        salida = new ObjectOutputStream(socket.getOutputStream());
-
+    public ClienteHilo(Socket socket) {       
+        try {
+            observador = new ArrayList<>();
+            this.socketv = socket;
+            salida = new ObjectOutputStream(socketv.getOutputStream());
+            entrada = new ObjectInputStream(socketv.getInputStream());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
     }
 
     @Override
     public void run() {
-        while (true) {
-            try {
-                Object object = entrada.readObject();
-//                if(object instanceof movimientoDTO){
-//                    //Aqui se hace algo y luego se envia a todos
-//                    poner la linea del color del jugador o decirle al presentador que ponga la linea
-//                     vista.colocarLinea(movimientoDTO.getLinea, movimientoDTO.getJugador);
-//                }
 
-            } catch (IOException ex) {
-                Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            while (true) {
+                Object object = entrada.readObject();
+                System.out.println(object);
+
+                if (object instanceof JugadoresDTO) {
+                    JugadoresDTO jugadordeteo = (JugadoresDTO) object;
+                    this.notificarObservers(jugadordeteo);
+                }
             }
+        } catch (IOException ex) {
+            Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -51,6 +64,23 @@ public class ClienteHilo extends Thread {
     public synchronized void enviarServidor(Object object) throws IOException {
         salida.writeObject(object);
         salida.flush();
+    }
+
+    @Override
+    public void agregarObserver(Observer observer) {
+        observador.add(observer);
+    }
+
+    @Override
+    public void eliminarObserver(Observer object) {
+        observador.remove(object);
+    }
+
+    @Override
+    public void notificarObservers(Object object) {
+        for (int i = 0; i < observador.size(); i++) {
+            observador.get(i).update(object);
+        }
     }
 
 }

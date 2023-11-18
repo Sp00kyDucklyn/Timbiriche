@@ -43,11 +43,13 @@ public class Partida {
     public Partida(Tablero tablero, List<Jugador> listaJugador) {    
         this.tablero = tablero;
         this.listaJugador = listaJugador;
+        this.listaJugador = new ArrayList<>();
     }
     
     public Partida(int numero) {    
         this.tablero = new Tablero(numero);
         this.numJugadores = numero;
+        this.listaJugador = new ArrayList<>();
     }
 
     /**

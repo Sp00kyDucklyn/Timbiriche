@@ -4,6 +4,7 @@
  */
 package com.mycompany.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author Equipo 1
  */
-public class JugadoresDTO {
+public class JugadoresDTO implements Serializable{
     private List<JugadorDTO> jugadorDTO;
 
     public JugadoresDTO() {
