@@ -6,6 +6,7 @@ package org.itson.capaCliente.VISTA;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.util.List;
 import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaEspera;
 import org.itson.capadominio.Jugador;
@@ -39,18 +40,39 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     }
     
     
-    public void MostrarJugador(){
-        Jugador jugador =presentadorS.regresarJugador();
-        if (jugador==null){
+    public void MostrarJugador() {
+        List<Jugador> jugadores = presentadorS.regresarJugadores();
+        if (jugadores.isEmpty()) {
             return;
         }
-        lblJugador1.setText(jugador.getNombre());
-       ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/"+jugador.getAvatar()));
-       ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar.getWidth(), lblAvatar.getHeight(), Image.SCALE_SMOOTH));
-       lblAvatar.setIcon(iconoRedimensionado);
+     
+        for (int i = 0; i < jugadores.size(); i++) {
+            if (i == 0) {
+                lblJugador1.setText(jugadores.get(0).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(0).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar1.setIcon(iconoRedimensionado);
+            }
+            if (i == 1) {
+                lblJugador2.setText(jugadores.get(1).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(1).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar2.setIcon(iconoRedimensionado);
+            }
+            if (i == 2) {
+                lblJugador3.setText(jugadores.get(2).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(2).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar3.setIcon(iconoRedimensionado);
+            }
+            if (i == 3) {
+                lblJugador4.setText(jugadores.get(3).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(3).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar4.setIcon(iconoRedimensionado);
+            }
+        }
     }
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,29 +82,27 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnReturn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        lblAvatar = new javax.swing.JLabel();
         botonseguir = new javax.swing.JButton();
+        jugador1 = new javax.swing.JPanel();
+        lblAvatar1 = new javax.swing.JLabel();
         lblJugador1 = new javax.swing.JLabel();
+        jugador2 = new javax.swing.JPanel();
+        lblAvatar2 = new javax.swing.JLabel();
+        lblJugador2 = new javax.swing.JLabel();
+        jugador3 = new javax.swing.JPanel();
+        lblAvatar3 = new javax.swing.JLabel();
+        lblJugador3 = new javax.swing.JLabel();
+        jugador4 = new javax.swing.JPanel();
+        lblAvatar4 = new javax.swing.JLabel();
+        lblJugador4 = new javax.swing.JLabel();
+        btnReturn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
-        btnReturn.setBorderPainted(false);
-        btnReturn.setContentAreaFilled(false);
-        btnReturn.setFocusable(false);
-        btnReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 73, -1));
-
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 170, 140));
 
         botonseguir.setBackground(new java.awt.Color(242, 242, 242));
         botonseguir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/felchaAdelante.png"))); // NOI18N
@@ -94,8 +114,118 @@ public class FrmSalaEspera extends javax.swing.JFrame {
                 botonseguirActionPerformed(evt);
             }
         });
-        jPanel1.add(botonseguir, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 60, 40));
-        jPanel1.add(lblJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 100, 20));
+        jPanel1.add(botonseguir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 60, 40));
+
+        javax.swing.GroupLayout jugador1Layout = new javax.swing.GroupLayout(jugador1);
+        jugador1.setLayout(jugador1Layout);
+        jugador1Layout.setHorizontalGroup(
+            jugador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jugador1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jugador1Layout.setVerticalGroup(
+            jugador1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jugador1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jugador1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 480, 70));
+
+        javax.swing.GroupLayout jugador2Layout = new javax.swing.GroupLayout(jugador2);
+        jugador2.setLayout(jugador2Layout);
+        jugador2Layout.setHorizontalGroup(
+            jugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jugador2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jugador2Layout.setVerticalGroup(
+            jugador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jugador2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jugador2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 480, 70));
+
+        javax.swing.GroupLayout jugador3Layout = new javax.swing.GroupLayout(jugador3);
+        jugador3.setLayout(jugador3Layout);
+        jugador3Layout.setHorizontalGroup(
+            jugador3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jugador3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblAvatar3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblJugador3, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jugador3Layout.setVerticalGroup(
+            jugador3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jugador3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblJugador3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jugador3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAvatar3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 480, 70));
+
+        javax.swing.GroupLayout jugador4Layout = new javax.swing.GroupLayout(jugador4);
+        jugador4.setLayout(jugador4Layout);
+        jugador4Layout.setHorizontalGroup(
+            jugador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jugador4Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblAvatar4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblJugador4, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jugador4Layout.setVerticalGroup(
+            jugador4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jugador4Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblJugador4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jugador4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAvatar4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 480, 70));
+
+        btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
+        btnReturn.setBorderPainted(false);
+        btnReturn.setContentAreaFilled(false);
+        btnReturn.setFocusable(false);
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 73, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 470));
 
@@ -152,7 +282,17 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     private javax.swing.JButton botonseguir;
     private javax.swing.JButton btnReturn;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAvatar;
+    private javax.swing.JPanel jugador1;
+    private javax.swing.JPanel jugador2;
+    private javax.swing.JPanel jugador3;
+    private javax.swing.JPanel jugador4;
+    private javax.swing.JLabel lblAvatar1;
+    private javax.swing.JLabel lblAvatar2;
+    private javax.swing.JLabel lblAvatar3;
+    private javax.swing.JLabel lblAvatar4;
     private javax.swing.JLabel lblJugador1;
+    private javax.swing.JLabel lblJugador2;
+    private javax.swing.JLabel lblJugador3;
+    private javax.swing.JLabel lblJugador4;
     // End of variables declaration//GEN-END:variables
 }

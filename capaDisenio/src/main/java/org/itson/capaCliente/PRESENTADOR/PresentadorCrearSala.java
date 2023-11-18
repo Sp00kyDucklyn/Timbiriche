@@ -29,12 +29,12 @@ public class PresentadorCrearSala implements IPresentadorCrearSala{
     
     @Override
     public void seleccionarCantJugadores() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void crearCodigo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

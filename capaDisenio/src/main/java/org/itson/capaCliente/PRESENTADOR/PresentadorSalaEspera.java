@@ -4,6 +4,11 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import com.mycompany.dto.JugadorDTO;
+import com.mycompany.dto.JugadoresDTO;
+import java.util.ArrayList;
+import java.util.List;
+import observer.Observer;
 import org.itson.capaCliente.MODELO.ModeloSalaEspera;
 import org.itson.capaCliente.VISTA.FrmSalaEspera;
 import org.itson.capadominio.Jugador;
@@ -14,7 +19,7 @@ import org.itson.capadominio.Tablero;
  *
  * @author equipo 1
  */
-public class PresentadorSalaEspera implements IPresentadorSalaEspera{
+public class PresentadorSalaEspera implements IPresentadorSalaEspera, Observer{
     
     private IPresentadorJuego presentadorJ;
     private IPresentadorAjustes presentadorA;
@@ -84,5 +89,30 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera{
     @Override
     public void recibirPartida(Partida partida) {
         modeloSala.setPartida(partida);
+    }
+
+    @Override
+    public void update(Object object) {
+        if(object instanceof JugadoresDTO){
+            
+            JugadoresDTO jugadoresdeteo = (JugadoresDTO) object;
+            List<JugadorDTO> jugadordto = jugadoresdeteo.getJugadorDTO();
+            List<Jugador> jugador = new ArrayList<>();
+            for (int i = 0; i < jugadordto.size(); i++) {
+                Jugador juga = new Jugador();
+                juga.setAvatar(jugadordto.get(i).getAvatar());
+                juga.setColor(jugadordto.get(i).getColor());
+                juga.setNombre(jugadordto.get(i).getNombre());
+                jugador.add( juga);
+            }
+            modeloSala.setJugadores(jugador);
+            salaEspera.MostrarJugador();
+            System.out.println("me actualice");
+        }
+    }
+
+    @Override
+    public List<Jugador> regresarJugadores() {
+        return modeloSala.getJugadores();
     }
 }

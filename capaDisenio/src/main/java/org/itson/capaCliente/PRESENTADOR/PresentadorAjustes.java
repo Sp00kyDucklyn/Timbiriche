@@ -4,6 +4,8 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import SocketsCliente.Cliente;
+import observer.Observer;
 import org.itson.capaCliente.MODELO.ModeloAjustes;
 import org.itson.capaCliente.VISTA.FrmAjustes;
 import org.itson.capadominio.Partida;
@@ -66,6 +68,9 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     
     @Override
     public void crearJugador(String color, String nombre, String avatar) {
+        Cliente cliente = Cliente.getInstance();
+        cliente.agregarObserver((Observer) presentadorS);
+        
         modeloA.crearJugador(color, nombre, avatar);
         this.seleccionSigSalaEspera();
     }

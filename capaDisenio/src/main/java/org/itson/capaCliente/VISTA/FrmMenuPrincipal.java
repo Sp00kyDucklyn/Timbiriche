@@ -192,8 +192,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
      * @param evt atributo evento
      */
     private void btnUnirseSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirseSalaActionPerformed
-        // TODO add your handling code here:
+       
       presentadorM.activarBtnUnirse();
+      
     }//GEN-LAST:event_btnUnirseSalaActionPerformed
 
     /**

@@ -19,6 +19,7 @@ public class PresentadorUnirseSala implements IPresentadorUnirseSala{
     public PresentadorUnirseSala(IPresentadorMenuPrincipal presentadorM) {
         unirse = new FrmUnirseSala(this);
         this.presentadorM = presentadorM;
+        presentadorA=new PresentadorAjustes(null);
     }
     
     
