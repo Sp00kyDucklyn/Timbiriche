@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  *
- * @author equipo 1
+ * @author equipo 1 ft. Diego Robles 232988
  */
 public class Main {
 
