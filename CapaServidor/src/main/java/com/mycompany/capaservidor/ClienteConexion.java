@@ -46,6 +46,7 @@ public class ClienteConexion extends Thread{
                 Object object= entrada.readObject();
                 if(object instanceof PartidaDTO){
                     PartidaDTO partidaDTO = (PartidaDTO) object;
+                    servidor.validarJugadores(partidaDTO.getNumJugadores());
                     System.out.println("skibidi");
                     partidaS.crearPartida(partidaDTO);    
                 }

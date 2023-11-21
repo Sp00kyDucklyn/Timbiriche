@@ -4,13 +4,13 @@
  */
 package org.itson.capaCliente.VISTA;
 
-
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorAjustes;
 import org.itson.capadominio.Partida;
 
@@ -24,11 +24,10 @@ public class FrmAjustes extends javax.swing.JFrame {
      * Creates new form FrmAjustes
      */
     private String color;
-    
-    
+
     private String[] imagenes;
     IPresentadorAjustes presentadorA;
-    
+
     public FrmAjustes(IPresentadorAjustes presentadorA) {
         initComponents();
         mostrar(posicion);
@@ -39,30 +38,29 @@ public class FrmAjustes extends javax.swing.JFrame {
     //Esto cambiara a uno de tipo jugador, que va a estar guardando el avatar
     private String imagen = null;
     private String imagenSeleccionada = null;
-    
-    public void mostrarTablero(){
+
+    public void mostrarTablero() {
         Partida partida = presentadorA.regresarPartida();
-        if (partida==null){
+        if (partida == null) {
             return;
         }
     }
-    
-    
-    public String[] obtenerImg(){
+
+    public String[] obtenerImg() {
         File f = new File(getClass().getResource("/avatares").getFile());
         String[] Imagenes = f.list();
         return Imagenes;
     }
-    
-    public void mostrar(int index){
+
+    public void mostrar(int index) {
         String[] Imagen = obtenerImg();
         imagen = Imagen[index];
-        ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/"+imagen));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + imagen));
         Image image = icon.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH);
         lblImagen.setIcon(new ImageIcon(image));
     }
-    
-    public void moverAbajo(){
+
+    public void moverAbajo() {
         new Thread();
         try {
             Thread.sleep(300);
@@ -70,16 +68,16 @@ public class FrmAjustes extends javax.swing.JFrame {
             Logger.getLogger(FrmAjustes.class.getName()).log(Level.SEVERE, null, ex);
         }
         int p = this.lblImagen.getX();
-        if(p>-1){
+        if (p > -1) {
             posicion++;
-            if(posicion >= obtenerImg().length){
+            if (posicion >= obtenerImg().length) {
                 posicion = 0;
-            } 
+            }
             mostrar(posicion);
         }
     }
-    
-    public void moverArriba(){
+
+    public void moverArriba() {
         new Thread();
         try {
             Thread.sleep(300);
@@ -87,17 +85,15 @@ public class FrmAjustes extends javax.swing.JFrame {
             Logger.getLogger(FrmAjustes.class.getName()).log(Level.SEVERE, null, ex);
         }
         int p = this.lblImagen.getX();
-        if(p>-1){
+        if (p > -1) {
             posicion--;
-            if(posicion >= obtenerImg().length){
+            if (posicion >= obtenerImg().length) {
                 posicion = 0;
-            } 
+            }
             mostrar(posicion);
         }
     }
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -238,37 +234,43 @@ public class FrmAjustes extends javax.swing.JFrame {
 
     private void btnFlechaAbajoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnFlechaAbajoKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode() == KeyEvent.VK_DOWN){
-             moverAbajo();
-        }else if(evt.getKeyCode() == KeyEvent.VK_UP){
+        if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
+            moverAbajo();
+        } else if (evt.getKeyCode() == KeyEvent.VK_UP) {
             moverArriba();
         }
     }//GEN-LAST:event_btnFlechaAbajoKeyPressed
 
     private void btnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionActionPerformed
         // TODO add your handling code here:
-           if(imagenSeleccionada != null){
-               imagenSeleccionada = null;
-               btnSeleccion.setIcon(null); 
-           }else{
-               imagenSeleccionada= imagen;
-               btnSeleccion.setIcon(new ImageIcon(getClass().getResource("/iconos/heart.png")));
-           }
+        if (imagenSeleccionada != null) {
+            imagenSeleccionada = null;
+            btnSeleccion.setIcon(null);
+        } else {
+            imagenSeleccionada = imagen;
+            btnSeleccion.setIcon(new ImageIcon(getClass().getResource("/iconos/heart.png")));
+        }
     }//GEN-LAST:event_btnSeleccionActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        
-        presentadorA.crearJugador(color, this.txtNombre.getText(),imagenSeleccionada);
-        
+        // Verificar si se ha seleccionado un avatar
+        if (imagenSeleccionada == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona un avatar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return; // Detener la ejecución del método si no se ha seleccionado un avatar
+        }
+        // Continuar con la creación del jugador
+        presentadorA.crearJugador(color, this.txtNombre.getText(), imagenSeleccionada);
+
+
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void checkRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRojoActionPerformed
-        if(checkRojo.isSelected()){
+        if (checkRojo.isSelected()) {
             checkAzul.setEnabled(false);
             checkMorado.setEnabled(false);
             checkVerde.setEnabled(false);
-            color ="#F2040F";
-        }else{
+            color = "#F2040F";
+        } else {
             checkAzul.setEnabled(true);
             checkMorado.setEnabled(true);
             checkVerde.setEnabled(true);
@@ -276,12 +278,12 @@ public class FrmAjustes extends javax.swing.JFrame {
     }//GEN-LAST:event_checkRojoActionPerformed
 
     private void checkAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAzulActionPerformed
-        if(checkAzul.isSelected()){
+        if (checkAzul.isSelected()) {
             checkRojo.setEnabled(false);
             checkMorado.setEnabled(false);
             checkVerde.setEnabled(false);
-            color="#040FF2";
-        }else{
+            color = "#040FF2";
+        } else {
             checkRojo.setEnabled(true);
             checkMorado.setEnabled(true);
             checkVerde.setEnabled(true);
@@ -289,12 +291,12 @@ public class FrmAjustes extends javax.swing.JFrame {
     }//GEN-LAST:event_checkAzulActionPerformed
 
     private void checkMoradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMoradoActionPerformed
-        if(checkMorado.isSelected()){
+        if (checkMorado.isSelected()) {
             checkAzul.setEnabled(false);
             checkRojo.setEnabled(false);
             checkVerde.setEnabled(false);
-            color="#8604F2";
-        }else{
+            color = "#8604F2";
+        } else {
             checkAzul.setEnabled(true);
             checkRojo.setEnabled(true);
             checkVerde.setEnabled(true);
@@ -302,12 +304,12 @@ public class FrmAjustes extends javax.swing.JFrame {
     }//GEN-LAST:event_checkMoradoActionPerformed
 
     private void checkVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVerdeActionPerformed
-        if(checkVerde.isSelected()){
+        if (checkVerde.isSelected()) {
             checkAzul.setEnabled(false);
             checkMorado.setEnabled(false);
             checkRojo.setEnabled(false);
-            color="#28F204";
-        }else{
+            color = "#28F204";
+        } else {
             checkAzul.setEnabled(true);
             checkMorado.setEnabled(true);
             checkRojo.setEnabled(true);

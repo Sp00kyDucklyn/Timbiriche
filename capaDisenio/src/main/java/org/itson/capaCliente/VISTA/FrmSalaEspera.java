@@ -20,12 +20,12 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmSalaJugadores
-     */ 
+     */
     private IPresentadorSalaEspera presentadorS;
-    
+
     public FrmSalaEspera(IPresentadorSalaEspera presentadorS) {
         initComponents();
-        Color color = new Color(0,0,0,0); 
+        Color color = new Color(0, 0, 0, 0);
         botonseguir.setBackground(color);
         this.presentadorS = presentadorS;
 //        imagenSeleccionada = ajustes.getImagenSeleccionada();
@@ -38,14 +38,13 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     public void mandarPartida() {
         Partida partida = presentadorS.regresarPartida();
     }
-    
-    
+
     public void MostrarJugador() {
         List<Jugador> jugadores = presentadorS.regresarJugadores();
         if (jugadores.isEmpty()) {
             return;
         }
-     
+
         for (int i = 0; i < jugadores.size(); i++) {
             if (i == 0) {
                 lblJugador1.setText(jugadores.get(0).getNombre());
@@ -73,6 +72,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
             }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

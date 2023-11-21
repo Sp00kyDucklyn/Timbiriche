@@ -18,13 +18,14 @@ import java.util.logging.Logger;
  * @author ivan tapia
  */
 public class Server extends Thread{
-
+    private int numJugadores=100;
+    
     @Override
     public void run() {
         try {
             ServerSocket socketServidor = new ServerSocket(1542);
             System.out.println("Luis pablo");
-            while (true) {
+            while (listaS.size()<numJugadores) {
                 Socket conexionS = socketServidor.accept();
                 System.out.println(conexionS);
                 ObjectOutputStream objOS= new ObjectOutputStream(conexionS.getOutputStream());
@@ -32,6 +33,8 @@ public class Server extends Thread{
                 ClienteConexion clienteConexion = new ClienteConexion(this, conexionS);
                 clienteConexion.start();
             }
+//            socketServidor.close();
+//            System.out.println("Maximo de jugadores alcanzado");
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -50,6 +53,10 @@ public class Server extends Thread{
             o.flush();
         }
         
+    }
+    
+    public void validarJugadores(int numJugadores){
+        this.numJugadores=numJugadores;
     }
     
 
