@@ -58,9 +58,7 @@ public class FrmUnirseSala extends javax.swing.JFrame {
 
         lblCodigo.setText("Ingresa el código para unirte a la partida");
         jPanel1.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
-
-        txtCodigo.setText("jTextField1");
-        jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, -1, -1));
+        jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 120, -1));
 
         btnAceptar.setText("Siguiente");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +66,7 @@ public class FrmUnirseSala extends javax.swing.JFrame {
                 btnAceptarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 610, -1, -1));
+        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 

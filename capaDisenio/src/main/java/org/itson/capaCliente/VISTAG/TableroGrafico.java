@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
 import org.itson.capaCliente.MODELO.ModeloJuego;
 import org.itson.capadominio.Cuadro;
@@ -24,6 +26,7 @@ import org.itson.capadominio.Tablero;
 public class TableroGrafico extends JPanel{
 
     private FigurasGraficas figuras;
+    private List<Jugador> jugadores;
     private Jugador jugador;
     private Tablero tablero;
 
@@ -34,10 +37,10 @@ public class TableroGrafico extends JPanel{
         pintarFiguras(g2);
     }
     
-    public TableroGrafico(Tablero tablero, Jugador jugador) {
-      this.jugador = jugador;
+    public TableroGrafico(Tablero tablero) {
+      jugadores = new ArrayList<>();
       figuras = new FigurasGraficas();
-      System.out.println(jugador);
+      
     }
     
     public void crearTableroGrafico(){
@@ -100,15 +103,9 @@ public class TableroGrafico extends JPanel{
         }
     }
 
-    public Jugador getJugador() {
-        return jugador;
-    }
-
-    public void setJugador(Jugador jugador) {
-        this.jugador = jugador;
-    }
+    
         
-    public void verificarLinea(MouseEvent evt){
+    public Linea verificarLinea(MouseEvent evt){
         boolean linea = false;
          for (IFiguras figura : figuras.getFiguras()) {
             if(figura instanceof LineaGrafica){
@@ -117,7 +114,8 @@ public class TableroGrafico extends JPanel{
                     if(lineaG.getLinea().getJugador() == null){
                         if (!linea){
                              linea = true;
-                             colocarLinea(lineaG.getLinea(),jugador);
+//                             colocarLinea(lineaG.getLinea(),jugador);
+                            return lineaG.getLinea();
                         }
                     }
                 }else{
@@ -125,19 +123,45 @@ public class TableroGrafico extends JPanel{
                 }
             }
         }
+         return null;
     }
     
     public void colocarLinea(Linea linea, Jugador jugador){
          for (IFiguras figura : figuras.getFiguras()) {
             if(figura instanceof LineaGrafica){
                 LineaGrafica lineaG = (LineaGrafica)figura;
-                if (lineaG.getLinea() == linea) {
+                if (validarLinea(lineaG.getLinea(), linea)) {
                     lineaG.getLinea().setJugador(jugador);
                     lineaG.setColor(Color.decode(jugador.getColor()));
                 }
                     verificarCuadro(jugador);
             }
         }
+         for (Jugador jugadore : jugadores) {
+            if(jugador.getCodigoExclusivo() == jugadore.getCodigoExclusivo()){
+                List<Linea> lineas = jugadore.getLineas();
+                lineas.add(linea);
+                jugadore.setLineas(lineas);
+            }
+        }
+    }
+    
+    public boolean validarLinea(Linea lineaA, Linea lineaB){
+        int x1 = lineaA.getPuntoInicio().getX();
+        int x2  = lineaA.getPuntoFin().getX();
+        int x3 = lineaB.getPuntoInicio().getX();
+        int x4 = lineaB.getPuntoFin().getX();
+        
+        int y1 = lineaA.getPuntoInicio().getY();
+        int y2 = lineaA.getPuntoFin().getY();
+        int y3 = lineaB.getPuntoInicio().getY();
+        int y4 = lineaB.getPuntoFin().getY();
+        
+        if(x1 == x3 && y1 == y3 && x2 == x4 && y2 == y4){
+            return true;
+        }
+        
+        return false;
     }
     
     public void verificarCuadro(Jugador jugador){
@@ -152,6 +176,11 @@ public class TableroGrafico extends JPanel{
                         }
                     }
                 }
+         for (Jugador jugadore : jugadores) {
+            if(jugador.getCodigoExclusivo() == jugadore.getCodigoExclusivo()){
+                jugadore.setPuntaje(jugadore.getPuntaje()+jugador.getPuntaje());
+            }
+        }
     }
 
     public Tablero getTablero() {
@@ -160,5 +189,21 @@ public class TableroGrafico extends JPanel{
 
     public void setTablero(Tablero tablero) {
         this.tablero = tablero;
+    }
+
+    public List<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(List<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
     }
 }

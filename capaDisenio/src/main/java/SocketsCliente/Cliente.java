@@ -49,7 +49,7 @@ public class Cliente {
     
     public void enviarServidor(Object object) throws IOException{
         clienteConexion.enviarServidor(object);
-       
+        
     }
     
     public void agregarObserver(Observer observer){

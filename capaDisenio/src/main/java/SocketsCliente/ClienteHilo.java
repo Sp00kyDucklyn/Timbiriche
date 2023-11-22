@@ -4,8 +4,10 @@
  */
 package SocketsCliente;
 
+import com.mycompany.dto.IniciarPartidaDTO;
 import com.mycompany.dto.JugadorDTO;
 import com.mycompany.dto.JugadoresDTO;
+import com.mycompany.dto.MovimientoDTO;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -16,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import observer.Observable;
 import observer.Observer;
+import org.itson.capaCliente.PRESENTADOR.PresentadorJuego;
+import org.itson.capaCliente.PRESENTADOR.PresentadorSalaEspera;
 
 /**
  *
@@ -27,6 +31,7 @@ public class ClienteHilo extends Thread implements Observable{
     private ObjectInputStream entrada;
     private ObjectOutputStream salida;
     private List<Observer> observador;
+   
 
     public ClienteHilo(Socket socket) {       
         try {
@@ -49,8 +54,20 @@ public class ClienteHilo extends Thread implements Observable{
                 System.out.println(object);
 
                 if (object instanceof JugadoresDTO) {
-                    JugadoresDTO jugadordeteo = (JugadoresDTO) object;
-                    this.notificarObservers(jugadordeteo);
+                   JugadoresDTO jugadordeteo = (JugadoresDTO) object;
+                   this.notificarObservers(jugadordeteo);
+                }
+                if(object instanceof IniciarPartidaDTO){
+                   IniciarPartidaDTO iniciar = (IniciarPartidaDTO) object;
+                   this.notificarObservers(iniciar);
+                }
+                if(object instanceof MovimientoDTO){
+                   MovimientoDTO movimientodeteo = (MovimientoDTO) object;
+                   this.notificarObservers(movimientodeteo);
+                }
+                if(object instanceof JugadorDTO){
+                   JugadorDTO jugadordeteo = (JugadorDTO) object;
+                   this.notificarObservers(jugadordeteo);
                 }
             }
         } catch (IOException ex) {

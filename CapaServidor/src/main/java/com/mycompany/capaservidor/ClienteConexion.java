@@ -4,8 +4,10 @@
  */
 package com.mycompany.capaservidor;
 
+import com.mycompany.dto.IniciarPartidaDTO;
 import com.mycompany.dto.JugadorDTO;
 import com.mycompany.dto.JugadoresDTO;
+import com.mycompany.dto.MovimientoDTO;
 import com.mycompany.dto.PartidaDTO;
 import com.mycompany.dto.PosicionDTO;
 import java.io.IOException;
@@ -24,13 +26,15 @@ public class ClienteConexion extends Thread{
     private Server servidor;
     private Socket socket;
     private ObjectInputStream entrada;
-  
+    private ObjectOutputStream salida;
     
 
-    public ClienteConexion(Server servidor, Socket socket) {
+    public ClienteConexion(Server servidor, Socket socket, ObjectOutputStream salida) {
         try {
             
             entrada = new ObjectInputStream(socket.getInputStream());
+            this.salida = salida;
+//           s salida = new ObjectOutputStream(socket.getOutputStream());
             this.partidaS = PartidaServidor.getInstance();
             this.servidor = servidor;
             this.socket = socket;
@@ -41,6 +45,7 @@ public class ClienteConexion extends Thread{
     
     @Override
     public void run() {
+        
         try {
             while(true){
                 Object object= entrada.readObject();
@@ -52,10 +57,21 @@ public class ClienteConexion extends Thread{
                 }
                 if(object instanceof JugadorDTO){
                     JugadorDTO jugadorDTO = (JugadorDTO) object;
-                    partidaS.agregarJugador(jugadorDTO);
+                    JugadorDTO jugadorcito = partidaS.agregarJugador(jugadorDTO);
+                    servidor.sendToOne(jugadorcito, salida);
                     JugadoresDTO jugadoresDTO = new JugadoresDTO();
                     jugadoresDTO.setJugadorDTO(partidaS.getListaJugadores());
                     servidor.EnviarTodos(jugadoresDTO);
+                    if (partidaS.listaLlena()) {
+                        IniciarPartidaDTO iniciar = new IniciarPartidaDTO(partidaS.numeroJugadores());
+                        servidor.EnviarTodos(iniciar);
+                    }
+                }
+                if(object instanceof MovimientoDTO){
+                    MovimientoDTO movimientoDTO = (MovimientoDTO) object;
+                    System.out.println(movimientoDTO.getJugador());
+                    //Deberia actualizar el server?
+                    servidor.EnviarTodos(movimientoDTO);
                 }
             }
         } catch (IOException ex) {
@@ -63,6 +79,8 @@ public class ClienteConexion extends Thread{
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ClienteConexion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         
     }
     

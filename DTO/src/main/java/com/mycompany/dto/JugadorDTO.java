@@ -16,6 +16,7 @@ public class JugadorDTO implements Serializable{
     private String color;
     private int puntaje;
     private String nombre;
+    private int codigoExclusivo;
     
     private List<LineaDTO> lineaDTO;
 
@@ -70,6 +71,14 @@ public class JugadorDTO implements Serializable{
 
     public void setLineaDTO(List<LineaDTO> lineaDTO) {
         this.lineaDTO = lineaDTO;
+    }
+
+    public int getCodigoExclusivo() {
+        return codigoExclusivo;
+    }
+
+    public void setCodigoExclusivo(int codigoExclusivo) {
+        this.codigoExclusivo = codigoExclusivo;
     }
 
 }

@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author ivan tapia
+ * @author equipo 1 
  */
 public class Server extends Thread{
     private int numJugadores=100;
@@ -30,11 +30,11 @@ public class Server extends Thread{
                 System.out.println(conexionS);
                 ObjectOutputStream objOS= new ObjectOutputStream(conexionS.getOutputStream());
                 listaS.add(objOS);
-                ClienteConexion clienteConexion = new ClienteConexion(this, conexionS);
+                ClienteConexion clienteConexion = new ClienteConexion(this, conexionS, objOS);
                 clienteConexion.start();
             }
-//            socketServidor.close();
-//            System.out.println("Maximo de jugadores alcanzado");
+            socketServidor.close();
+            System.out.println("Maximo de jugadores alcanzado");
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -59,5 +59,13 @@ public class Server extends Thread{
         this.numJugadores=numJugadores;
     }
     
+    public void sendToOne(Object obj, ObjectOutputStream outPut) {
+            try {
+                outPut.writeObject(obj);
+                outPut.flush();
+            } catch (IOException e) {
+                // Manejar excepciones
+            }
+    }
 
 }

@@ -45,9 +45,13 @@ public class PartidaServidor {
         partida = new Partida(partidaDTO.getNumJugadores());
     }
     
+    public Integer numeroJugadores(){
+       return partida.getNumJugadores();
+    }
+    
     public JugadorDTO transformarJugador(Jugador jugador){
         JugadorDTO jugadorDTO = new JugadorDTO();
-        
+        jugadorDTO.setCodigoExclusivo(jugador.getCodigoExclusivo());
         jugadorDTO.setNombre(jugador.getNombre());
         jugadorDTO.setAvatar(jugador.getAvatar());
         jugadorDTO.setColor(jugador.getColor());
@@ -66,9 +70,14 @@ public class PartidaServidor {
         return listaDTO;
     }
     
-    public void agregarJugador(JugadorDTO jugadorDTO) {
+    public JugadorDTO agregarJugador(JugadorDTO jugadorDTO) {
         Jugador jugador = this.transformarJugadorDTO(jugadorDTO);
+        for (int numero = 0; numero < this.getListaJugadores().size(); numero++) {
+            numero++;
+            jugador.setCodigoExclusivo(numero);
+        }
         partida.agregarJugador(jugador);
+        return transformarJugador(jugador);
     }
     
     public List<JugadorDTO> getListaJugadores(){
@@ -78,7 +87,7 @@ public class PartidaServidor {
     
     public Jugador transformarJugadorDTO(JugadorDTO jugadorDTO){
         Jugador jugador = new Jugador();
-        
+        jugador.setCodigoExclusivo(jugadorDTO.getCodigoExclusivo());
         jugador.setNombre(jugadorDTO.getNombre());
         jugador.setAvatar(jugadorDTO.getAvatar());
         jugador.setColor(jugadorDTO.getColor());
@@ -222,4 +231,11 @@ public class PartidaServidor {
 //        
 //        return listaPunto;
 //    }
+    
+    public boolean listaLlena(){
+        if(partida.getNumJugadores() == partida.getListaJugador().size()){
+            return true;
+        }
+        return false;
+    }
 }

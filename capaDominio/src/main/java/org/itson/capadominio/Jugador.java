@@ -19,6 +19,7 @@ import java.util.List;
 public class Jugador {
 
     // Información del jugador
+    private int codigoExclusivo;
     private String avatar;
     private String color;
     private int puntaje;
@@ -64,6 +65,7 @@ public class Jugador {
         this.avatar = avatar;
         this.color = color;
         this.nombre = nombre;
+        lineas = new ArrayList<>();
     }
 
     /**
@@ -154,6 +156,14 @@ public class Jugador {
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getCodigoExclusivo() {
+        return codigoExclusivo;
+    }
+
+    public void setCodigoExclusivo(int codigoExclusivo) {
+        this.codigoExclusivo = codigoExclusivo;
     }
 
 }
