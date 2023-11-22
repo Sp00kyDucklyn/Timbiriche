@@ -4,10 +4,18 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import com.mycompany.dto.IniciarPartidaDTO;
+import com.mycompany.dto.JugadorDTO;
+import com.mycompany.dto.JugadoresDTO;
+import com.mycompany.dto.MovimientoDTO;
+import java.util.ArrayList;
+import java.util.List;
+import observer.Observer;
 import org.itson.capaCliente.MODELO.ModeloJuego;
 import org.itson.capaCliente.MODELO.ModeloSalaEspera;
 import org.itson.capaCliente.VISTA.FrmJuego;
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Linea;
 import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
 
@@ -15,7 +23,7 @@ import org.itson.capadominio.Tablero;
  *
  * @author equipo 1
  */
-public class PresentadorJuego implements IPresentadorJuego{
+public class PresentadorJuego implements IPresentadorJuego, Observer{
     
     private FrmJuego vistaJuego;
     private IPresentadorSalaEspera presentadorS;
@@ -29,8 +37,8 @@ public class PresentadorJuego implements IPresentadorJuego{
     
 
     @Override
-    public void colocaLinea() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void colocaLinea(Linea linea, Jugador jugador) {
+        modeloJ.colocarLinea(linea, jugador);
     }
 
     @Override
@@ -76,13 +84,45 @@ public class PresentadorJuego implements IPresentadorJuego{
         return modeloJ.getPartida();
     }
 
+
     @Override
-    public void recibirPartida(Partida partida) {
-        modeloJ.setPartida(partida);
+    public void update(Object object) {
+        if(object instanceof JugadoresDTO){
+            
+            JugadoresDTO jugadoresdeteo = (JugadoresDTO) object;
+            List<JugadorDTO> jugadordto = jugadoresdeteo.getJugadorDTO();
+            List<Jugador> jugador = new ArrayList<>();
+            for (int i = 0; i < jugadordto.size(); i++) {
+                Jugador juga = new Jugador();
+                juga.setCodigoExclusivo(jugadordto.get(i).getCodigoExclusivo());
+                juga.setAvatar(jugadordto.get(i).getAvatar());
+                juga.setColor(jugadordto.get(i).getColor());
+                juga.setNombre(jugadordto.get(i).getNombre());
+                jugador.add(juga);
+            }
+            modeloJ.setJugadores(jugador);
+            vistaJuego.setListaJugadores(jugador);
+            System.out.println("me actualice");
+        }
+        if(object instanceof MovimientoDTO){
+            System.out.println("paso por aqui");
+            MovimientoDTO movimientodeteo = (MovimientoDTO) object;
+            System.out.println("hola"+movimientodeteo.getJugador());
+            Jugador jugador = modeloJ.transformarJugadorDTO(movimientodeteo.getJugador());
+            Linea linea = modeloJ.transformarLineaDTO(movimientodeteo.getLinea());
+            vistaJuego.colocarLinea(linea, jugador);
+        }
     }
 
     @Override
-    public void enviarPartida() {
-       presentadorS.recibirPartida(modeloJ.getPartida());
+    public void crearPartida(int numero) {
+        modeloJ.crearPartida(numero);
     }
+
+    @Override
+    public void setListaJugadores(List<Jugador> jugadores) {
+        vistaJuego.setListaJugadores(jugadores);
+    }
+    
+    
 }

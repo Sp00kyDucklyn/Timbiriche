@@ -42,7 +42,6 @@ public class PresentadorAjustes implements IPresentadorAjustes{
     @Override
     public void seleccionSigSalaEspera() {
         presentadorS.recibirJugador(modeloA.getJugador());
-        presentadorS.recibirPartida(modeloA.getPartida());
         presentadorS.abrirPantalla();
         vistaAjustes.dispose();
         
@@ -75,13 +74,5 @@ public class PresentadorAjustes implements IPresentadorAjustes{
         this.seleccionSigSalaEspera();
     }
 
-    @Override
-    public Partida regresarPartida() {
-        return modeloA.getPartida();
-    }
-
-    @Override
-    public void recibirPartida(Partida partida) {
-        modeloA.setPartida(partida);
-    }
+   
 }

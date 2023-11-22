@@ -4,7 +4,9 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import java.util.List;
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Linea;
 import org.itson.capadominio.Partida;
 import org.itson.capadominio.Tablero;
 
@@ -14,7 +16,7 @@ import org.itson.capadominio.Tablero;
  */
 public interface IPresentadorJuego {
     
-    public void colocaLinea();
+    public void colocaLinea(Linea linea, Jugador jugador);
     
     public void verificaCuadro();
     
@@ -30,10 +32,10 @@ public interface IPresentadorJuego {
     
     public Partida regresarPartida();
     
-    public void recibirPartida(Partida partida);
-    
-    public void enviarPartida();
-    
     public Tablero regresarTablero();
+    
+    public void crearPartida(int numero);
+    
+    public void setListaJugadores(List<Jugador> jugadores);
     
 }

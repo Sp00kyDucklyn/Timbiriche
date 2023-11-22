@@ -32,10 +32,6 @@ public interface IPresentadorSalaEspera {
     
     public void recibirJugador(Jugador jugador);
     
-    public Partida regresarPartida();
-    
-    public void recibirPartida(Partida partida);
-    
     public List<Jugador> regresarJugadores();
     
 }

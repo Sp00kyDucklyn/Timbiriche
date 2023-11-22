@@ -4,6 +4,7 @@
  */
 package org.itson.capaCliente.MODELO;
 
+import com.mycompany.dto.JugadorDTO;
 import java.util.ArrayList;
 import java.util.List;
 import org.itson.capadominio.Jugador;
@@ -52,7 +53,16 @@ public class ModeloSalaEspera {
         this.jugadores = jugadores;
     }
     
-    
+    public Jugador transformarJugadorDTO(JugadorDTO jugadorDTO){
+        Jugador jugador = new Jugador();
+        jugador.setCodigoExclusivo(jugadorDTO.getCodigoExclusivo());
+        jugador.setNombre(jugadorDTO.getNombre());
+        jugador.setAvatar(jugadorDTO.getAvatar());
+        jugador.setColor(jugadorDTO.getColor());
+//        jugador.setLineas(this.);
+        
+        return jugador;
+    }
 
     
     

@@ -21,9 +21,6 @@ public interface IPresentadorAjustes {
     public void abrirPantalla();
    
     public void crearJugador(String color, String nombre, String avatar);
-    
-    public Partida regresarPartida();
-    
-    public void recibirPartida(Partida partida);
+   
     
 }

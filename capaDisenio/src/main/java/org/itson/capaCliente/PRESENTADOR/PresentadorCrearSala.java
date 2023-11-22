@@ -39,7 +39,7 @@ public class PresentadorCrearSala implements IPresentadorCrearSala{
 
     @Override
     public void apareceSigAjustes() {
-        presentadorA.recibirPartida(modeloC.getPartida());
+//        presentadorA.recibirPartida(modeloC.getPartida());
         presentadorA.abrirPantalla();
         vistaCrear.dispose();
     }

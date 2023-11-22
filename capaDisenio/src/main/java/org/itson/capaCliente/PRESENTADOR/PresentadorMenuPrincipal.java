@@ -35,8 +35,8 @@ public class PresentadorMenuPrincipal implements IPresentadorMenuPrincipal{
 
     @Override
     public void activarBtnUnirse() {
-      //presentadorU.abrirPantalla();
-      presentadorU.seleccionSigAjustes();
+      presentadorU.abrirPantalla();
+//      presentadorU.seleccionSigAjustes();
       vistaMenu.dispose();
     }
 
