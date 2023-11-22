@@ -39,12 +39,12 @@ public class FrmAjustes extends javax.swing.JFrame {
     private String imagen = null;
     private String imagenSeleccionada = null;
 
-    public void mostrarTablero() {
-        Partida partida = presentadorA.regresarPartida();
-        if (partida == null) {
-            return;
-        }
-    }
+//    public void mostrarTablero() {
+//        Partida partida = presentadorA.regresarPartida();
+//        if (partida == null) {
+//            return;
+//        }
+//    }
 
     public String[] obtenerImg() {
         File f = new File(getClass().getResource("/avatares").getFile());

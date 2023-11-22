@@ -25,8 +25,6 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 
     public FrmSalaEspera(IPresentadorSalaEspera presentadorS) {
         initComponents();
-        Color color = new Color(0, 0, 0, 0);
-        botonseguir.setBackground(color);
         this.presentadorS = presentadorS;
 //        imagenSeleccionada = ajustes.getImagenSeleccionada();
 //        if (imagenSeleccionada != null) {
@@ -35,9 +33,9 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 //        System.out.println(imagenSeleccionada);
     }
 
-    public void mandarPartida() {
-        Partida partida = presentadorS.regresarPartida();
-    }
+//    public void mandarPartida() {
+//        Partida partida = presentadorS.regresarPartida();
+//    }
 
     public void MostrarJugador() {
         List<Jugador> jugadores = presentadorS.regresarJugadores();
@@ -55,19 +53,19 @@ public class FrmSalaEspera extends javax.swing.JFrame {
             if (i == 1) {
                 lblJugador2.setText(jugadores.get(1).getNombre());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(1).getAvatar()));
-                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar2.getWidth(), lblAvatar2.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar2.setIcon(iconoRedimensionado);
             }
             if (i == 2) {
                 lblJugador3.setText(jugadores.get(2).getNombre());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(2).getAvatar()));
-                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar3.getWidth(), lblAvatar3.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar3.setIcon(iconoRedimensionado);
             }
             if (i == 3) {
                 lblJugador4.setText(jugadores.get(3).getNombre());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(3).getAvatar()));
-                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar4.getWidth(), lblAvatar4.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar4.setIcon(iconoRedimensionado);
             }
         }
@@ -107,6 +105,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
         botonseguir.setBackground(new java.awt.Color(242, 242, 242));
         botonseguir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/felchaAdelante.png"))); // NOI18N
         botonseguir.setBorderPainted(false);
+        botonseguir.setContentAreaFilled(false);
         botonseguir.setFocusPainted(false);
         botonseguir.setFocusable(false);
         botonseguir.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +138,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 480, 70));
+        jPanel1.add(jugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 480, 70));
 
         javax.swing.GroupLayout jugador2Layout = new javax.swing.GroupLayout(jugador2);
         jugador2.setLayout(jugador2Layout);
@@ -164,7 +163,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 480, 70));
+        jPanel1.add(jugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 480, 70));
 
         javax.swing.GroupLayout jugador3Layout = new javax.swing.GroupLayout(jugador3);
         jugador3.setLayout(jugador3Layout);
@@ -189,7 +188,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 480, 70));
+        jPanel1.add(jugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 480, 70));
 
         javax.swing.GroupLayout jugador4Layout = new javax.swing.GroupLayout(jugador4);
         jugador4.setLayout(jugador4Layout);
@@ -214,7 +213,7 @@ public class FrmSalaEspera extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 480, 70));
+        jPanel1.add(jugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 480, 70));
 
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/return.png"))); // NOI18N
         btnReturn.setBorderPainted(false);
@@ -235,7 +234,6 @@ public class FrmSalaEspera extends javax.swing.JFrame {
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
         presentadorS.abrirPantallaAnterior();
-
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void botonseguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonseguirActionPerformed

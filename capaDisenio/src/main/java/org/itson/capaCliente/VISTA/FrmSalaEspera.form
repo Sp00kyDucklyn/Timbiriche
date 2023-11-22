@@ -50,6 +50,7 @@
               <Image iconType="3" name="/iconos/felchaAdelante.png"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
@@ -65,7 +66,7 @@
         <Container class="javax.swing.JPanel" name="jugador1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="340" width="480" height="70"/>
+              <AbsoluteConstraints x="120" y="80" width="480" height="70"/>
             </Constraint>
           </Constraints>
 
@@ -106,7 +107,7 @@
         <Container class="javax.swing.JPanel" name="jugador2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="70" width="480" height="70"/>
+              <AbsoluteConstraints x="120" y="160" width="480" height="70"/>
             </Constraint>
           </Constraints>
 
@@ -147,7 +148,7 @@
         <Container class="javax.swing.JPanel" name="jugador3">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="160" width="480" height="70"/>
+              <AbsoluteConstraints x="120" y="240" width="480" height="70"/>
             </Constraint>
           </Constraints>
 
@@ -188,7 +189,7 @@
         <Container class="javax.swing.JPanel" name="jugador4">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="250" width="480" height="70"/>
+              <AbsoluteConstraints x="120" y="320" width="480" height="70"/>
             </Constraint>
           </Constraints>
 

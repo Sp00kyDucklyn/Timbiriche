@@ -4,6 +4,7 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import SocketsCliente.Cliente;
 import org.itson.capaCliente.VISTA.FrmUnirseSala;
 
 /**
@@ -22,8 +23,6 @@ public class PresentadorUnirseSala implements IPresentadorUnirseSala{
         presentadorA=new PresentadorAjustes(null);
     }
     
-    
-
     @Override
     public void ingresarCodigo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -31,8 +30,13 @@ public class PresentadorUnirseSala implements IPresentadorUnirseSala{
 
     @Override
     public void seleccionSigAjustes() {
-        presentadorA.abrirPantalla();
-        unirse.dispose();
+        Cliente cliente = Cliente.getInstance();
+        if (cliente != null) {
+            presentadorA.abrirPantalla();
+            unirse.dispose();
+        }else{
+            System.out.println("No estes chingando, ya se lleno la sala");
+        }
     }
 
     @Override

@@ -7,15 +7,17 @@ package org.itson.capaCliente.VISTA;
 import java.awt.Color;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
+import java.util.List;
 import javax.swing.SwingUtilities;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorJuego;
 import org.itson.capaCliente.VISTAG.TableroGrafico;
 import org.itson.capadominio.Jugador;
+import org.itson.capadominio.Linea;
 import org.itson.capadominio.Tablero;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public class FrmJuego extends javax.swing.JFrame {
 
@@ -27,7 +29,7 @@ public class FrmJuego extends javax.swing.JFrame {
     
     public FrmJuego(IPresentadorJuego presentadorJ) {
         this.presentadorJ = presentadorJ;
-        tablero = new TableroGrafico(new Tablero(),new Jugador());
+        tablero = new TableroGrafico(new Tablero());
         initComponents();
         
         ELPEPEpanel.add(tablero);
@@ -56,6 +58,13 @@ public class FrmJuego extends javax.swing.JFrame {
         tablero.crearTableroGrafico();
     }
 
+    public void colocarLinea(Linea linea, Jugador jugador){
+        tablero.colocarLinea(linea, jugador);
+    }
+    
+    public void setListaJugadores(List<Jugador> jugadores){
+        tablero.setJugadores(jugadores);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -131,7 +140,10 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void ELPEPEpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELPEPEpanelMousePressed
         // TODO add your handling code here:
-        tablero.verificarLinea(evt);
+        Linea linea = tablero.verificarLinea(evt);
+        if( linea != null){
+            presentadorJ.colocaLinea(linea, tablero.getJugador());
+        }
     }//GEN-LAST:event_ELPEPEpanelMousePressed
 
     private void ELPEPEpanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELPEPEpanelMouseMoved

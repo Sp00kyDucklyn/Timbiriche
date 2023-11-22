@@ -4,6 +4,8 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import SocketsCliente.Cliente;
+import com.mycompany.dto.IniciarPartidaDTO;
 import com.mycompany.dto.JugadorDTO;
 import com.mycompany.dto.JugadoresDTO;
 import java.util.ArrayList;
@@ -65,7 +67,6 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera, Observer{
     @Override
     public void abrirPantallaJuego() {
         presentadorJ.recibirJugador(modeloSala.getJugador());
-        presentadorJ.recibirPartida(modeloSala.getPartida());
         presentadorJ.abrirPantalla();
         salaEspera.dispose();
     }
@@ -80,17 +81,6 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera, Observer{
         return modeloSala.getJugador();
     }
 
-
-     @Override
-    public Partida regresarPartida() {
-        return modeloSala.getPartida();
-    }
-
-    @Override
-    public void recibirPartida(Partida partida) {
-        modeloSala.setPartida(partida);
-    }
-
     @Override
     public void update(Object object) {
         if(object instanceof JugadoresDTO){
@@ -100,14 +90,27 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera, Observer{
             List<Jugador> jugador = new ArrayList<>();
             for (int i = 0; i < jugadordto.size(); i++) {
                 Jugador juga = new Jugador();
+                juga.setCodigoExclusivo(jugadordto.get(i).getCodigoExclusivo());
                 juga.setAvatar(jugadordto.get(i).getAvatar());
                 juga.setColor(jugadordto.get(i).getColor());
                 juga.setNombre(jugadordto.get(i).getNombre());
-                jugador.add( juga);
+                jugador.add(juga);
             }
             modeloSala.setJugadores(jugador);
             salaEspera.MostrarJugador();
             System.out.println("me actualice");
+        }
+        if (object instanceof IniciarPartidaDTO) {
+            Cliente cliente = Cliente.getInstance();
+            cliente.agregarObserver((Observer) presentadorJ);
+            IniciarPartidaDTO iniciar = (IniciarPartidaDTO) object;
+            presentadorJ.crearPartida(iniciar.getNumero());
+            this.abrirPantallaJuego();
+        }
+        if(object instanceof JugadorDTO){
+            JugadorDTO jugadordeteo = (JugadorDTO) object;
+            modeloSala.setJugador(modeloSala.transformarJugadorDTO(jugadordeteo));
+            
         }
     }
 

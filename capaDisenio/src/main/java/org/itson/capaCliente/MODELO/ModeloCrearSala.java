@@ -18,13 +18,11 @@ import org.itson.capadominio.Partida;
  */
 public class ModeloCrearSala {
     
-    private Partida partida;
-
     public ModeloCrearSala() {
     }
     
     public void crearPartida(int numero){
-       this.partida = new Partida(numero);
+    
        Cliente cliente = Cliente.getInstance();
        PartidaDTO p= new PartidaDTO();
        p.setNumJugadores(numero);
@@ -34,12 +32,6 @@ public class ModeloCrearSala {
             Logger.getLogger(ModeloCrearSala.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-     public Partida getPartida() {
-        return partida;
-    }
-
-    
-    
+   
    
 }
