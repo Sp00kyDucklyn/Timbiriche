@@ -111,6 +111,7 @@ public class PresentadorJuego implements IPresentadorJuego, Observer{
             Jugador jugador = modeloJ.transformarJugadorDTO(movimientodeteo.getJugador());
             Linea linea = modeloJ.transformarLineaDTO(movimientodeteo.getLinea());
             vistaJuego.colocarLinea(linea, jugador);
+            pasarTurno();
         }
     }
 
@@ -122,7 +123,22 @@ public class PresentadorJuego implements IPresentadorJuego, Observer{
     @Override
     public void setListaJugadores(List<Jugador> jugadores) {
         vistaJuego.setListaJugadores(jugadores);
+        modeloJ.setJugadores(jugadores);
     }
-    
+
+    @Override
+    public void pasarTurno() {
+        modeloJ.pasarTurno();
+    }
+
+    @Override
+    public Jugador getJugadorTurno() {
+      return  modeloJ.getJugadorTurno();
+    }
+
+    @Override
+    public boolean esTurno() {
+      return modeloJ.esTurno();
+    }
     
 }

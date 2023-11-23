@@ -31,15 +31,30 @@ public class ModeloJuego {
     private Jugador jugador;
     private Partida partida;
     private List<Jugador> jugadores;
+    private int turno;
+    private int numMAXJugadores =0;
     
     public ModeloJuego( ) {
         jugadores = new ArrayList<>();
+        this.turno=0;
     }
     
     public Jugador getJugador() {
         return jugador;
     }
-
+     
+    public Jugador getJugadorTurno(){   
+      return jugadores.get(turno);
+    }
+    
+    public boolean esTurno(){
+        
+       if(jugador.getCodigoExclusivo() == this.getJugadorTurno().getCodigoExclusivo()){
+           return true;
+       } 
+       return false;
+    }
+    
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
@@ -62,14 +77,37 @@ public class ModeloJuego {
     
     public void crearPartida(int numero){
         this.partida = new Partida(numero);
+        this.setNumMAXJugadores(numero);
     }
-
+    
+    public void pasarTurno(){
+      turno++;
+      if(turno == numMAXJugadores){
+          turno = 0;
+      }  
+    }
     public List<Jugador> getJugadores() {
         return jugadores;
     }
 
     public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void setTurno(int turno) {
+        this.turno = turno;
+    }
+
+    public int getNumMAXJugadores() {
+        return numMAXJugadores;
+    }
+
+    public void setNumMAXJugadores(int numMAXJugadores) {
+        this.numMAXJugadores = numMAXJugadores;
     }
     
     public void colocarLinea(Linea linea, Jugador jugador) {
