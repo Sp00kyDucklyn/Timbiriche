@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import org.itson.capadominio.Linea;
+import org.itson.capadominio.Posicion;
 import static org.itson.capadominio.Posicion.HORIZONTAL;
 import static org.itson.capadominio.Posicion.VERTICAL;
 import org.itson.capadominio.Punto;
@@ -30,7 +31,7 @@ public class LineaGrafica implements IFiguras{
         Punto puntoInicio = linea.getPuntoInicio();
         Punto puntoFin = linea.getPuntoFin();
         g2.setColor(color);
-        g2.drawLine(puntoInicio.getX(), puntoInicio.getY(), puntoFin.getX(), puntoFin.getY());
+        g2.drawLine(puntoInicio.getX(), puntoInicio.getY() , puntoFin.getX(), puntoFin.getY());     
         g2.setColor(Color.BLACK);
     }
 

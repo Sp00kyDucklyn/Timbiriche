@@ -140,9 +140,13 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private void ELPEPEpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELPEPEpanelMousePressed
         // TODO add your handling code here:
-        Linea linea = tablero.verificarLinea(evt);
-        if( linea != null){
-            presentadorJ.colocaLinea(linea, tablero.getJugador());
+        if (presentadorJ.esTurno()) {
+            Linea linea = tablero.verificarLinea(evt);
+            if (linea != null) {
+                presentadorJ.colocaLinea(linea, tablero.getJugador());
+            }
+        }else{
+            System.out.println("NO usted no va a jugar");
         }
     }//GEN-LAST:event_ELPEPEpanelMousePressed
 

@@ -67,6 +67,7 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera, Observer{
     @Override
     public void abrirPantallaJuego() {
         presentadorJ.recibirJugador(modeloSala.getJugador());
+        presentadorJ.setListaJugadores(modeloSala.getJugadores());
         presentadorJ.abrirPantalla();
         salaEspera.dispose();
     }

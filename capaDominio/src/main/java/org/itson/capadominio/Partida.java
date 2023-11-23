@@ -20,7 +20,7 @@ public class Partida {
     
     // Tablero asociado con la partida
     private Tablero tablero;
-
+    private int turno; 
     private List <Jugador> listaJugador;
     
     private int numJugadores;
