@@ -10,6 +10,7 @@ import com.mycompany.dto.JugadoresDTO;
 import com.mycompany.dto.MovimientoDTO;
 import com.mycompany.dto.PartidaDTO;
 import com.mycompany.dto.PosicionDTO;
+import com.mycompany.dto.SalirseDTO;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -22,6 +23,8 @@ import java.util.logging.Logger;
  * @author equipo 1
  */
 public class ClienteConexion extends Thread{
+    private boolean partidaIniciada=false;
+    private JugadorDTO jugador;
     private PartidaServidor partidaS;
     private Server servidor;
     private Socket socket;
@@ -58,13 +61,16 @@ public class ClienteConexion extends Thread{
                 if(object instanceof JugadorDTO){
                     JugadorDTO jugadorDTO = (JugadorDTO) object;
                     JugadorDTO jugadorcito = partidaS.agregarJugador(jugadorDTO);
+                    
                     servidor.sendToOne(jugadorcito, salida);
                     JugadoresDTO jugadoresDTO = new JugadoresDTO();
                     jugadoresDTO.setJugadorDTO(partidaS.getListaJugadores());
                     servidor.EnviarTodos(jugadoresDTO);
+                    jugador=jugadorcito;
                     if (partidaS.listaLlena()) {
                         IniciarPartidaDTO iniciar = new IniciarPartidaDTO(partidaS.numeroJugadores());
                         servidor.EnviarTodos(iniciar);
+                        partidaIniciada=true;
                     }
                 }
                 if(object instanceof MovimientoDTO){
@@ -75,9 +81,18 @@ public class ClienteConexion extends Thread{
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(ClienteConexion.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Se salio1");
+            SalirseDTO salirse = new SalirseDTO(partidaIniciada,jugador);
+            partidaS.removerJugador(jugador);
+            try {
+                servidor.EnviarTodos(salirse);
+            } catch (IOException ex1) {
+                Logger.getLogger(ClienteConexion.class.getName()).log(Level.SEVERE, null, ex1);
+            }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClienteConexion.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Se salio2");
+        }catch (Exception e){
+            System.out.println("Se salio3");
         }
         
         

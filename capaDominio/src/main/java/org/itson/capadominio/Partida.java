@@ -89,4 +89,11 @@ public class Partida {
     public void agregarJugador(Jugador jugador){
         listaJugador.add(jugador);
     }
+    public void removerJugador(Jugador jugador){
+        for (Jugador jugador1 : listaJugador) {
+            if (jugador.getCodigoExclusivo()==jugador1.getCodigoExclusivo()) {
+                listaJugador.remove(jugador1);
+            }
+        }
+    }
 }

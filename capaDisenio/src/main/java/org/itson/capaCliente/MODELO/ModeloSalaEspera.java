@@ -48,6 +48,14 @@ public class ModeloSalaEspera {
     public List<Jugador> getJugadores() {
         return jugadores;
     }
+    public void removerJugador(JugadorDTO jugador){
+        for (Jugador jugadore : jugadores) {
+            if (jugadore.getCodigoExclusivo()==jugador.getCodigoExclusivo()) {
+                jugadores.remove(jugadore);
+            }
+        }
+     
+    }
 
     public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;

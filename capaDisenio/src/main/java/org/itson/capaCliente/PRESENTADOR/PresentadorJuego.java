@@ -110,8 +110,13 @@ public class PresentadorJuego implements IPresentadorJuego, Observer{
             System.out.println("hola"+movimientodeteo.getJugador());
             Jugador jugador = modeloJ.transformarJugadorDTO(movimientodeteo.getJugador());
             Linea linea = modeloJ.transformarLineaDTO(movimientodeteo.getLinea());
+            int puntacionA = jugador.getPuntaje();
             vistaJuego.colocarLinea(linea, jugador);
-            pasarTurno();
+            int puntacionB = jugador.getPuntaje();
+            if (puntacionB==puntacionA) {
+                pasarTurno();
+            }
+            vistaJuego.MostrarJugadores();
         }
     }
 
@@ -139,6 +144,16 @@ public class PresentadorJuego implements IPresentadorJuego, Observer{
     @Override
     public boolean esTurno() {
       return modeloJ.esTurno();
+    }
+
+    @Override
+    public List<Jugador> getListaJugadores() {
+        return modeloJ.getJugadores();
+    }
+
+    @Override
+    public void mostrarJugadores() {
+        vistaJuego.MostrarJugadores();
     }
     
 }

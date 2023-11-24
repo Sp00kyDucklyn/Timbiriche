@@ -79,6 +79,10 @@ public class PartidaServidor {
         partida.agregarJugador(jugador);
         return transformarJugador(jugador);
     }
+    public void removerJugador(JugadorDTO jugadorDTO){
+        Jugador jugador = this.transformarJugadorDTO(jugadorDTO);
+        partida.removerJugador(jugador);
+    }
     
     public List<JugadorDTO> getListaJugadores(){
         List<JugadorDTO> listaDTO = this.transformarListaJugadores(partida.getListaJugador());
