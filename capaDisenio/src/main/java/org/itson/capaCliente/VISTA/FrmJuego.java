@@ -75,7 +75,7 @@ public class FrmJuego extends javax.swing.JFrame {
 
         for (int i = 0; i < jugadores.size(); i++) {
             if (i == 0) {
-                lblJugador1.setText(jugadores.get(0).getNombre());
+                lblJugador1.setText(jugadores.get(0).getNombre()+":"+jugadores.get(i).getCodigoExclusivo());
                 if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
                     lblJugador1.setForeground(Color.red);
                 }else{
@@ -92,7 +92,7 @@ public class FrmJuego extends javax.swing.JFrame {
                 }else{
                     lblJugador2.setForeground(Color.black);
                 }
-                lblJugador2.setText(jugadores.get(1).getNombre());
+                lblJugador2.setText(jugadores.get(1).getNombre()+":"+jugadores.get(i).getCodigoExclusivo());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(1).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar2.getWidth(), lblAvatar2.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar2.setIcon(iconoRedimensionado);
@@ -104,10 +104,11 @@ public class FrmJuego extends javax.swing.JFrame {
                 }else{
                     lblJugador3.setForeground(Color.black);
                 }
-                lblJugador3.setText(jugadores.get(2).getNombre());
+                lblJugador3.setText(jugadores.get(2).getNombre()+":"+jugadores.get(i).getCodigoExclusivo());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(2).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar3.getWidth(), lblAvatar3.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar3.setIcon(iconoRedimensionado);
+                lblPuntacion3.setText(String.valueOf(jugadores.get(i).getPuntaje()));
             }
             if (i == 3) {
                 if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
@@ -115,10 +116,11 @@ public class FrmJuego extends javax.swing.JFrame {
                 }else{
                     lblJugador4.setForeground(Color.black);
                 }
-                lblJugador4.setText(jugadores.get(3).getNombre());
+                lblJugador4.setText(jugadores.get(3).getNombre()+":"+jugadores.get(i).getCodigoExclusivo());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(3).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar4.getWidth(), lblAvatar4.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar4.setIcon(iconoRedimensionado);
+                lblPuntacion4.setText(String.valueOf(jugadores.get(i).getPuntaje()));
             }
         }
         tablero.repaint();
@@ -138,14 +140,14 @@ public class FrmJuego extends javax.swing.JFrame {
         lblAvatar3 = new javax.swing.JLabel();
         lblPuntacion3 = new javax.swing.JLabel();
         lblJugador3 = new javax.swing.JLabel();
-        jugador1 = new javax.swing.JPanel();
-        lblAvatar1 = new javax.swing.JLabel();
-        lblPuntacion1 = new javax.swing.JLabel();
-        lblJugador1 = new javax.swing.JLabel();
         jugador2 = new javax.swing.JPanel();
         lblAvatar2 = new javax.swing.JLabel();
         lblPuntacion2 = new javax.swing.JLabel();
         lblJugador2 = new javax.swing.JLabel();
+        jugador1 = new javax.swing.JPanel();
+        lblAvatar1 = new javax.swing.JLabel();
+        lblPuntacion1 = new javax.swing.JLabel();
+        lblJugador1 = new javax.swing.JLabel();
         jugador4 = new javax.swing.JPanel();
         lblAvatar4 = new javax.swing.JLabel();
         lblPuntacion4 = new javax.swing.JLabel();
@@ -193,8 +195,6 @@ public class FrmJuego extends javax.swing.JFrame {
         );
 
         getContentPane().add(ELPEPEpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 690, 610));
-
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondo.gif"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 690, 610));
 
         jugador3.setPreferredSize(new java.awt.Dimension(150, 200));
@@ -207,6 +207,16 @@ public class FrmJuego extends javax.swing.JFrame {
 
         getContentPane().add(jugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, -1));
 
+        jugador2.setPreferredSize(new java.awt.Dimension(150, 200));
+        jugador2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAvatar2.setPreferredSize(new java.awt.Dimension(150, 150));
+        jugador2.add(lblAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jugador2.add(lblPuntacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 20));
+        jugador2.add(lblJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 20));
+
+        getContentPane().add(jugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, -1, -1));
+
         jugador1.setPreferredSize(new java.awt.Dimension(150, 200));
         jugador1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -217,16 +227,6 @@ public class FrmJuego extends javax.swing.JFrame {
 
         getContentPane().add(jugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
 
-        jugador2.setPreferredSize(new java.awt.Dimension(150, 200));
-        jugador2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblAvatar2.setPreferredSize(new java.awt.Dimension(150, 150));
-        jugador2.add(lblAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        jugador2.add(lblPuntacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 20));
-        jugador2.add(lblJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 20));
-
-        getContentPane().add(jugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 150, -1));
-
         jugador4.setPreferredSize(new java.awt.Dimension(150, 200));
         jugador4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -235,7 +235,7 @@ public class FrmJuego extends javax.swing.JFrame {
         jugador4.add(lblPuntacion4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 20));
         jugador4.add(lblJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 20));
 
-        getContentPane().add(jugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 150, -1));
+        getContentPane().add(jugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 280, 150, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

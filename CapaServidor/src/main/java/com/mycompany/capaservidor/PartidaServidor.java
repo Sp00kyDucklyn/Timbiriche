@@ -29,7 +29,7 @@ public class PartidaServidor {
     
     private volatile static PartidaServidor instance;
     private Partida partida;
-    
+    private int id = 0;
 
     public PartidaServidor() {
     }
@@ -72,10 +72,8 @@ public class PartidaServidor {
     
     public JugadorDTO agregarJugador(JugadorDTO jugadorDTO) {
         Jugador jugador = this.transformarJugadorDTO(jugadorDTO);
-        for (int numero = 0; numero < this.getListaJugadores().size(); numero++) {
-            numero++;
-            jugador.setCodigoExclusivo(numero);
-        }
+        jugador.setCodigoExclusivo(id);
+        id++;
         partida.agregarJugador(jugador);
         return transformarJugador(jugador);
     }
