@@ -8,6 +8,7 @@ import SocketsCliente.Cliente;
 import com.mycompany.dto.IniciarPartidaDTO;
 import com.mycompany.dto.JugadorDTO;
 import com.mycompany.dto.JugadoresDTO;
+import com.mycompany.dto.SalirseDTO;
 import java.util.ArrayList;
 import java.util.List;
 import observer.Observer;
@@ -68,6 +69,7 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera, Observer{
     public void abrirPantallaJuego() {
         presentadorJ.recibirJugador(modeloSala.getJugador());
         presentadorJ.setListaJugadores(modeloSala.getJugadores());
+        presentadorJ.mostrarJugadores();
         presentadorJ.abrirPantalla();
         salaEspera.dispose();
     }
@@ -107,11 +109,18 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera, Observer{
             IniciarPartidaDTO iniciar = (IniciarPartidaDTO) object;
             presentadorJ.crearPartida(iniciar.getNumero());
             this.abrirPantallaJuego();
+            
         }
         if(object instanceof JugadorDTO){
             JugadorDTO jugadordeteo = (JugadorDTO) object;
             modeloSala.setJugador(modeloSala.transformarJugadorDTO(jugadordeteo));
-            
+        }
+        if (object instanceof SalirseDTO) {
+            SalirseDTO salirse = (SalirseDTO) object;
+            if (!salirse.isEnPartida()) {
+                modeloSala.removerJugador(salirse.getJugador());
+            }
+            salaEspera.MostrarJugador();
         }
     }
 

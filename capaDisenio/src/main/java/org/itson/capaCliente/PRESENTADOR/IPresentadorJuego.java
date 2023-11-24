@@ -37,9 +37,9 @@ public interface IPresentadorJuego {
     public void crearPartida(int numero);
     
     public void setListaJugadores(List<Jugador> jugadores);
-    
+    public List<Jugador> getListaJugadores();
     public void pasarTurno();
-    
+    public void mostrarJugadores();
     public Jugador getJugadorTurno();
     
     public boolean esTurno();
