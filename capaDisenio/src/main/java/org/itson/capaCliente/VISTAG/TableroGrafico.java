@@ -23,7 +23,7 @@ import org.itson.capadominio.Tablero;
  *
  * @author equipo 1
  */
-public class TableroGrafico extends JPanel{
+public class TableroGrafico extends JPanel {
 
     private FigurasGraficas figuras;
     private List<Jugador> jugadores;
@@ -36,14 +36,14 @@ public class TableroGrafico extends JPanel{
         Graphics2D g2 = (Graphics2D) g;
         pintarFiguras(g2);
     }
-    
+
     public TableroGrafico(Tablero tablero) {
-      jugadores = new ArrayList<>();
-      figuras = new FigurasGraficas();
-      
+        jugadores = new ArrayList<>();
+        figuras = new FigurasGraficas();
+
     }
-    
-    public void crearTableroGrafico(){
+
+    public void crearTableroGrafico() {
         if (this.getTablero() != null) {
             int margen = 0;
             if (this.getTablero().getPuntitos().size() == 100) {
@@ -74,19 +74,19 @@ public class TableroGrafico extends JPanel{
             }
         }
     }
-    
-    public void pintarFiguras(Graphics2D g2){
+
+    public void pintarFiguras(Graphics2D g2) {
         figuras.pintar(g2);
     }
-    
-    public void pintarLineaPanthom(MouseEvent evt){
+
+    public void pintarLineaPanthom(MouseEvent evt) {
         boolean linea = false;
         for (IFiguras figura : figuras.getFiguras()) {
-            if(figura instanceof LineaGrafica){
-                LineaGrafica lineaG = (LineaGrafica)figura;
+            if (figura instanceof LineaGrafica) {
+                LineaGrafica lineaG = (LineaGrafica) figura;
                 if (lineaG.getLinea().getJugador() == null) {
                     if (lineaG.hitBox().contains(evt.getPoint())) {
-                        if (linea){
+                        if (linea) {
                             lineaG.setColor(Color.BLACK);
                             this.repaint();
                         } else {
@@ -103,84 +103,87 @@ public class TableroGrafico extends JPanel{
         }
     }
 
-    
-        
-    public Linea verificarLinea(MouseEvent evt){
+    public Linea verificarLinea(MouseEvent evt) {
         boolean linea = false;
-         for (IFiguras figura : figuras.getFiguras()) {
-            if(figura instanceof LineaGrafica){
-                LineaGrafica lineaG = (LineaGrafica)figura;
-                if(lineaG.hitBox().contains(evt.getPoint())){
-                    if(lineaG.getLinea().getJugador() == null){
-                        if (!linea){
-                             linea = true;
+        for (IFiguras figura : figuras.getFiguras()) {
+            if (figura instanceof LineaGrafica) {
+                LineaGrafica lineaG = (LineaGrafica) figura;
+                if (lineaG.hitBox().contains(evt.getPoint())) {
+                    if (lineaG.getLinea().getJugador() == null) {
+                        if (!linea) {
+                            linea = true;
 //                             colocarLinea(lineaG.getLinea(),jugador);
                             return lineaG.getLinea();
                         }
                     }
-                }else{
-                    
+                } else {
+
                 }
             }
         }
-         return null;
+        return null;
     }
-    
-    public void colocarLinea(Linea linea, Jugador jugador){
-         for (IFiguras figura : figuras.getFiguras()) {
-            if(figura instanceof LineaGrafica){
-                LineaGrafica lineaG = (LineaGrafica)figura;
+
+    public void colocarLinea(Linea linea, Jugador jugador) {
+        for (IFiguras figura : figuras.getFiguras()) {
+            if (figura instanceof LineaGrafica) {
+                LineaGrafica lineaG = (LineaGrafica) figura;
                 if (validarLinea(lineaG.getLinea(), linea)) {
                     lineaG.getLinea().setJugador(jugador);
                     lineaG.setColor(Color.decode(jugador.getColor()));
                 }
-                    verificarCuadro(jugador);
+                verificarCuadro(jugador);
             }
         }
-         for (Jugador jugadore : jugadores) {
-            if(jugador.getCodigoExclusivo() == jugadore.getCodigoExclusivo()){
+        for (Jugador jugadore : jugadores) {
+            if (jugador.getCodigoExclusivo() == jugadore.getCodigoExclusivo()) {
                 List<Linea> lineas = jugadore.getLineas();
                 lineas.add(linea);
                 jugadore.setLineas(lineas);
             }
         }
     }
-    
-    public boolean validarLinea(Linea lineaA, Linea lineaB){
+
+    public boolean validarLinea(Linea lineaA, Linea lineaB) {
         int x1 = lineaA.getPuntoInicio().getX();
-        int x2  = lineaA.getPuntoFin().getX();
+        int x2 = lineaA.getPuntoFin().getX();
         int x3 = lineaB.getPuntoInicio().getX();
         int x4 = lineaB.getPuntoFin().getX();
-        
+
         int y1 = lineaA.getPuntoInicio().getY();
         int y2 = lineaA.getPuntoFin().getY();
         int y3 = lineaB.getPuntoInicio().getY();
         int y4 = lineaB.getPuntoFin().getY();
-        
-        if(x1 == x3 && y1 == y3 && x2 == x4 && y2 == y4){
+
+        if (x1 == x3 && y1 == y3 && x2 == x4 && y2 == y4) {
             return true;
         }
-        
+
         return false;
     }
-    
-    public void verificarCuadro(Jugador jugador){
-         for (IFiguras figurita : figuras.getFiguras()) {
-                    if(figurita instanceof CuadradoGrafico){
-                        CuadradoGrafico cuadroG = (CuadradoGrafico)figurita;
-                        Cuadro cuadro = cuadroG.getCuadro();
-                        if(cuadro.getEstado() == COMPLETO){
-                            jugador.setPuntaje(50);
-                            cuadro.setEstado(RECLAMADO);
-                            cuadroG.setLetra(jugador.getNombre().substring(0, 1).toUpperCase());
-                        }
-                    }
+
+    public void verificarCuadro(Jugador jugador) {
+        boolean reclamado = false;
+        for (IFiguras figurita : figuras.getFiguras()) {
+            if (figurita instanceof CuadradoGrafico) {
+                CuadradoGrafico cuadroG = (CuadradoGrafico) figurita;
+                Cuadro cuadro = cuadroG.getCuadro();
+                if (cuadro.getEstado() == COMPLETO) {
+                    jugador.setPuntaje(50);
+                    cuadro.setEstado(RECLAMADO);
+                    cuadroG.setLetra(jugador.getNombre().substring(0, 1).toUpperCase());
+                    reclamado = true;
                 }
-         for (Jugador jugadore : jugadores) {
-            if(jugador.getCodigoExclusivo() == jugadore.getCodigoExclusivo()){
-                jugadore.setPuntaje(jugadore.getPuntaje()+jugador.getPuntaje());
             }
         }
+        if (reclamado) {
+            for (Jugador jugadore : jugadores) {
+                if (jugador.getCodigoExclusivo() == jugadore.getCodigoExclusivo()) {
+                    jugadore.setPuntaje(jugadore.getPuntaje() + jugador.getPuntaje());
+                }
+            }
+        }
+
     }
 
     public Tablero getTablero() {

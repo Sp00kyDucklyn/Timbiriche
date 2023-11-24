@@ -8,6 +8,7 @@ import com.mycompany.dto.IniciarPartidaDTO;
 import com.mycompany.dto.JugadorDTO;
 import com.mycompany.dto.JugadoresDTO;
 import com.mycompany.dto.MovimientoDTO;
+import com.mycompany.dto.SalirseDTO;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -68,6 +69,10 @@ public class ClienteHilo extends Thread implements Observable{
                 if(object instanceof JugadorDTO){
                    JugadorDTO jugadordeteo = (JugadorDTO) object;
                    this.notificarObservers(jugadordeteo);
+                }
+                if(object instanceof SalirseDTO){
+                   SalirseDTO salirse = (SalirseDTO) object;
+                   this.notificarObservers(salirse);
                 }
             }
         } catch (IOException ex) {

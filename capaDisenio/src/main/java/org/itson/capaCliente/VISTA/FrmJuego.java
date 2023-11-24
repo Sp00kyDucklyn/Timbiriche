@@ -5,9 +5,11 @@
 package org.itson.capaCliente.VISTA;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorJuego;
 import org.itson.capaCliente.VISTAG.TableroGrafico;
@@ -65,7 +67,62 @@ public class FrmJuego extends javax.swing.JFrame {
     public void setListaJugadores(List<Jugador> jugadores){
         tablero.setJugadores(jugadores);
     }
+     public void MostrarJugadores() {
+        List<Jugador> jugadores = presentadorJ.getListaJugadores();
+        if (jugadores.isEmpty()) {
+            return;
+        }
 
+        for (int i = 0; i < jugadores.size(); i++) {
+            if (i == 0) {
+                lblJugador1.setText(jugadores.get(0).getNombre());
+                if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
+                    lblJugador1.setForeground(Color.red);
+                }else{
+                    lblJugador1.setForeground(Color.black);
+                }
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(0).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar1.setIcon(iconoRedimensionado);
+                lblPuntacion1.setText(String.valueOf(jugadores.get(i).getPuntaje()));
+            }
+            if (i == 1) {
+                if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
+                    lblJugador2.setForeground(Color.red);
+                }else{
+                    lblJugador2.setForeground(Color.black);
+                }
+                lblJugador2.setText(jugadores.get(1).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(1).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar2.getWidth(), lblAvatar2.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar2.setIcon(iconoRedimensionado);
+                lblPuntacion2.setText(String.valueOf(jugadores.get(i).getPuntaje()));
+            }
+            if (i == 2) {
+                if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
+                    lblJugador3.setForeground(Color.red);
+                }else{
+                    lblJugador3.setForeground(Color.black);
+                }
+                lblJugador3.setText(jugadores.get(2).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(2).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar3.getWidth(), lblAvatar3.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar3.setIcon(iconoRedimensionado);
+            }
+            if (i == 3) {
+                if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
+                    lblJugador4.setForeground(Color.red);
+                }else{
+                    lblJugador4.setForeground(Color.black);
+                }
+                lblJugador4.setText(jugadores.get(3).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(3).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar4.getWidth(), lblAvatar4.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar4.setIcon(iconoRedimensionado);
+            }
+        }
+        tablero.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,10 +133,26 @@ public class FrmJuego extends javax.swing.JFrame {
     private void initComponents() {
 
         ELPEPEpanel = new javax.swing.JPanel();
+        Fondo = new javax.swing.JLabel();
+        jugador3 = new javax.swing.JPanel();
+        lblAvatar3 = new javax.swing.JLabel();
+        lblPuntacion3 = new javax.swing.JLabel();
+        lblJugador3 = new javax.swing.JLabel();
+        jugador1 = new javax.swing.JPanel();
+        lblAvatar1 = new javax.swing.JLabel();
+        lblPuntacion1 = new javax.swing.JLabel();
+        lblJugador1 = new javax.swing.JLabel();
+        jugador2 = new javax.swing.JPanel();
+        lblAvatar2 = new javax.swing.JLabel();
+        lblPuntacion2 = new javax.swing.JLabel();
+        lblJugador2 = new javax.swing.JLabel();
+        jugador4 = new javax.swing.JPanel();
+        lblAvatar4 = new javax.swing.JLabel();
+        lblPuntacion4 = new javax.swing.JLabel();
+        lblJugador4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(682, 402));
-        setPreferredSize(new java.awt.Dimension(1200, 604));
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 formMouseMoved(evt);
@@ -119,7 +192,50 @@ public class FrmJuego extends javax.swing.JFrame {
             .addGap(0, 610, Short.MAX_VALUE)
         );
 
-        getContentPane().add(ELPEPEpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 690, 610));
+        getContentPane().add(ELPEPEpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 690, 610));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondo.gif"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 690, 610));
+
+        jugador3.setPreferredSize(new java.awt.Dimension(150, 200));
+        jugador3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAvatar3.setPreferredSize(new java.awt.Dimension(150, 150));
+        jugador3.add(lblAvatar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jugador3.add(lblPuntacion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 20));
+        jugador3.add(lblJugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 20));
+
+        getContentPane().add(jugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, -1));
+
+        jugador1.setPreferredSize(new java.awt.Dimension(150, 200));
+        jugador1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAvatar1.setPreferredSize(new java.awt.Dimension(150, 150));
+        jugador1.add(lblAvatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jugador1.add(lblPuntacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 20));
+        jugador1.add(lblJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 20));
+
+        getContentPane().add(jugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
+
+        jugador2.setPreferredSize(new java.awt.Dimension(150, 200));
+        jugador2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAvatar2.setPreferredSize(new java.awt.Dimension(150, 150));
+        jugador2.add(lblAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jugador2.add(lblPuntacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 20));
+        jugador2.add(lblJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 20));
+
+        getContentPane().add(jugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 150, -1));
+
+        jugador4.setPreferredSize(new java.awt.Dimension(150, 200));
+        jugador4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAvatar4.setPreferredSize(new java.awt.Dimension(150, 150));
+        jugador4.add(lblAvatar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jugador4.add(lblPuntacion4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 20));
+        jugador4.add(lblJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 20));
+
+        getContentPane().add(jugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 150, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -195,5 +311,22 @@ public class FrmJuego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ELPEPEpanel;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JPanel jugador1;
+    private javax.swing.JPanel jugador2;
+    private javax.swing.JPanel jugador3;
+    private javax.swing.JPanel jugador4;
+    private javax.swing.JLabel lblAvatar1;
+    private javax.swing.JLabel lblAvatar2;
+    private javax.swing.JLabel lblAvatar3;
+    private javax.swing.JLabel lblAvatar4;
+    private javax.swing.JLabel lblJugador1;
+    private javax.swing.JLabel lblJugador2;
+    private javax.swing.JLabel lblJugador3;
+    private javax.swing.JLabel lblJugador4;
+    private javax.swing.JLabel lblPuntacion1;
+    private javax.swing.JLabel lblPuntacion2;
+    private javax.swing.JLabel lblPuntacion3;
+    private javax.swing.JLabel lblPuntacion4;
     // End of variables declaration//GEN-END:variables
 }

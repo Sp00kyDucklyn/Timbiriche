@@ -31,7 +31,16 @@ public class LineaGrafica implements IFiguras{
         Punto puntoInicio = linea.getPuntoInicio();
         Punto puntoFin = linea.getPuntoFin();
         g2.setColor(color);
-        g2.drawLine(puntoInicio.getX(), puntoInicio.getY() , puntoFin.getX(), puntoFin.getY());     
+        if (linea.getPosicion()==Posicion.VERTICAL) {
+            g2.drawLine((puntoInicio.getX()-1), puntoInicio.getY() , (puntoFin.getX()-1),puntoFin.getY());    
+            g2.drawLine(puntoInicio.getX(), puntoInicio.getY() , puntoFin.getX(), puntoFin.getY());    
+            g2.drawLine((puntoInicio.getX()+1), puntoInicio.getY() , (puntoFin.getX()+1),puntoFin.getY());    
+        }else{
+            g2.drawLine(puntoInicio.getX(), (puntoInicio.getY()-1) , puntoFin.getX(),(puntoFin.getY()-1));    
+            g2.drawLine(puntoInicio.getX(), puntoInicio.getY() , puntoFin.getX(), puntoFin.getY());    
+            g2.drawLine(puntoInicio.getX(), (puntoInicio.getY()+1) , puntoFin.getX(),(puntoFin.getY()+1)); 
+        }
+        
         g2.setColor(Color.BLACK);
     }
 
@@ -47,10 +56,10 @@ public class LineaGrafica implements IFiguras{
         Punto puntoInicio = linea.getPuntoInicio();
         Punto puntoFin = linea.getPuntoFin();
         if(linea.getPosicion() == VERTICAL){
-            return new Rectangle(puntoInicio.getX(), puntoInicio.getY(), 5, (puntoFin.getY()-puntoInicio.getY()));
+            return new Rectangle((puntoInicio.getX()-3), puntoInicio.getY(), 7, (puntoFin.getY()-puntoInicio.getY()));
         }
         if(linea.getPosicion() == HORIZONTAL){
-            return new Rectangle(puntoInicio.getX(), puntoInicio.getY(), (puntoFin.getX()-puntoInicio.getX()), 5);
+            return new Rectangle(puntoInicio.getX(), (puntoInicio.getY()-3), (puntoFin.getX()-puntoInicio.getX()), 7);
         }
         return null;
     }
