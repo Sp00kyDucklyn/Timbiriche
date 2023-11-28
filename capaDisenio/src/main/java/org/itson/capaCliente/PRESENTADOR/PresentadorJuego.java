@@ -28,37 +28,18 @@ public class PresentadorJuego implements IPresentadorJuego, Observer{
     private FrmJuego vistaJuego;
     private IPresentadorSalaEspera presentadorS;
     private ModeloJuego modeloJ;
+    private IPresentadorSalaPuntaje presentadorSE;
 
     public PresentadorJuego(IPresentadorSalaEspera presentadorS) {
         vistaJuego = new FrmJuego(this);
         this.presentadorS = presentadorS;
         this.modeloJ = new ModeloJuego();
+        presentadorSE = new PresentadorSalaPuntaje(this);
     }
-    
 
     @Override
     public void colocaLinea(Linea linea, Jugador jugador) {
         modeloJ.colocarLinea(linea, jugador);
-    }
-
-    @Override
-    public void verificaCuadro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void agregaPuntaje() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void asignaTurnos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void iniciarPartida() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -154,6 +135,14 @@ public class PresentadorJuego implements IPresentadorJuego, Observer{
     @Override
     public void mostrarJugadores() {
         vistaJuego.MostrarJugadores();
+    }
+
+    @Override
+    public void terminarPartida() {
+        System.out.println("FIN SE ACABO");
+        presentadorSE.setListaJugadores(this.getListaJugadores());
+        presentadorSE.abrirPantalla();
+        vistaJuego.dispose();
     }
     
 }

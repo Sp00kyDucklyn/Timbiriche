@@ -4,17 +4,20 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import java.util.List;
+import org.itson.capadominio.Jugador;
+
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public interface IPresentadorSalaPuntaje {
     
     public void terminarPartida();
     
-    public void jugarOtraVez();
-    
     public void abrirPantalla();
     
+    public List<Jugador> regresarJugadores();
     
+    public void setListaJugadores(List<Jugador> jugadores);
 }

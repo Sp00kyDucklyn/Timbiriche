@@ -4,27 +4,29 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
+import java.util.List;
+import org.itson.capaCliente.MODELO.ModeloSalaPuntuacion;
 import org.itson.capaCliente.VISTA.FrmSalaPuntuacion;
+import org.itson.capadominio.Jugador;
 
 /**
  *
- * @author hoshi
+ * @author equipo 1
  */
 public class PresentadorSalaPuntaje implements IPresentadorSalaPuntaje{
     
     FrmSalaPuntuacion vistaS;
     IPresentadorJuego presentadorJ;
     IPresentadorMenuPrincipal presentadorM;
+    ModeloSalaPuntuacion modeloSP;
 
-    public PresentadorSalaPuntaje(IPresentadorJuego presentadorJ,IPresentadorMenuPrincipal presentadorM) {
+    public PresentadorSalaPuntaje(IPresentadorJuego presentadorJ) {
         this.presentadorJ = presentadorJ;
         this.presentadorM = presentadorM;
         vistaS = new FrmSalaPuntuacion(this);
+        modeloSP = new ModeloSalaPuntuacion();
     }
-    
-    
-    
-
+ 
     @Override
     public void terminarPartida() {
        presentadorM.abrirMenuVista();
@@ -32,14 +34,19 @@ public class PresentadorSalaPuntaje implements IPresentadorSalaPuntaje{
     }
 
     @Override
-    public void jugarOtraVez() {
-        presentadorJ.abrirPantalla();
-        vistaS.dispose();
-    }
-
-    @Override
     public void abrirPantalla() {
         vistaS.setVisible(true);
     }
+
+    @Override
+    public List<Jugador> regresarJugadores() {
+        return modeloSP.getJugadores();
+    }
+
+    @Override
+    public void setListaJugadores(List<Jugador> jugadores) {
+        modeloSP.setJugadores(jugadores);
+    }
+    
     
 }
