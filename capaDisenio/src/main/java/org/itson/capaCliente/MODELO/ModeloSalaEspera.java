@@ -54,7 +54,6 @@ public class ModeloSalaEspera {
                 jugadores.remove(jugadore);
             }
         }
-     
     }
 
     public void setJugadores(List<Jugador> jugadores) {

@@ -18,14 +18,6 @@ public interface IPresentadorJuego {
     
     public void colocaLinea(Linea linea, Jugador jugador);
     
-    public void verificaCuadro();
-    
-    public void agregaPuntaje();
-    
-    public void asignaTurnos();
-    
-    public void iniciarPartida();
-    
     public void abrirPantalla();
     
     public void recibirJugador(Jugador jugador);    
@@ -37,10 +29,16 @@ public interface IPresentadorJuego {
     public void crearPartida(int numero);
     
     public void setListaJugadores(List<Jugador> jugadores);
+    
     public List<Jugador> getListaJugadores();
+    
     public void pasarTurno();
+    
     public void mostrarJugadores();
+    
     public Jugador getJugadorTurno();
     
     public boolean esTurno();
+    
+    public void terminarPartida();
 }

@@ -163,7 +163,8 @@ public class TableroGrafico extends JPanel {
     }
 
     public void verificarCuadro(Jugador jugador) {
-        boolean reclamado = false;
+        
+        int recla = 0;
         for (IFiguras figurita : figuras.getFiguras()) {
             if (figurita instanceof CuadradoGrafico) {
                 CuadradoGrafico cuadroG = (CuadradoGrafico) figurita;
@@ -172,18 +173,29 @@ public class TableroGrafico extends JPanel {
                     jugador.setPuntaje(50);
                     cuadro.setEstado(RECLAMADO);
                     cuadroG.setLetra(jugador.getNombre().substring(0, 1).toUpperCase());
-                    reclamado = true;
-                }
-            }
-        }
-        if (reclamado) {
-            for (Jugador jugadore : jugadores) {
-                if (jugador.getCodigoExclusivo() == jugadore.getCodigoExclusivo()) {
-                    jugadore.setPuntaje(jugadore.getPuntaje() + jugador.getPuntaje());
+
+                    recla++;
                 }
             }
         }
 
+        for (int i = 0; i < recla; i++) {
+            for (Jugador jugadorEncontrado : jugadores) {
+                if (jugador.getCodigoExclusivo() == jugadorEncontrado.getCodigoExclusivo()) {
+
+                    jugadorEncontrado.setPuntaje(jugadorEncontrado.getPuntaje() + jugador.getPuntaje());
+
+                }
+            }
+        }
+//          if(this.verificarReclamado()){
+//              
+//          }
+
+    }
+    
+    public void verificarReclamado(){
+        
     }
 
     public Tablero getTablero() {

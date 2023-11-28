@@ -40,7 +40,7 @@ public class LineaGrafica implements IFiguras{
             g2.drawLine(puntoInicio.getX(), puntoInicio.getY() , puntoFin.getX(), puntoFin.getY());    
             g2.drawLine(puntoInicio.getX(), (puntoInicio.getY()+1) , puntoFin.getX(),(puntoFin.getY()+1)); 
         }
-        
+//        g2.drawLine(puntoInicio.getX(), puntoInicio.getY() , puntoFin.getX(), puntoFin.getY());    
         g2.setColor(Color.BLACK);
     }
 
