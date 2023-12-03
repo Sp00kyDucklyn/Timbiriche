@@ -20,24 +20,26 @@ import org.itson.capadominio.Partida;
  */
 public class FrmAjustes extends javax.swing.JFrame {
 
+    private String color; // Color seleccionado (no utilizado en el código proporcionado)
+
+    private String[] imagenes; // Arreglo de nombres de archivos de imágenes en el directorio /avatares
+    private IPresentadorAjustes presentadorA; // Referencia al presentador de ajustes asociado
+
+    private int posicion = 0; // Índice actual en el arreglo de imágenes
+    private String imagen = null; // Nombre del archivo de imagen actualmente seleccionado
+    private String imagenSeleccionada = null; // Imagen seleccionada (no utilizado en el código proporcionado)
+
+
     /**
-     * Creates new form FrmAjustes
+     * Constructor de la clase FrmAjustes.
+     * @param presentadorA Referencia al presentador de ajustes asociado.
      */
-    private String color;
-
-    private String[] imagenes;
-    IPresentadorAjustes presentadorA;
-
     public FrmAjustes(IPresentadorAjustes presentadorA) {
         initComponents();
         mostrar(posicion);
         imagenes = obtenerImg();
         this.presentadorA = presentadorA;
     }
-    private int posicion = 0;
-    //Esto cambiara a uno de tipo jugador, que va a estar guardando el avatar
-    private String imagen = null;
-    private String imagenSeleccionada = null;
 
 //    public void mostrarTablero() {
 //        Partida partida = presentadorA.regresarPartida();
@@ -46,12 +48,20 @@ public class FrmAjustes extends javax.swing.JFrame {
 //        }
 //    }
 
+   /**
+     * Método para obtener la lista de nombres de archivos de imágenes en el directorio /avatares.
+     * @return Arreglo de nombres de archivos de imágenes.
+     */
     public String[] obtenerImg() {
         File f = new File(getClass().getResource("/avatares").getFile());
         String[] Imagenes = f.list();
         return Imagenes;
     }
 
+    /**
+     * Método para mostrar una imagen en el formulario según el índice proporcionado.
+     * @param index Índice de la imagen en el arreglo de imágenes.
+     */
     public void mostrar(int index) {
         String[] Imagen = obtenerImg();
         imagen = Imagen[index];
@@ -60,6 +70,9 @@ public class FrmAjustes extends javax.swing.JFrame {
         lblImagen.setIcon(new ImageIcon(image));
     }
 
+    /**
+     * Método para mover a la siguiente imagen en la lista.
+     */
     public void moverAbajo() {
         new Thread();
         try {
@@ -76,6 +89,10 @@ public class FrmAjustes extends javax.swing.JFrame {
             mostrar(posicion);
         }
     }
+
+    /**
+     * Método para mover a la imagen anterior en la lista.
+     */
 
     public void moverArriba() {
         new Thread();
@@ -222,16 +239,34 @@ public class FrmAjustes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método invocado al presionar el botón de retorno.
+     * Notifica al presentador de ajustes para regresar a la pantalla de creación de sala.
+     * 
+     * @param evt Evento de acción generado al presionar el botón de retorno.
+     */
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
         presentadorA.btnRegresarCrearSala();
     }//GEN-LAST:event_btnReturnActionPerformed
 
+    /**
+     * Método invocado al presionar el botón de flecha abajo.
+     * Realiza la navegación hacia abajo en la lista de avatares.
+     * 
+     * @param evt Evento del mouse al presionar el botón de flecha abajo.
+     */
     private void btnFlechaAbajoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFlechaAbajoMousePressed
         // TODO add your handling code here:
         moverAbajo();
     }//GEN-LAST:event_btnFlechaAbajoMousePressed
 
+    /**
+     * Método invocado al presionar una tecla mientras el botón de flecha abajo tiene el foco.
+     * Realiza la navegación hacia abajo o arriba en la lista de avatares según la tecla presionada.
+     * 
+     * @param evt Evento del teclado al presionar una tecla mientras el botón de flecha abajo tiene el foco.
+     */
     private void btnFlechaAbajoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnFlechaAbajoKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -241,6 +276,12 @@ public class FrmAjustes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnFlechaAbajoKeyPressed
 
+    /**
+     * Método invocado al presionar el botón de selección.
+     * Gestiona la selección y deselección de un avatar.
+     * 
+     * @param evt Evento de acción generado al presionar el botón de selección.
+     */
     private void btnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionActionPerformed
         // TODO add your handling code here:
         if (imagenSeleccionada != null) {
@@ -252,6 +293,12 @@ public class FrmAjustes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSeleccionActionPerformed
 
+     /**
+     * Método invocado al presionar el botón de siguiente.
+     * Verifica si se ha seleccionado un avatar y notifica al presentador de ajustes para crear al jugador.
+     * 
+     * @param evt Evento de acción generado al presionar el botón de siguiente.
+     */
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
         // Verificar si se ha seleccionado un avatar
         if (imagenSeleccionada == null) {
@@ -264,6 +311,12 @@ public class FrmAjustes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
+     /**
+     * Método invocado al seleccionar el checkbox de color rojo.
+     * Configura el color del jugador y gestiona la habilitación/deshabilitación de otros colores.
+     * 
+     * @param evt Evento de acción generado al seleccionar el checkbox de color rojo.
+     */
     private void checkRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRojoActionPerformed
         if (checkRojo.isSelected()) {
             checkAzul.setEnabled(false);
@@ -277,6 +330,10 @@ public class FrmAjustes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkRojoActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void checkAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAzulActionPerformed
         if (checkAzul.isSelected()) {
             checkRojo.setEnabled(false);
@@ -290,6 +347,12 @@ public class FrmAjustes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkAzulActionPerformed
 
+    /**
+     * Método invocado al seleccionar el checkbox de color verde.
+     * Configura el color del jugador y gestiona la habilitación/deshabilitación de otros colores.
+     * 
+     * @param evt Evento de acción generado al seleccionar el checkbox de color verde.
+     */
     private void checkMoradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMoradoActionPerformed
         if (checkMorado.isSelected()) {
             checkAzul.setEnabled(false);
@@ -303,6 +366,10 @@ public class FrmAjustes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkMoradoActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void checkVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVerdeActionPerformed
         if (checkVerde.isSelected()) {
             checkAzul.setEnabled(false);
@@ -316,6 +383,10 @@ public class FrmAjustes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkVerdeActionPerformed
 
+    /**
+     * Método para obtener el nombre del archivo de imagen seleccionado.
+     * @return Nombre del archivo de imagen seleccionado.
+     */
     public String getImagenSeleccionada() {
         return imagen;
     }
@@ -354,6 +425,9 @@ public class FrmAjustes extends javax.swing.JFrame {
 //        });
 //    }
 
+    /**
+     * 
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ColorRojo;
     private javax.swing.JButton btnFlechaAbajo;

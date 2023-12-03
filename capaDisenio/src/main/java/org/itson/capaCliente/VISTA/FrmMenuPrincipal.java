@@ -13,19 +13,29 @@ import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorMenuPrincipal;
 
 /**
+ * Clase FrmMenuPrincipal: Representa el formulario principal de la aplicación.
+ * Permite la interacción con las opciones del menú, como crear o unirse a una sala.
+ * La clase está diseñada para ser utilizada en conjunto con un presentador de menú (IPresentadorMenuPrincipal).
  *
  * @author equipo 1
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmMenuPrincipal
-     */
+    // Variable para almacenar el fondo del menú
     FondoMenu fondo = new FondoMenu();
+    // Variable para almacenar el presentador de menú
     IPresentadorMenuPrincipal presentadorM;
 
+    /**
+     * Constructor de la clase FrmMenuPrincipal.
+     * Inicializa los componentes de la interfaz gráfica, configura el fondo y el presentador de menú.
+     * 
+     * @param presentadorM Implementación de la interfaz IPresentadorMenuPrincipal que manejará la lógica del menú.
+     */
     public FrmMenuPrincipal(IPresentadorMenuPrincipal presentadorM) {
         initComponents();
+        // Configurar el fondo del menú
+        setContentPane(fondo);
         this.presentadorM = presentadorM;
     }
     
@@ -242,6 +252,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 //        });
 //    }
 
+    /**
+     * 
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel1;
     private javax.swing.JPanel PanelBotones;

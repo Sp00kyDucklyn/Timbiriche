@@ -18,56 +18,82 @@ import org.itson.capadominio.Linea;
 import org.itson.capadominio.Tablero;
 
 /**
+ * Clase FrmJuego: Representa un formulario para la visualización y manipulación
+ * del juego en una interfaz gráfica. Permite mostrar el tablero, las líneas
+ * colocadas por los jugadores y la información de los jugadores en tiempo real.
+ * Implementa la lógica de interacción con la interfaz gráfica y el manejo de
+ * eventos. La clase está diseñada para ser utilizada en conjunto con un
+ * presentador de juego (IPresentadorJuego).
  *
  * @author equipo 1
  */
 public class FrmJuego extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmJuego
-     */
+    // Variables para almacenar el tablero gráfico y el presentador de juego
     TableroGrafico tablero;
     IPresentadorJuego presentadorJ;
-    
+
+    /**
+     * Constructor de la clase FrmJuego. Inicializa los componentes de la
+     * interfaz gráfica y configura el tablero gráfico y el presentador de
+     * juego.
+     *
+     * @param presentadorJ Implementación de la interfaz IPresentadorJuego que
+     * manejará la lógica del juego.
+     */
     public FrmJuego(IPresentadorJuego presentadorJ) {
         this.presentadorJ = presentadorJ;
         tablero = new TableroGrafico(new Tablero());
         initComponents();
-        
+
+        // Configurar el tablero gráfico
         ELPEPEpanel.add(tablero);
-        tablero.setBackground(new Color(153,204,255));
+        tablero.setBackground(new Color(153, 204, 255));
         tablero.setSize(ELPEPEpanel.getSize());
-//        this.setContentPane(tablero);
-//        this.setContentPane(jPanel1);
-        
-//        tablero.setActionMap(jPanel1.getActionMap());
-//        this.jPanel1.add(tablero);
-//        this.tablero.setVisible(true);
-//        this.repaint();
     }
-    
-    public void tableroPanel(){
-        System.out.println("loq sea");
-    }
-    
+
+    /**
+     * Método para establecer el jugador activo en el tablero gráfico.
+     *
+     * @param jugador Jugador activo a establecer en el tablero gráfico.
+     */
     public void setJugador(Jugador jugador) {
         tablero.setJugador(jugador);
     }
 
+    /**
+     * Método para enviar el tablero al tablero gráfico.
+     */
     public void mandarTablero() {
         Tablero tablerito = presentadorJ.regresarTablero();
         tablero.setTablero(tablerito);
         tablero.crearTableroGrafico();
     }
 
-    public void colocarLinea(Linea linea, Jugador jugador){
+    /**
+     * Método para colocar una línea en el tablero gráfico.
+     *
+     * @param linea Línea a colocar.
+     * @param jugador Jugador que colocó la línea.
+     */
+    public void colocarLinea(Linea linea, Jugador jugador) {
         tablero.colocarLinea(linea, jugador);
     }
-    
-    public void setListaJugadores(List<Jugador> jugadores){
+
+    /**
+     * Método para establecer la lista de jugadores en el tablero gráfico.
+     *
+     * @param jugadores Lista de jugadores a establecer en el tablero gráfico.
+     */
+    public void setListaJugadores(List<Jugador> jugadores) {
         tablero.setJugadores(jugadores);
     }
-     public void MostrarJugadores() {
+
+    /**
+     * Método para mostrar la información de los jugadores en la interfaz
+     * gráfica.
+     */
+    public void MostrarJugadores() {
         List<Jugador> jugadores = presentadorJ.getListaJugadores();
         if (jugadores.isEmpty()) {
             return;
@@ -75,10 +101,10 @@ public class FrmJuego extends javax.swing.JFrame {
 
         for (int i = 0; i < jugadores.size(); i++) {
             if (i == 0) {
-                lblJugador1.setText(jugadores.get(0).getNombre()+":"+jugadores.get(i).getCodigoExclusivo());
-                if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
+                lblJugador1.setText(jugadores.get(0).getNombre() + ":" + jugadores.get(i).getCodigoExclusivo());
+                if (presentadorJ.getJugadorTurno().getCodigoExclusivo() == jugadores.get(i).getCodigoExclusivo()) {
                     lblJugador1.setForeground(Color.red);
-                }else{
+                } else {
                     lblJugador1.setForeground(Color.black);
                 }
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(0).getAvatar()));
@@ -87,36 +113,36 @@ public class FrmJuego extends javax.swing.JFrame {
                 lblPuntacion1.setText(String.valueOf(jugadores.get(i).getPuntaje()));
             }
             if (i == 1) {
-                if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
+                if (presentadorJ.getJugadorTurno().getCodigoExclusivo() == jugadores.get(i).getCodigoExclusivo()) {
                     lblJugador2.setForeground(Color.red);
-                }else{
+                } else {
                     lblJugador2.setForeground(Color.black);
                 }
-                lblJugador2.setText(jugadores.get(1).getNombre()+":"+jugadores.get(i).getCodigoExclusivo());
+                lblJugador2.setText(jugadores.get(1).getNombre() + ":" + jugadores.get(i).getCodigoExclusivo());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(1).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar2.getWidth(), lblAvatar2.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar2.setIcon(iconoRedimensionado);
                 lblPuntacion2.setText(String.valueOf(jugadores.get(i).getPuntaje()));
             }
             if (i == 2) {
-                if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
+                if (presentadorJ.getJugadorTurno().getCodigoExclusivo() == jugadores.get(i).getCodigoExclusivo()) {
                     lblJugador3.setForeground(Color.red);
-                }else{
+                } else {
                     lblJugador3.setForeground(Color.black);
                 }
-                lblJugador3.setText(jugadores.get(2).getNombre()+":"+jugadores.get(i).getCodigoExclusivo());
+                lblJugador3.setText(jugadores.get(2).getNombre() + ":" + jugadores.get(i).getCodigoExclusivo());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(2).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar3.getWidth(), lblAvatar3.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar3.setIcon(iconoRedimensionado);
                 lblPuntacion3.setText(String.valueOf(jugadores.get(i).getPuntaje()));
             }
             if (i == 3) {
-                if (presentadorJ.getJugadorTurno().getCodigoExclusivo()==jugadores.get(i).getCodigoExclusivo()) {
+                if (presentadorJ.getJugadorTurno().getCodigoExclusivo() == jugadores.get(i).getCodigoExclusivo()) {
                     lblJugador4.setForeground(Color.red);
-                }else{
+                } else {
                     lblJugador4.setForeground(Color.black);
                 }
-                lblJugador4.setText(jugadores.get(3).getNombre()+":"+jugadores.get(i).getCodigoExclusivo());
+                lblJugador4.setText(jugadores.get(3).getNombre() + ":" + jugadores.get(i).getCodigoExclusivo());
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(3).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar4.getWidth(), lblAvatar4.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar4.setIcon(iconoRedimensionado);
@@ -125,6 +151,7 @@ public class FrmJuego extends javax.swing.JFrame {
         }
         tablero.repaint();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -240,20 +267,36 @@ public class FrmJuego extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     */
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_formMousePressed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_formMouseMoved
 
+    /**
+     * 
+     * @param evt 
+     */
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_formMouseClicked
 
+    /**
+     * 
+     * @param evt 
+     */
     private void ELPEPEpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELPEPEpanelMousePressed
         // TODO add your handling code here:
         if (presentadorJ.esTurno()) {
@@ -261,11 +304,15 @@ public class FrmJuego extends javax.swing.JFrame {
             if (linea != null) {
                 presentadorJ.colocaLinea(linea, tablero.getJugador());
             }
-        }else{
+        } else {
             System.out.println("NO usted no va a jugar");
         }
     }//GEN-LAST:event_ELPEPEpanelMousePressed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void ELPEPEpanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ELPEPEpanelMouseMoved
         // TODO add your handling code here:
         tablero.pintarLineaPanthom(evt);
@@ -309,6 +356,9 @@ public class FrmJuego extends javax.swing.JFrame {
 //        });
 //    }
 
+    /**
+     * 
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ELPEPEpanel;
     private javax.swing.JLabel Fondo;

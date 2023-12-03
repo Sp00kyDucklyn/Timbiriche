@@ -20,6 +20,8 @@ import org.itson.capadominio.Linea;
 import org.itson.capadominio.Tablero;
 
 /**
+ * Clase TableroGrafico: Representa gráficamente el tablero de juego. Extiende
+ * JPanel y maneja la lógica de pintado y eventos del tablero.
  *
  * @author equipo 1
  */
@@ -30,19 +32,34 @@ public class TableroGrafico extends JPanel {
     private Jugador jugador;
     private Tablero tablero;
 
+    /**
+     * Método paintComponent: Sobrescrito de JPanel para realizar el pintado de
+     * las figuras.
+     *
+     * @param g Objeto Graphics para realizar el pintado.
+     */
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g); //To change body of generated methods, choose Tools | Templates.
+        super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         pintarFiguras(g2);
     }
 
+    /**
+     * Constructor de la clase TableroGrafico.
+     *
+     * @param tablero Tablero asociado al juego.
+     */
     public TableroGrafico(Tablero tablero) {
         jugadores = new ArrayList<>();
         figuras = new FigurasGraficas();
-
+        this.tablero = tablero;
     }
 
+    /**
+     * Método crearTableroGrafico: Crea las figuras gráficas basadas en el
+     * tablero del juego.
+     */
     public void crearTableroGrafico() {
         if (this.getTablero() != null) {
             int margen = 0;
@@ -75,10 +92,20 @@ public class TableroGrafico extends JPanel {
         }
     }
 
+    /**
+     * Pinta las figuras gráficas en el contexto gráfico proporcionado.
+     *
+     * @param g2 Contexto gráfico en el que se pintarán las figuras.
+     */
     public void pintarFiguras(Graphics2D g2) {
         figuras.pintar(g2);
     }
 
+    /**
+     * Pinta una línea de color rosa cuando se pasa sobre ella con el ratón.
+     *
+     * @param evt Evento del ratón que desencadena la acción.
+     */
     public void pintarLineaPanthom(MouseEvent evt) {
         boolean linea = false;
         for (IFiguras figura : figuras.getFiguras()) {
@@ -103,6 +130,13 @@ public class TableroGrafico extends JPanel {
         }
     }
 
+    /**
+     * Verifica y devuelve una línea en la posición del evento del ratón.
+     *
+     * @param evt Evento del ratón que desencadena la acción.
+     * @return Línea encontrada en la posición del evento o null si no se
+     * encuentra.
+     */
     public Linea verificarLinea(MouseEvent evt) {
         boolean linea = false;
         for (IFiguras figura : figuras.getFiguras()) {
@@ -112,18 +146,21 @@ public class TableroGrafico extends JPanel {
                     if (lineaG.getLinea().getJugador() == null) {
                         if (!linea) {
                             linea = true;
-//                             colocarLinea(lineaG.getLinea(),jugador);
                             return lineaG.getLinea();
                         }
                     }
-                } else {
-
                 }
             }
         }
         return null;
     }
 
+    /**
+     * Coloca una línea en el tablero y actualiza la información del jugador.
+     *
+     * @param linea Línea a colocar en el tablero.
+     * @param jugador Jugador asociado a la línea.
+     */
     public void colocarLinea(Linea linea, Jugador jugador) {
         for (IFiguras figura : figuras.getFiguras()) {
             if (figura instanceof LineaGrafica) {
@@ -144,6 +181,13 @@ public class TableroGrafico extends JPanel {
         }
     }
 
+    /**
+     * Valida si dos líneas son iguales comparando sus puntos de inicio y fin.
+     *
+     * @param lineaA Primera línea a comparar.
+     * @param lineaB Segunda línea a comparar.
+     * @return true si las líneas son iguales, false en caso contrario.
+     */
     public boolean validarLinea(Linea lineaA, Linea lineaB) {
         int x1 = lineaA.getPuntoInicio().getX();
         int x2 = lineaA.getPuntoFin().getX();
@@ -155,15 +199,16 @@ public class TableroGrafico extends JPanel {
         int y3 = lineaB.getPuntoInicio().getY();
         int y4 = lineaB.getPuntoFin().getY();
 
-        if (x1 == x3 && y1 == y3 && x2 == x4 && y2 == y4) {
-            return true;
-        }
-
-        return false;
+        return (x1 == x3 && y1 == y3 && x2 == x4 && y2 == y4);
     }
 
+    /**
+     * Verifica si se ha completado un cuadro en el tablero y actualiza la
+     * puntuación del jugador.
+     *
+     * @param jugador Jugador cuya puntuación se actualiza.
+     */
     public void verificarCuadro(Jugador jugador) {
-        
         int recla = 0;
         for (IFiguras figurita : figuras.getFiguras()) {
             if (figurita instanceof CuadradoGrafico) {
@@ -173,7 +218,6 @@ public class TableroGrafico extends JPanel {
                     jugador.setPuntaje(50);
                     cuadro.setEstado(RECLAMADO);
                     cuadroG.setLetra(jugador.getNombre().substring(0, 1).toUpperCase());
-
                     recla++;
                 }
             }
@@ -182,43 +226,72 @@ public class TableroGrafico extends JPanel {
         for (int i = 0; i < recla; i++) {
             for (Jugador jugadorEncontrado : jugadores) {
                 if (jugador.getCodigoExclusivo() == jugadorEncontrado.getCodigoExclusivo()) {
-
                     jugadorEncontrado.setPuntaje(jugadorEncontrado.getPuntaje() + jugador.getPuntaje());
-
                 }
             }
         }
-//          if(this.verificarReclamado()){
-//              
-//          }
-
-    }
-    
-    public void verificarReclamado(){
-        
     }
 
+    /**
+     * Verifica si algún cuadro ha sido reclamado en el tablero.
+     */
+    public void verificarReclamado() {
+        // Implementación de la lógica para verificar si algún cuadro ha sido reclamado
+        // y realizar las acciones correspondientes.
+    }
+
+    /**
+     * Obtiene el objeto Tablero asociado a la instancia.
+     *
+     * @return Objeto Tablero asociado.
+     */
     public Tablero getTablero() {
         return tablero;
     }
 
+    /**
+     * Establece el objeto Tablero asociado a la instancia.
+     *
+     * @param tablero Nuevo objeto Tablero a asociar.
+     */
     public void setTablero(Tablero tablero) {
         this.tablero = tablero;
     }
 
+    /**
+     * Obtiene la lista de jugadores asociada a la instancia.
+     *
+     * @return Lista de jugadores asociada.
+     */
     public List<Jugador> getJugadores() {
         return jugadores;
     }
 
+    /**
+     * Establece la lista de jugadores asociada a la instancia.
+     *
+     * @param jugadores Nueva lista de jugadores a asociar.
+     */
     public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
 
+    /**
+     * Obtiene el objeto Jugador asociado a la instancia.
+     *
+     * @return Objeto Jugador asociado.
+     */
     public Jugador getJugador() {
         return jugador;
     }
 
+    /**
+     * Establece el objeto Jugador asociado a la instancia.
+     *
+     * @param jugador Nuevo objeto Jugador a asociar.
+     */
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
+
 }

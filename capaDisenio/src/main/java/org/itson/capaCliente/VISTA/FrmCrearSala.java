@@ -16,10 +16,19 @@ public class FrmCrearSala extends javax.swing.JFrame {
     /**
      * Creates new form FrmCrearSala
      */
-    IPresentadorCrearSala presentadorC;
-    
+     // Variable para almacenar el presentador de creación de sala
+    private IPresentadorCrearSala presentadorC;
+
+    /**
+     * Constructor de la clase FrmCrearSala.
+     * Inicializa los componentes de la interfaz gráfica y configura el presentador de creación de sala.
+     * 
+     * @param presentadorC Implementación de la interfaz IPresentadorCrearSala que manejará la lógica de creación de sala.
+     */
     public FrmCrearSala(IPresentadorCrearSala presentadorC) {
         initComponents();
+        
+        // Configurar el presentador de creación de sala
         this.presentadorC = presentadorC;
     }
 
@@ -92,20 +101,36 @@ public class FrmCrearSala extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
         presentadorC.regresarMenu();
     }//GEN-LAST:event_btnReturnActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void cmbJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbJugadoresActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_cmbJugadoresActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnCrearPartidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPartidaMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCrearPartidaMouseEntered
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnCrearPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPartidaActionPerformed
 //        presentadorC.crearCodigo();
         String selectedString = (String) cmbJugadores.getSelectedItem();
@@ -113,9 +138,7 @@ public class FrmCrearSala extends javax.swing.JFrame {
         presentadorC.crearPartida(selectedInt);
     }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -148,6 +171,9 @@ public class FrmCrearSala extends javax.swing.JFrame {
 //        });
 //    }
 
+    /**
+     * 
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearPartida;
     private javax.swing.JButton btnReturn;

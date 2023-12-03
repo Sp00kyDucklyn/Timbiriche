@@ -9,25 +9,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Clase FigurasGraficas: Representa un contenedor para una lista de figuras gráficas.
+ * Implementa la interfaz IFiguras para permitir el pintado gráfico.
+ * 
  * @author equipo 1
  */
-public class FigurasGraficas implements IFiguras{
-    
-    private List <IFiguras> figuras;
+public class FigurasGraficas implements IFiguras {
 
+    private List<IFiguras> figuras;  // Lista de figuras gráficas
+
+    /**
+     * Constructor de la clase FigurasGraficas.
+     */
     public FigurasGraficas() {
         figuras = new ArrayList<>();
     }
-    
-    public void agregarLista(IFiguras figura){
+
+    /**
+     * Agrega una figura a la lista de figuras.
+     * 
+     * @param figura Figura que se agregará a la lista.
+     */
+    public void agregarLista(IFiguras figura) {
         figuras.add(figura);
     }
-    
-    public void eliminarLista(IFiguras figura){
+
+    /**
+     * Elimina una figura de la lista de figuras.
+     * 
+     * @param figura Figura que se eliminará de la lista.
+     */
+    public void eliminarLista(IFiguras figura) {
         figuras.remove(figura);
     }
-    
+
+    /**
+     * Pinta todas las figuras en la lista en un contexto gráfico (Graphics2D).
+     * 
+     * @param g2 Contexto gráfico en el que se pintarán las figuras.
+     */
     @Override
     public void pintar(Graphics2D g2) {
         for (IFiguras figura : figuras) {
@@ -35,12 +55,21 @@ public class FigurasGraficas implements IFiguras{
         }
     }
 
-    public List <IFiguras> getFiguras() {
+    // Métodos getters y setters para acceder a las propiedades de la clase
+
+    /**
+     * 
+     * @return 
+     */
+    public List<IFiguras> getFiguras() {
         return figuras;
     }
 
-    public void setFiguras(List <IFiguras> figuras) {
+    /**
+     * 
+     * @param figuras 
+     */
+    public void setFiguras(List<IFiguras> figuras) {
         this.figuras = figuras;
     }
-    
 }

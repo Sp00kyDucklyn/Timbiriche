@@ -13,30 +13,31 @@ import org.itson.capadominio.Jugador;
 import org.itson.capadominio.Partida;
 
 /**
- *
- * @author equipo 1
+ * Clase FrmSalaEspera: Representa la interfaz gráfica de la sala de espera, donde se muestran
+ * los jugadores que han ingresado a la sala antes de que comience la partida.
+ * La clase está diseñada para ser utilizada en conjunto con un presentador de sala de espera (IPresentadorSalaEspera).
+ * 
+ * @author [Nombre del equipo o autor]
  */
 public class FrmSalaEspera extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmSalaJugadores
-     */
+    // Variable para almacenar el presentador de sala de espera
     private IPresentadorSalaEspera presentadorS;
 
+    /**
+     * Constructor de la clase FrmSalaEspera.
+     * Inicializa los componentes de la interfaz gráfica, configura el presentador de sala de espera.
+     * 
+     * @param presentadorS Implementación de la interfaz IPresentadorSalaEspera que manejará la lógica de la sala de espera.
+     */
     public FrmSalaEspera(IPresentadorSalaEspera presentadorS) {
         initComponents();
         this.presentadorS = presentadorS;
-//        imagenSeleccionada = ajustes.getImagenSeleccionada();
-//        if (imagenSeleccionada != null) {
-//            lblJugador1.setIcon(imagenSeleccionada); // Asegúrate de que lbl esté configurado correctamente
-//        }
-//        System.out.println(imagenSeleccionada);
     }
 
-//    public void mandarPartida() {
-//        Partida partida = presentadorS.regresarPartida();
-//    }
-
+    /**
+     * Actualiza la interfaz gráfica mostrando la información de los jugadores en la sala de espera.
+     */
     public void MostrarJugador() {
         List<Jugador> jugadores = presentadorS.regresarJugadores();
         if (jugadores.isEmpty()) {
@@ -231,19 +232,24 @@ public class FrmSalaEspera extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
         presentadorS.abrirPantallaAnterior();
     }//GEN-LAST:event_btnReturnActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void botonseguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonseguirActionPerformed
 
         presentadorS.abrirPantallaJuego();
     }//GEN-LAST:event_botonseguirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -276,6 +282,9 @@ public class FrmSalaEspera extends javax.swing.JFrame {
 //        });
 //    }
 
+    /**
+     * 
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonseguir;
     private javax.swing.JButton btnReturn;

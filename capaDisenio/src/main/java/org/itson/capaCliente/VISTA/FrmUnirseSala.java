@@ -8,20 +8,26 @@ import org.itson.capaCliente.PRESENTADOR.IPresentadorMenuPrincipal;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorUnirseSala;
 
 /**
- *
+ * Clase FrmUnirseSala: Representa la interfaz gráfica para unirse a una sala existente.
+ * La clase está diseñada para ser utilizada en conjunto con un presentador de unirse a sala (IPresentadorUnirseSala).
+ * 
  * @author equipo 1
  */
 public class FrmUnirseSala extends javax.swing.JFrame {
 
+    // Variable para almacenar el presentador de unirse a sala
+    private IPresentadorUnirseSala presentadorS;
+
     /**
-     * Creates new form FrmUnirseSala
+     * Constructor de la clase FrmUnirseSala.
+     * Inicializa los componentes de la interfaz gráfica y configura el presentador de unirse a sala.
+     * 
+     * @param presentadorS Implementación de la interfaz IPresentadorUnirseSala que manejará la lógica para unirse a sala.
      */
-    IPresentadorUnirseSala presentadorS;
     public FrmUnirseSala(IPresentadorUnirseSala presentadorS) {
         initComponents();
         this.presentadorS = presentadorS;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,19 +80,25 @@ public class FrmUnirseSala extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
         presentadorS.regresarMenu();
     }//GEN-LAST:event_btnReturnActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         presentadorS.seleccionSigAjustes();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+  
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -24,6 +24,9 @@ import org.itson.capadominio.Punto;
 import org.itson.capadominio.Tablero;
 
 /**
+ * La clase ModeloJuego representa el modelo asociado al desarrollo del juego.
+ * Gestiona la información sobre los jugadores, la partida, el turno actual y las acciones relacionadas con el juego.
+ * También proporciona métodos para transformar objetos del modelo a objetos de transferencia de datos (DTO) y viceversa.
  *
  * @author equipo 1
  */
@@ -34,19 +37,34 @@ public class ModeloJuego {
     private int turno;
     private int numMAXJugadores =0;
     
+    /**
+     * Constructor de la clase
+     */
     public ModeloJuego( ) {
         jugadores = new ArrayList<>();
         this.turno=0;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public Jugador getJugador() {
         return jugador;
     }
      
+    /**
+     * 
+     * @return 
+     */
     public Jugador getJugadorTurno(){   
       return jugadores.get(turno);
     }
     
+    /**
+     * 
+     * @return 
+     */
     public boolean esTurno(){
         
        if(jugador.getCodigoExclusivo() == this.getJugadorTurno().getCodigoExclusivo()){
@@ -55,61 +73,117 @@ public class ModeloJuego {
        return false;
     }
     
+    /**
+     * 
+     * @param jugador 
+     */
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public Tablero getTablero() {
         return partida.getTablero();
     }
 
+    /**
+     * 
+     * @param tablero 
+     */
     public void setTablero(Tablero tablero) {
         partida.setTablero(tablero);
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public Partida getPartida() {
         return partida;
     }
 
+    /**
+     * 
+     * @param partida 
+     */
     public void setPartida(Partida partida) {
         this.partida = partida;
     }
     
+    /**
+     * 
+     * @param numero 
+     */
     public void crearPartida(int numero){
         this.partida = new Partida(numero);
         this.setNumMAXJugadores(numero);
     }
     
+    /**
+     * 
+     */
     public void pasarTurno(){
       turno++;
       if(turno == numMAXJugadores){
           turno = 0;
       }  
     }
+    
+    /**
+     * 
+     * @return 
+     */
     public List<Jugador> getJugadores() {
         return jugadores;
     }
 
+    /**
+     * 
+     * @param jugadores 
+     */
     public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public int getTurno() {
         return turno;
     }
 
+    /**
+     * 
+     * @param turno 
+     */
     public void setTurno(int turno) {
         this.turno = turno;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public int getNumMAXJugadores() {
         return numMAXJugadores;
     }
 
+    /**
+     * 
+     * @param numMAXJugadores 
+     */
     public void setNumMAXJugadores(int numMAXJugadores) {
         this.numMAXJugadores = numMAXJugadores;
     }
     
+    /**
+     * 
+     * @param linea
+     * @param jugador 
+     */
     public void colocarLinea(Linea linea, Jugador jugador) {
         System.out.println(jugador + "Tilin");
         Cliente cliente = Cliente.getInstance();
@@ -125,6 +199,11 @@ public class ModeloJuego {
         }
     }
 
+    /**
+     * 
+     * @param linea
+     * @return 
+     */
     public LineaDTO transformarLinea(Linea linea) {
         PuntoDTO puntoInicio = new PuntoDTO(linea.getPuntoInicio().getX(), linea.getPuntoInicio().getY());
         PuntoDTO puntoFin = new PuntoDTO(linea.getPuntoFin().getX(), linea.getPuntoFin().getY());
@@ -140,6 +219,11 @@ public class ModeloJuego {
         return lineaDTO;
     }
 
+    /**
+     * 
+     * @param jugador
+     * @return 
+     */
     public JugadorDTO transformarJugador(Jugador jugador) {
         JugadorDTO jugadorDTO = new JugadorDTO();
         jugadorDTO.setCodigoExclusivo(jugador.getCodigoExclusivo());
@@ -152,6 +236,11 @@ public class ModeloJuego {
         return jugadorDTO;
     }
 
+    /**
+     * 
+     * @param listaLinea
+     * @return 
+     */
     public List<LineaDTO> transformarLineaLista(List<Linea> listaLinea) {
         List<LineaDTO> listaDTO = new ArrayList<>();
 
@@ -163,6 +252,11 @@ public class ModeloJuego {
         return listaDTO;
     }
     
+    /**
+     * 
+     * @param jugadorDTO
+     * @return 
+     */
     public Jugador transformarJugadorDTO(JugadorDTO jugadorDTO){
         Jugador jugador = new Jugador();
         jugador.setCodigoExclusivo(jugadorDTO.getCodigoExclusivo());
@@ -174,6 +268,11 @@ public class ModeloJuego {
         return jugador;
     }
     
+    /**
+     * 
+     * @param lineaDTO
+     * @return 
+     */
     public Linea transformarLineaDTO(LineaDTO lineaDTO){
         Linea linea = new Linea();
         Punto puntoInicio = new Punto(lineaDTO.getPuntoInicio().getX(), lineaDTO.getPuntoInicio().getY());

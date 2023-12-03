@@ -7,19 +7,31 @@ package org.itson.capaCliente.VISTA;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaPuntaje;
 
 /**
- *
- * @author hoshi
+ * Clase FrmSalaPuntuacion: Representa la interfaz gráfica que muestra la puntuación final
+ * de los jugadores al finalizar una partida en la sala.
+ * La clase está diseñada para ser utilizada en conjunto con un presentador de sala de puntuación (IPresentadorSalaPuntaje).
+ * 
+ * @author [Nombre del equipo o autor]
  */
 public class FrmSalaPuntuacion extends javax.swing.JFrame {
 
+    // Variable para almacenar el presentador de sala de puntuación
+    private IPresentadorSalaPuntaje presentadorS;
+
     /**
-     * Creates new form FrmSalaPuntuacion
+     * Constructor de la clase FrmSalaPuntuacion.
+     * Inicializa los componentes de la interfaz gráfica y configura el presentador de sala de puntuación.
+     * 
+     * @param presentadorS Implementación de la interfaz IPresentadorSalaPuntaje que manejará la lógica de la sala de puntuación.
      */
-    IPresentadorSalaPuntaje presentadorS;
     public FrmSalaPuntuacion(IPresentadorSalaPuntaje presentadorS) {
         initComponents();
         this.presentadorS = presentadorS;
     }
+
+    // ... (Otros métodos y eventos relevantes)
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,19 +204,25 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 //        presentadorS.jugarOtraVez();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
          presentadorS.terminarPartida();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -237,6 +255,9 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
 //        });
 //    }
 
+    /**
+     * 
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cuartoLugar;
     private javax.swing.JButton jButton2;

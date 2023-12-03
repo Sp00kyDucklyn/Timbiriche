@@ -9,23 +9,38 @@ import java.util.List;
 import org.itson.capadominio.Jugador;
 
 /**
+ * La clase ModeloSalaPuntuacion representa el modelo asociado a la sala de puntuación al finalizar una partida.
+ * Gestiona la información sobre los jugadores y sus puntuaciones en la sala de puntuación.
  *
  * @author equipo 1
  */
 public class ModeloSalaPuntuacion {
-    
-//    private Jugador jugador;
-    private List <Jugador> jugadores;
-    
+     /** Lista de jugadores en la sala de puntuación. */
+    private List<Jugador> jugadores;
+
+    /**
+     * Constructor por defecto de la clase ModeloSalaPuntuacion.
+     * Inicializa la lista de jugadores en la sala de puntuación.
+     */
     public ModeloSalaPuntuacion() {
         jugadores = new ArrayList<>();
     }
 
-    public List <Jugador> getJugadores() {
+    /**
+     * Obtiene la lista de jugadores en la sala de puntuación.
+     *
+     * @return La lista de jugadores en la sala de puntuación.
+     */
+    public List<Jugador> getJugadores() {
         return jugadores;
     }
 
-    public void setJugadores(List <Jugador> jugadores) {
+    /**
+     * Establece la lista de jugadores en la sala de puntuación.
+     *
+     * @param jugadores La lista de jugadores a establecer.
+     */
+    public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
 }
