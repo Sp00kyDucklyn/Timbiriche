@@ -93,22 +93,18 @@ public class ClienteConexion extends Thread{
                     servidor.EnviarTodos(movimientoDTO);
                 }
             }
-        } catch (IOException ex) {
+        } catch (IOException  | ClassNotFoundException ex) {
             System.out.println("Se salio1");
             SalirseDTO salirse = new SalirseDTO(partidaIniciada,jugador);
             partidaS.removerJugador(jugador);
             try {
+                servidor.desconectarClliente(salida);
                 servidor.EnviarTodos(salirse);
+                
             } catch (IOException ex1) {
                 Logger.getLogger(ClienteConexion.class.getName()).log(Level.SEVERE, null, ex1);
             }
-        } catch (ClassNotFoundException ex) {
-            System.out.println("Se salio2");
-        }catch (Exception e){
-            System.out.println("Se salio3");
-        }
-        
-        
+        } 
         
     }
     

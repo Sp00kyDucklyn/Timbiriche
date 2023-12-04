@@ -5,6 +5,7 @@
 package org.itson.capadominio;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -90,9 +91,11 @@ public class Partida {
         listaJugador.add(jugador);
     }
     public void removerJugador(Jugador jugador){
-        for (Jugador jugador1 : listaJugador) {
-            if (jugador.getCodigoExclusivo()==jugador1.getCodigoExclusivo()) {
-                listaJugador.remove(jugador1);
+        Iterator<Jugador> iterator = listaJugador.iterator();
+        while (iterator.hasNext()) {
+            Jugador jugador1 = iterator.next();
+            if (jugador.getCodigoExclusivo() == jugador1.getCodigoExclusivo()) {
+                iterator.remove();
             }
         }
     }
