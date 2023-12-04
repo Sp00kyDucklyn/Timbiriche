@@ -8,7 +8,10 @@ import com.mycompany.dto.IniciarPartidaDTO;
 import com.mycompany.dto.JugadorDTO;
 import com.mycompany.dto.JugadoresDTO;
 import com.mycompany.dto.MovimientoDTO;
+import com.mycompany.dto.SalirseDTO;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import observer.Observer;
 import org.itson.capaCliente.MODELO.ModeloJuego;
@@ -135,6 +138,20 @@ public class PresentadorJuego implements IPresentadorJuego, Observer {
                 pasarTurno();
             }
             vistaJuego.MostrarJugadores();
+            if(vistaJuego.seAcabo()){
+                this.terminarPartida();
+                
+            }
+        }
+        if(object instanceof SalirseDTO){
+            SalirseDTO s = (SalirseDTO) object;
+            Jugador jugador = new Jugador();
+            System.out.println(modeloJ.getJugadores().size());
+            jugador.setCodigoExclusivo(s.getJugador().getCodigoExclusivo());
+            modeloJ.eliminaJugador(jugador);
+            vistaJuego.MostrarJugadores();
+            System.out.println(modeloJ.getJugadores().size());
+            
         }
     }
 
@@ -213,8 +230,11 @@ public class PresentadorJuego implements IPresentadorJuego, Observer {
      */
     @Override
     public void terminarPartida() {
-        System.out.println("FIN SE ACABO");
-        presentadorSE.setListaJugadores(this.getListaJugadores());
+        List<Jugador> listaPuntuaciones = new ArrayList<>();
+        List<Jugador> listaJugadores = this.getListaJugadores();
+        Collections.sort(listaJugadores, Comparator.comparingInt(Jugador::getPuntaje).reversed());
+        System.out.println("GG");
+        presentadorSE.setListaJugadores(listaJugadores);
         presentadorSE.abrirPantalla();
         vistaJuego.dispose();
     }
