@@ -4,13 +4,15 @@
  */
 package com.mycompany.dto;
 
+import java.io.Serializable;
+
 /**
  * Esta clase representa un objeto SalirseDTO que contiene información sobre
  * la intención de un jugador de abandonar una partida.
  *
  * @author Equipo 1
  */
-public class SalirseDTO {
+public class SalirseDTO implements Serializable{
     /**
      * Booleano que indica si el jugador está en una partida o no.
      */

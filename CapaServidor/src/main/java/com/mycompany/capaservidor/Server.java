@@ -101,5 +101,9 @@ public class Server extends Thread{
                 // Manejar excepciones
             }
     }
+    
+    public synchronized void desconectarClliente(ObjectOutputStream out) {
+        listaS.remove(out); // Elimina el flujo de salida del cliente
+    }
 
 }
