@@ -126,7 +126,7 @@ public class ModeloJuego {
      */
     public void pasarTurno(){
       turno++;
-      if(turno == numMAXJugadores){
+      if(turno == jugadores.size()){
           turno = 0;
       }  
     }
@@ -292,5 +292,33 @@ public class ModeloJuego {
         }
         
         return linea;
+    }
+    
+    public void eliminaJugador(Jugador jugador) {
+        int o = 0;
+        Jugador jugadorElimino = new Jugador();
+        
+        for (int i = 0; i < jugadores.size(); i++) {
+            if (jugadores.get(i).getCodigoExclusivo() == jugador.getCodigoExclusivo()) {
+                jugadorElimino = jugadores.get(i);
+                o=i;
+                jugadores.remove(jugadorElimino);
+            }
+            
+        }
+        if (o != -1) {
+            if (o < turno) {
+                // Si el jugador eliminado estaba antes del turno actual, ajustar el turno
+                turno=((turno - 1));
+            } else if (o == turno) {
+                // Si el jugador eliminado estaba en el turno actual, ajustar el turno
+
+                if (turno >= getJugadores().size()) {
+                    // Ajustar el turno si es necesario para no exceder el índice máximo de la lista
+                    turno=0;
+                }
+            }
+        }
+        
     }
 }
