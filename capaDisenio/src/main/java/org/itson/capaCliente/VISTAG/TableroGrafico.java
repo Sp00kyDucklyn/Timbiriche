@@ -53,7 +53,7 @@ public class TableroGrafico extends JPanel {
     public TableroGrafico(Tablero tablero) {
         jugadores = new ArrayList<>();
         figuras = new FigurasGraficas();
-        this.tablero = tablero;
+        
     }
 
     /**
@@ -199,7 +199,11 @@ public class TableroGrafico extends JPanel {
         int y3 = lineaB.getPuntoInicio().getY();
         int y4 = lineaB.getPuntoFin().getY();
 
-        return (x1 == x3 && y1 == y3 && x2 == x4 && y2 == y4);
+        if (x1 == x3 && y1 == y3 && x2 == x4 && y2 == y4) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

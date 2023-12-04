@@ -123,11 +123,11 @@ public class ClienteHilo extends Thread implements Observable{
     /**
      * Elimina un observador (Observer) de la lista de observadores.
      *
-     * @param observer El observador que se eliminará de la lista.
+     * @param object El observador que se eliminará de la lista.
      */
     @Override
-    public void eliminarObserver(Observer observer) {
-        observador.remove(observer);
+    public void eliminarObserver(Observer object) {
+        observador.remove(object);
     }
 
     /**

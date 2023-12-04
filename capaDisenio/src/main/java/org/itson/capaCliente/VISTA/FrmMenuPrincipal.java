@@ -35,7 +35,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     public FrmMenuPrincipal(IPresentadorMenuPrincipal presentadorM) {
         initComponents();
         // Configurar el fondo del menú
-        setContentPane(fondo);
+        
         this.presentadorM = presentadorM;
     }
     
@@ -64,7 +64,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1209, 629));
         setResizable(false);
 
         Panel1.setMinimumSize(new java.awt.Dimension(1280, 729));

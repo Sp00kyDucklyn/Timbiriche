@@ -25,8 +25,6 @@ import org.itson.capadominio.Tablero;
  * Puede ser utilizado en conjunción con los presentadores IPresentadorSalaEspera e IPresentadorSalaPuntaje.
  * 
  * @author Equipo 1
- * @version 1.0
- * @since 2023-12-02
  */
 public class PresentadorJuego implements IPresentadorJuego, Observer {
 
@@ -107,8 +105,37 @@ public class PresentadorJuego implements IPresentadorJuego, Observer {
      */
     @Override
     public void update(Object object) {
-        // Implementación de la lógica de actualización basada en el tipo de objeto recibido
-        // (Actualmente sin implementación detallada)
+        if(object instanceof JugadoresDTO){
+
+            JugadoresDTO jugadoresdeteo = (JugadoresDTO) object;
+            List<JugadorDTO> jugadordto = jugadoresdeteo.getJugadorDTO();
+            List<Jugador> jugador = new ArrayList<>();
+            for (int i = 0; i < jugadordto.size(); i++) {
+                Jugador juga = new Jugador();
+                juga.setCodigoExclusivo(jugadordto.get(i).getCodigoExclusivo());
+                juga.setAvatar(jugadordto.get(i).getAvatar());
+                juga.setColor(jugadordto.get(i).getColor());
+                juga.setNombre(jugadordto.get(i).getNombre());
+                jugador.add(juga);
+            }
+            modeloJ.setJugadores(jugador);
+            vistaJuego.setListaJugadores(jugador);
+            System.out.println("me actualice");
+        }
+        if(object instanceof MovimientoDTO){
+            System.out.println("paso por aqui");
+            MovimientoDTO movimientodeteo = (MovimientoDTO) object;
+            System.out.println("hola"+movimientodeteo.getJugador());
+            Jugador jugador = modeloJ.transformarJugadorDTO(movimientodeteo.getJugador());
+            Linea linea = modeloJ.transformarLineaDTO(movimientodeteo.getLinea());
+            int puntacionA = jugador.getPuntaje();
+            vistaJuego.colocarLinea(linea, jugador);
+            int puntacionB = jugador.getPuntaje();
+            if (puntacionB==puntacionA) {
+                pasarTurno();
+            }
+            vistaJuego.MostrarJugadores();
+        }
     }
 
     /**

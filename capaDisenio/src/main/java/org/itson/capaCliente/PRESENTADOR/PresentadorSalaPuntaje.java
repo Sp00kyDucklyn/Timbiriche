@@ -31,7 +31,7 @@ public class PresentadorSalaPuntaje implements IPresentadorSalaPuntaje{
      */
     public PresentadorSalaPuntaje(IPresentadorJuego presentadorJ) {
         this.presentadorJ = presentadorJ;
-        this.presentadorM = presentadorM; // <- Revisar, parece que falta asignación
+        
         vistaS = new FrmSalaPuntuacion(this);
         modeloSP = new ModeloSalaPuntuacion();
     }

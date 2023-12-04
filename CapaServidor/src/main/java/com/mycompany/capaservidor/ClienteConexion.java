@@ -19,6 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * Esta clase representa la conexión de un cliente con el servidor para el juego.
+ * Gestiona la comunicación entre el servidor y los clientes conectados.
  *
  * @author equipo 1
  */
@@ -31,7 +33,13 @@ public class ClienteConexion extends Thread{
     private ObjectInputStream entrada;
     private ObjectOutputStream salida;
     
-
+    /**
+     * Constructor de la clase ClienteConexion.
+     *
+     * @param servidor El servidor al que se conecta el cliente.
+     * @param socket   El socket de conexión del cliente.
+     * @param salida   El flujo de salida para enviar datos al cliente.
+     */
     public ClienteConexion(Server servidor, Socket socket, ObjectOutputStream salida) {
         try {
             
@@ -42,20 +50,25 @@ public class ClienteConexion extends Thread{
             this.servidor = servidor;
             this.socket = socket;
         } catch (IOException ex) {
+            // Manejo de excepciones
             Logger.getLogger(ClienteConexion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    /**
+     * Método principal para la ejecución del hilo.
+     * Gestiona la comunicación entre el servidor y el cliente.
+     */
     @Override
     public void run() {
-        
+        // Código para la comunicación cliente-servidor
+        // Manejo de excepciones
         try {
             while(true){
                 Object object= entrada.readObject();
                 if(object instanceof PartidaDTO){
                     PartidaDTO partidaDTO = (PartidaDTO) object;
                     servidor.validarJugadores(partidaDTO.getNumJugadores());
-                    System.out.println("skibidi");
                     partidaS.crearPartida(partidaDTO);    
                 }
                 if(object instanceof JugadorDTO){

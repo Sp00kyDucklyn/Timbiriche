@@ -128,8 +128,42 @@ public class PresentadorSalaEspera implements IPresentadorSalaEspera, Observer{
      */
     @Override
     public void update(Object object) {
-        // Implementación de la lógica de actualización según el tipo de objeto recibido
-        // ...
+        if(object instanceof JugadoresDTO){
+
+            JugadoresDTO jugadoresdeteo = (JugadoresDTO) object;
+            List<JugadorDTO> jugadordto = jugadoresdeteo.getJugadorDTO();
+            List<Jugador> jugador = new ArrayList<>();
+            for (int i = 0; i < jugadordto.size(); i++) {
+                Jugador juga = new Jugador();
+                juga.setCodigoExclusivo(jugadordto.get(i).getCodigoExclusivo());
+                juga.setAvatar(jugadordto.get(i).getAvatar());
+                juga.setColor(jugadordto.get(i).getColor());
+                juga.setNombre(jugadordto.get(i).getNombre());
+                jugador.add(juga);
+            }
+            modeloSala.setJugadores(jugador);
+            salaEspera.MostrarJugador();
+            System.out.println("me actualice");
+        }
+        if (object instanceof IniciarPartidaDTO) {
+            Cliente cliente = Cliente.getInstance();
+            cliente.agregarObserver((Observer) presentadorJ);
+            IniciarPartidaDTO iniciar = (IniciarPartidaDTO) object;
+            presentadorJ.crearPartida(iniciar.getNumero());
+            this.abrirPantallaJuego();
+
+        }
+        if(object instanceof JugadorDTO){
+            JugadorDTO jugadordeteo = (JugadorDTO) object;
+            modeloSala.setJugador(modeloSala.transformarJugadorDTO(jugadordeteo));
+        }
+        if (object instanceof SalirseDTO) {
+            SalirseDTO salirse = (SalirseDTO) object;
+            if (!salirse.isEnPartida()) {
+                modeloSala.removerJugador(salirse.getJugador());
+            }
+            salaEspera.MostrarJugador();
+        }
     }
 
     /**

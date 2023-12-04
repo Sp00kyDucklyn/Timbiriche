@@ -10,6 +10,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import observer.Observer;
 
 /**
@@ -44,7 +45,16 @@ public class Cliente {
 
             try {
                 // Se establece la conexión con el servidor al crear la instancia.
-                socket = new Socket("localhost", 1542);
+                String input = "";
+
+                while (input.trim().isEmpty()) {
+                    input = JOptionPane.showInputDialog(null, "Ingresa la IP del servidor:");
+
+                    if (input == null) {
+                        JOptionPane.showMessageDialog(null, "No puedes dejar el campo vacío. Por favor, ingresa una IP valida.");
+                    }
+                }
+                socket = new Socket(input, 1542);
                 instance = new Cliente(socket);
             } catch (Exception e) {
                 // Manejo de excepciones en caso de error al establecer la conexión.

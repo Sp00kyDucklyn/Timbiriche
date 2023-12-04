@@ -5,6 +5,7 @@
 package org.itson.capaCliente.PRESENTADOR;
 
 import SocketsCliente.Cliente;
+import javax.swing.JOptionPane;
 import org.itson.capaCliente.VISTA.FrmUnirseSala;
 
 /**
@@ -52,7 +53,7 @@ public class PresentadorUnirseSala implements IPresentadorUnirseSala{
             presentadorA.abrirPantalla();
             unirse.dispose();
         } else {
-            System.out.println("No estés chingando, ya se llenó la sala");
+            JOptionPane.showMessageDialog(null, "A mi me gusta el bustillos");
         }
     }
 

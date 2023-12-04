@@ -101,7 +101,7 @@ public class FrmJuego extends javax.swing.JFrame {
 
         for (int i = 0; i < jugadores.size(); i++) {
             if (i == 0) {
-                lblJugador1.setText(jugadores.get(0).getNombre() + ":" + jugadores.get(i).getCodigoExclusivo());
+                lblJugador1.setText(jugadores.get(0).getNombre() + ":");
                 if (presentadorJ.getJugadorTurno().getCodigoExclusivo() == jugadores.get(i).getCodigoExclusivo()) {
                     lblJugador1.setForeground(Color.red);
                 } else {
@@ -118,7 +118,7 @@ public class FrmJuego extends javax.swing.JFrame {
                 } else {
                     lblJugador2.setForeground(Color.black);
                 }
-                lblJugador2.setText(jugadores.get(1).getNombre() + ":" + jugadores.get(i).getCodigoExclusivo());
+                lblJugador2.setText(jugadores.get(1).getNombre() + ":");
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(1).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar2.getWidth(), lblAvatar2.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar2.setIcon(iconoRedimensionado);
@@ -130,7 +130,7 @@ public class FrmJuego extends javax.swing.JFrame {
                 } else {
                     lblJugador3.setForeground(Color.black);
                 }
-                lblJugador3.setText(jugadores.get(2).getNombre() + ":" + jugadores.get(i).getCodigoExclusivo());
+                lblJugador3.setText(jugadores.get(2).getNombre() + ":" );
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(2).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar3.getWidth(), lblAvatar3.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar3.setIcon(iconoRedimensionado);
@@ -142,7 +142,7 @@ public class FrmJuego extends javax.swing.JFrame {
                 } else {
                     lblJugador4.setForeground(Color.black);
                 }
-                lblJugador4.setText(jugadores.get(3).getNombre() + ":" + jugadores.get(i).getCodigoExclusivo());
+                lblJugador4.setText(jugadores.get(3).getNombre() + ":");
                 ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(3).getAvatar()));
                 ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar4.getWidth(), lblAvatar4.getHeight(), Image.SCALE_SMOOTH));
                 lblAvatar4.setIcon(iconoRedimensionado);

@@ -8,7 +8,7 @@ package observer;
  * La interfaz Observable proporciona métodos para agregar, eliminar y notificar observadores.
  * Estos observadores recibirán actualizaciones cuando ocurran eventos específicos en la clase que implementa esta interfaz.
  *
- * @author danie ft. El camion y su fiel dromedario la cabra
+ * @author Equipo 1
  */
 public interface Observable {
     /**

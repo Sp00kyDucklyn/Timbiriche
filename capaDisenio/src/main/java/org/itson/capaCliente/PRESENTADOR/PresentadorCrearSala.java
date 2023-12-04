@@ -13,8 +13,6 @@ import org.itson.capaCliente.VISTA.FrmCrearSala;
  * Puede ser utilizado en conjunción con los presentadores IPresentadorMenuPrincipal e IPresentadorAjustes.
  * 
  * @author Equipo 1
- * @version 1.0
- * @since 2023-12-02
  */
 public class PresentadorCrearSala implements IPresentadorCrearSala {
 
@@ -88,7 +86,8 @@ public class PresentadorCrearSala implements IPresentadorCrearSala {
      */
     @Override
     public void crearPartida(int numero) {
-        modeloC.crearPartida(numero);
-        this.apareceSigAjustes();
+        if(modeloC.crearPartida(numero) == true){
+            this.apareceSigAjustes();
+        }
     }
 }

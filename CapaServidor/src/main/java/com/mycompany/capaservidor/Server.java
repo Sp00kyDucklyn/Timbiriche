@@ -15,16 +15,26 @@ import java.util.logging.Logger;
 
 /**
  *
+ * Clase encargada de gestionar la lógica del servidor del juego, controlando la conexión y comunicación
+ * con los clientes para la participación en la partida.
+ *
  * @author equipo 1 
  */
 public class Server extends Thread{
+    /**
+     * Número máximo de jugadores permitidos en el servidor.
+     */ 
     private int numJugadores=100;
     
+    /**
+     * Método de ejecución principal del servidor. Gestiona la conexión de los clientes y la interacción
+     * con ellos hasta alcanzar el límite de jugadores.
+     */
     @Override
     public void run() {
         try {
             ServerSocket socketServidor = new ServerSocket(1542);
-            System.out.println("Luis pablo");
+            System.out.println("Servidor Iniciado");
             while (listaS.size()<numJugadores) {
                 Socket conexionS = socketServidor.accept();
                 System.out.println(conexionS);
@@ -40,12 +50,24 @@ public class Server extends Thread{
         }
     }
     
+    /**
+     * Lista de flujos de salida de objetos para la comunicación con los clientes.
+     */
     List<ObjectOutputStream> listaS = new ArrayList<>();
 
+    /**
+     * Constructor por defecto de la clase.
+     */
     public Server() {
         
     }
     
+    /**
+     * Envía un objeto a todos los clientes conectados.
+     * 
+     * @param object Objeto a enviar a todos los clientes.
+     * @throws IOException Excepción en caso de problemas con la transmisión.
+     */
     public void EnviarTodos(Object object) throws IOException {
 
         for (ObjectOutputStream o : listaS) {
@@ -55,10 +77,21 @@ public class Server extends Thread{
         
     }
     
+    /**
+     * Establece el número máximo de jugadores permitidos en el servidor.
+     * 
+     * @param numJugadores Número máximo de jugadores.
+     */
     public void validarJugadores(int numJugadores){
         this.numJugadores=numJugadores;
     }
     
+    /**
+     * Envía un objeto a un cliente específico.
+     * 
+     * @param obj Objeto a enviar.
+     * @param outPut Flujo de salida para el cliente específico.
+     */
     public void sendToOne(Object obj, ObjectOutputStream outPut) {
             try {
                 outPut.writeObject(obj);

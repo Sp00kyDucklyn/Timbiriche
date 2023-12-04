@@ -9,8 +9,6 @@ package org.itson.capaCliente.PRESENTADOR;
  * Estos métodos pueden ser implementados por clases concretas que gestionan la lógica de la presentación para unirse a una sala.
  * 
  * @author Equipo 1
- * @version 1.0
- * @since 2023-12-02
  */
 public interface IPresentadorUnirseSala {
 

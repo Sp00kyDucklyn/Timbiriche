@@ -108,32 +108,7 @@ public class Tablero {
             lineasH = lineasHorizontales;
             lineasV = lineasVerticales;
             puntitos = puntito;
-//            for (Lineas linea : lineasHorizontales) {
-//                System.out.println(linea);
-//            }
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("|||||||||");
-//            System.out.println("---------");
-//            System.out.println("-----------------------------------------------");
-//            System.out.println("-----------------------------------------------");
-//            for (Linea linea : lineasVerticales) {
-//                System.out.println(linea);
-//            }
-
+            
             int fila = 0;
             int columna = 0;
             int numCuadro = 0;
@@ -156,9 +131,6 @@ public class Tablero {
                 fila++;
             }
 
-//            for (Cuadro cuadro : cuadradito) {
-//                System.out.println(cuadro);
-//            }
 
         } else if(popo == 3){
             int numero = 0;

@@ -7,8 +7,8 @@ package com.mycompany.capaservidor;
 import java.io.IOException;
 
 /**
- *
- * @author equipo 1 ft. Diego Robles 232988
+ * Clase Principal que inicia el servidor 
+ * @author equipo 1 
  */
 public class Main {
 

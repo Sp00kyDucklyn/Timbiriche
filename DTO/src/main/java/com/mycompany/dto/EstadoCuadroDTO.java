@@ -5,6 +5,9 @@
 package com.mycompany.dto;
 import java.io.Serializable;
 /**
+ * Enumeración que representa el estado de un cuadro en el juego, utilizado en el intercambio de datos.
+ * Los estados posibles son: INCOMPLETO, COMPLETO, RECLAMADO.
+ * Serializable para permitir su transmisión a través de la red.
  *
  * @author equipo 1
  */

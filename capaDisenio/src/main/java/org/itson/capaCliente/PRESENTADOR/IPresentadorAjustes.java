@@ -4,7 +4,7 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
-
+import org.itson.capadominio.Partida;
 
 /**
  * Interfaz que define métodos para la navegación y la manipulación de la interfaz de usuario

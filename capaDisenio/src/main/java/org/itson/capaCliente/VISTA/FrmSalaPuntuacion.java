@@ -11,7 +11,7 @@ import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaPuntaje;
  * de los jugadores al finalizar una partida en la sala.
  * La clase está diseñada para ser utilizada en conjunto con un presentador de sala de puntuación (IPresentadorSalaPuntaje).
  * 
- * @author [Nombre del equipo o autor]
+ * @author Equipo 1
  */
 public class FrmSalaPuntuacion extends javax.swing.JFrame {
 
@@ -28,8 +28,6 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
         initComponents();
         this.presentadorS = presentadorS;
     }
-
-    // ... (Otros métodos y eventos relevantes)
 
 
 

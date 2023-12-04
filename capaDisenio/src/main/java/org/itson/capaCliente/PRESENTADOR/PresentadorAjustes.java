@@ -19,8 +19,6 @@ import org.itson.capadominio.Tablero;
  * IPresentadorUnirseSala.
  *
  * @author Equipo 1
- * @version 1.0
- * @since 2023-12-02
  */
 public class PresentadorAjustes implements IPresentadorAjustes {
 

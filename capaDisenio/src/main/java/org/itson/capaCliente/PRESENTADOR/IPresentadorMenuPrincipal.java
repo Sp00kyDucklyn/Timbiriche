@@ -13,8 +13,6 @@ import org.itson.capaCliente.VISTA.FrmMenuPrincipal;
  * del menú principal.
  *
  * @author Equipo 1
- * @version 1.0
- * @since 2023-12-02
  */
 public interface IPresentadorMenuPrincipal {
 

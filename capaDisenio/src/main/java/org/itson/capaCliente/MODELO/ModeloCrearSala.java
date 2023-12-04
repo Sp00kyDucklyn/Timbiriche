@@ -9,6 +9,7 @@ import com.mycompany.dto.PartidaDTO;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.itson.capadominio.Partida;
 
 /**
@@ -30,11 +31,14 @@ public class ModeloCrearSala {
      *
      * @param numero El número de jugadores que participarán en la partida.
      */
-    public void crearPartida(int numero){
+    public boolean crearPartida(int numero){
     
        // Obtiene la instancia única del cliente
        Cliente cliente = Cliente.getInstance();
-       
+       if(cliente == null){
+           JOptionPane.showMessageDialog(null, "INVALIDO escriba una IP real y valida");
+           return false;
+       }
        // Crea un objeto PartidaDTO con la información de la nueva partida
        PartidaDTO p = new PartidaDTO();
        p.setNumJugadores(numero);
@@ -45,6 +49,7 @@ public class ModeloCrearSala {
         } catch (IOException ex) {
             Logger.getLogger(ModeloCrearSala.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return true;
     }
    
    

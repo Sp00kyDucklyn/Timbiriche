@@ -4,7 +4,7 @@
  */
 package org.itson.capaCliente.PRESENTADOR;
 
-
+import org.itson.capadominio.Tablero;
 /**
  * Interfaz que define métodos para la gestión de la interfaz de usuario
  * relacionados con la creación y configuración de una partida en una aplicación de juego.

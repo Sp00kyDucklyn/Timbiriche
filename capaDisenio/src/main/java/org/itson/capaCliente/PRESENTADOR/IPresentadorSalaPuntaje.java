@@ -12,8 +12,6 @@ import org.itson.capadominio.Jugador;
  * Estos métodos pueden ser implementados por clases concretas que gestionan la lógica de la presentación de la sala de puntuación.
  * 
  * @author Equipo 1
- * @version 1.0
- * @since 2023-12-02
  */
 public interface IPresentadorSalaPuntaje {
 
