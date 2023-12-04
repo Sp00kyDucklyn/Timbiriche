@@ -52,6 +52,7 @@ public class PresentadorSalaPuntaje implements IPresentadorSalaPuntaje{
     @Override
     public void abrirPantalla() {
         vistaS.setVisible(true);
+        vistaS.MostrarJugador();
     }
 
     /**
