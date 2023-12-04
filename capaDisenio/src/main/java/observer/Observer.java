@@ -8,7 +8,7 @@ package observer;
  * La interfaz Observer proporciona un método de actualización que las clases observadoras deben implementar.
  * Este método se llama cuando el estado del objeto observado cambia, y se proporciona con el nuevo estado.
  *
- * @author danie ft. el roble rojo y su mejor amigo el bus
+ * @author Equipo 1
  */
 public interface Observer {
      /**
