@@ -31211,7 +31211,8 @@
 																			"left": 1077,
 																			"top": 47,
 																			"width": 85.8544921875,
-																			"height": 13
+																			"height": 13,
+																			"text": "VistaJuego"
 																		},
 																		{
 																			"_type": "LabelView",
@@ -31662,7 +31663,7 @@
 																		"$ref": "AAAAAAGLZQNq5snXGOQ="
 																	},
 																	"edgePosition": 1,
-																	"text": "2 : Message1"
+																	"text": "2 : SeleccionaIniciar()"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -31879,9 +31880,9 @@
 																		"$ref": "AAAAAAGLZQWyh9rH/48="
 																	},
 																	"font": "Arial;13;0",
-																	"left": 601,
+																	"left": 599,
 																	"top": 144,
-																	"width": 127.181640625,
+																	"width": 131.5234375,
 																	"height": 13,
 																	"alpha": 1.5707963267948966,
 																	"distance": 10,
@@ -31889,7 +31890,7 @@
 																		"$ref": "AAAAAAGLZQWyh9rI4rc="
 																	},
 																	"edgePosition": 1,
-																	"text": "3 : Message2"
+																	"text": "3 : VerificaSalaLLena()"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -32251,7 +32252,7 @@
 																		"$ref": "AAAAAAGLZRLiaA9AfSI="
 																	},
 																	"edgePosition": 1,
-																	"text": "4 : Message4"
+																	"text": "4 : verificaTotalJugadores()"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -32586,7 +32587,7 @@
 																		"$ref": "AAAAAAGLZaiOk6SYB3M="
 																	},
 																	"edgePosition": 1,
-																	"text": "7 : Message3"
+																	"text": "7 : iniciarPartida()"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -32697,7 +32698,7 @@
 																		"$ref": "AAAAAAGLZSn6rl2KKtM="
 																	},
 																	"edgePosition": 1,
-																	"text": "8 : Message14"
+																	"text": "8 :  muestraPantallaJuego"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -32808,7 +32809,7 @@
 																		"$ref": "AAAAAAGLZR4/NxfFFc8="
 																	},
 																	"edgePosition": 1,
-																	"text": "9 : Message7"
+																	"text": "9 : verificaConfirmacionJugadores()"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -32919,7 +32920,7 @@
 																		"$ref": "AAAAAAGLZR6rXBffaT0="
 																	},
 																	"edgePosition": 1,
-																	"text": "10 : Message8"
+																	"text": "10 : VerificaConfirmacionJugadores()"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -33030,7 +33031,7 @@
 																		"$ref": "AAAAAAGLZSBQNRi7u0g="
 																	},
 																	"edgePosition": 1,
-																	"text": "11 : Message9"
+																	"text": "11 : verificaJugadoresConfirmados()"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -33355,9 +33356,9 @@
 																		"$ref": "AAAAAAGLZSRNqyD0skY="
 																	},
 																	"font": "Arial;13;0",
-																	"left": 884,
+																	"left": 874,
 																	"top": 481,
-																	"width": 105.49169921875,
+																	"width": 124.99169921875,
 																	"height": 13,
 																	"alpha": 1.5707963267948966,
 																	"distance": 10,
@@ -33365,7 +33366,7 @@
 																		"$ref": "AAAAAAGLZSRNqyD127M="
 																	},
 																	"edgePosition": 1,
-																	"text": "14 : Message10"
+																	"text": "14 : mostrarPantalla()"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -33476,7 +33477,7 @@
 																		"$ref": "AAAAAAGLZSU4AiZu9m8="
 																	},
 																	"edgePosition": 1,
-																	"text": "15 : Message11"
+																	"text": "15 : mostrarPantalla"
 																},
 																{
 																	"_type": "EdgeLabelView",
@@ -33581,12 +33582,15 @@
 													"_parent": {
 														"$ref": "AAAAAAGLVckkSLCNnYk="
 													},
-													"name": "Message1",
+													"name": "SeleccionaIniciar",
 													"source": {
 														"$ref": "AAAAAAGLZOjntyP7QGg="
 													},
 													"target": {
 														"$ref": "AAAAAAGLZPwS94ZZaZ4="
+													},
+													"signature": {
+														"$ref": "AAAAAAGMM0Kvy/ocd3U="
 													}
 												},
 												{
@@ -33601,6 +33605,9 @@
 													},
 													"target": {
 														"$ref": "AAAAAAGLZRHVxA7tCB4="
+													},
+													"signature": {
+														"$ref": "AAAAAAGMM0Lif/ofT3g="
 													}
 												},
 												{
@@ -33609,12 +33616,15 @@
 													"_parent": {
 														"$ref": "AAAAAAGLVckkSLCNnYk="
 													},
-													"name": "Message4",
+													"name": "VerificaTotalJugadores",
 													"source": {
 														"$ref": "AAAAAAGLZRHVxA7tCB4="
 													},
 													"target": {
 														"$ref": "AAAAAAGLZQT5KtadpQM="
+													},
+													"signature": {
+														"$ref": "AAAAAAGMM0NddvojH0o="
 													}
 												},
 												{
@@ -33657,6 +33667,9 @@
 													},
 													"target": {
 														"$ref": "AAAAAAGLZPzBK4aCRAI="
+													},
+													"signature": {
+														"$ref": "AAAAAAGMM0OFa/omz48="
 													}
 												},
 												{
@@ -33665,7 +33678,7 @@
 													"_parent": {
 														"$ref": "AAAAAAGLVckkSLCNnYk="
 													},
-													"name": "Message14",
+													"name": " muestraPantallaJuego",
 													"source": {
 														"$ref": "AAAAAAGLZPzBK4aCRAI="
 													},
@@ -33685,6 +33698,9 @@
 													},
 													"target": {
 														"$ref": "AAAAAAGLZPwS94ZZaZ4="
+													},
+													"signature": {
+														"$ref": "AAAAAAGMM0PI5vop7C8="
 													}
 												},
 												{
@@ -33699,6 +33715,9 @@
 													},
 													"target": {
 														"$ref": "AAAAAAGLZRHVxA7tCB4="
+													},
+													"signature": {
+														"$ref": "AAAAAAGMM0QZ6/otFfw="
 													}
 												},
 												{
@@ -33713,6 +33732,9 @@
 													},
 													"target": {
 														"$ref": "AAAAAAGLZQT5KtadpQM="
+													},
+													"signature": {
+														"$ref": "AAAAAAGMM1YgARg4VNM="
 													}
 												},
 												{
@@ -33755,6 +33777,9 @@
 													},
 													"target": {
 														"$ref": "AAAAAAGLZPzBK4aCRAI="
+													},
+													"signature": {
+														"$ref": "AAAAAAGMM1cWFRg7654="
 													}
 												},
 												{
@@ -33763,7 +33788,7 @@
 													"_parent": {
 														"$ref": "AAAAAAGLVckkSLCNnYk="
 													},
-													"name": "Message11",
+													"name": "mostrarPantalla",
 													"source": {
 														"$ref": "AAAAAAGLZPzBK4aCRAI="
 													},
@@ -33801,6 +33826,7 @@
 													"_parent": {
 														"$ref": "AAAAAAGLVckkSLCNnYk="
 													},
+													"name": "VistaJuego",
 													"represent": {
 														"$ref": "AAAAAAGLZPs3uX+j6GA="
 													},
@@ -33847,6 +33873,18 @@
 													},
 													"represent": {
 														"$ref": "AAAAAAGLZRHVww7s5ww="
+													},
+													"isMultiInstance": false
+												},
+												{
+													"_type": "UMLLifeline",
+													"_id": "AAAAAAGMM0dHffpiYUw=",
+													"_parent": {
+														"$ref": "AAAAAAGLVckkSLCNnYk="
+													},
+													"name": "Lifeline1",
+													"represent": {
+														"$ref": "AAAAAAGMM0dHffphmVM="
 													},
 													"isMultiInstance": false
 												}
@@ -33986,6 +34024,26 @@
 											"name": "Role10",
 											"type": {
 												"$ref": "AAAAAAGLVTO0hDag4WI="
+											}
+										},
+										{
+											"_type": "UMLAttribute",
+											"_id": "AAAAAAGMM0bnePovtg0=",
+											"_parent": {
+												"$ref": "AAAAAAGLVckkR7CMal0="
+											},
+											"name": "Role11",
+											"type": ""
+										},
+										{
+											"_type": "UMLAttribute",
+											"_id": "AAAAAAGMM0dHffphmVM=",
+											"_parent": {
+												"$ref": "AAAAAAGLVckkR7CMal0="
+											},
+											"name": "Role12",
+											"type": {
+												"$ref": "AAAAAAGL9W4kXUTs2G0="
 											}
 										}
 									]
