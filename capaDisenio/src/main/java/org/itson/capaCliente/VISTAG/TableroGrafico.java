@@ -43,8 +43,6 @@ public class TableroGrafico extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         pintarFiguras(g2);
-        g2.drawString("Adán Cornejo 🐐🤑💰", 300, 10);
-        g2.drawString("Iván Tapia Moreno Mi Mentor 📈🏳️‍🌈", 500, 20);
 
     }
     
@@ -296,14 +294,6 @@ public class TableroGrafico extends JPanel {
     }
     
     public boolean yAhoraTodoCambio(){
-        for (IFiguras figura : figuras.getFiguras()) {
-            if (figura instanceof LineaGrafica) {
-                LineaGrafica lineaG = (LineaGrafica) figura;
-                if (lineaG.getLinea().getJugador() == null) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return false;
     }
 }

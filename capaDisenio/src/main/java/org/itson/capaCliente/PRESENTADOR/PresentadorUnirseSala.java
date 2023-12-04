@@ -53,7 +53,7 @@ public class PresentadorUnirseSala implements IPresentadorUnirseSala{
             presentadorA.abrirPantalla();
             unirse.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "A mi me gusta el bustillos");
+            JOptionPane.showMessageDialog(null, "La IP no coincide con la del Servidor");
         }
     }
 

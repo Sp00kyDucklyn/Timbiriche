@@ -79,8 +79,6 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         tercer_lugar = new javax.swing.JPanel();
@@ -115,19 +113,6 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Group 10.png"))); // NOI18N
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 480, 100, 100));
-
-        jLabel1.setText("REPLAY");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 590, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Group 11.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 140, -1, -1));
@@ -166,10 +151,10 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Britannic Bold", 1, 36)); // NOI18N
         jLabel3.setText("PUNTUACIÓN FINAL");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 340, 60));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 400, 60));
 
         jLabel4.setFont(new java.awt.Font("Myanmar Text", 0, 18)); // NOI18N
-        jLabel4.setText("Felicidades ahora eres vocal");
+        jLabel4.setText("¡¡FELICIDADES!!");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
@@ -177,15 +162,6 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * 
-     * @param evt 
-     */
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-//        presentadorS.jugarOtraVez();
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * 
@@ -235,8 +211,6 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cuarto_lugar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

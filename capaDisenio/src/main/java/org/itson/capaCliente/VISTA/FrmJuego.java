@@ -204,7 +204,7 @@ public class FrmJuego extends javax.swing.JFrame {
         lblAvatar4 = new javax.swing.JLabel();
         lblPuntacion4 = new javax.swing.JLabel();
         lblJugador4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnPuntuacion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(682, 402));
@@ -290,13 +290,13 @@ public class FrmJuego extends javax.swing.JFrame {
 
         getContentPane().add(jugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 280, 150, -1));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPuntuacion.setText("FinalizarPartida");
+        btnPuntuacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPuntuacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
+        getContentPane().add(btnPuntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -352,9 +352,9 @@ public class FrmJuego extends javax.swing.JFrame {
         tablero.pintarLineaPanthom(evt);
     }//GEN-LAST:event_ELPEPEpanelMouseMoved
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnPuntuacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntuacionActionPerformed
        presentadorJ.terminarPartida();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnPuntuacionActionPerformed
 
 //    /**
 //     * @param args the command line arguments
@@ -400,7 +400,7 @@ public class FrmJuego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ELPEPEpanel;
     private javax.swing.JLabel Fondo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnPuntuacion;
     private javax.swing.JPanel jugador1;
     private javax.swing.JPanel jugador2;
     private javax.swing.JPanel jugador3;
