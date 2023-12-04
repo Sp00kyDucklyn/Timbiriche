@@ -25,6 +25,10 @@ public class Server extends Thread{
      * Número máximo de jugadores permitidos en el servidor.
      */ 
     private int numJugadores=100;
+     /**
+     * Lista de flujos de salida de objetos para la comunicación con los clientes.
+     */
+    List<ObjectOutputStream> listaS = new ArrayList<>();
     
     /**
      * Método de ejecución principal del servidor. Gestiona la conexión de los clientes y la interacción
@@ -50,10 +54,7 @@ public class Server extends Thread{
         }
     }
     
-    /**
-     * Lista de flujos de salida de objetos para la comunicación con los clientes.
-     */
-    List<ObjectOutputStream> listaS = new ArrayList<>();
+   
 
     /**
      * Constructor por defecto de la clase.
