@@ -4,7 +4,11 @@
  */
 package org.itson.capaCliente.VISTA;
 
+import java.awt.Image;
+import java.util.List;
+import javax.swing.ImageIcon;
 import org.itson.capaCliente.PRESENTADOR.IPresentadorSalaPuntaje;
+import org.itson.capadominio.Jugador;
 
 /**
  * Clase FrmSalaPuntuacion: Representa la interfaz gráfica que muestra la puntuación final
@@ -28,6 +32,40 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
         initComponents();
         this.presentadorS = presentadorS;
     }
+    
+    public void MostrarJugador() {
+        List<Jugador> jugadores = presentadorS.regresarJugadores();
+        if (jugadores.isEmpty()) {
+            return;
+        }
+
+        for (int i = 0; i < jugadores.size(); i++) {
+            if (i == 0) {
+                lblJugador1.setText(jugadores.get(0).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(0).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar1.getWidth(), lblAvatar1.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar1.setIcon(iconoRedimensionado);
+            }
+            if (i == 1) {
+                lblJugador2.setText(jugadores.get(1).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(1).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar2.getWidth(), lblAvatar2.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar2.setIcon(iconoRedimensionado);
+            }
+            if (i == 2) {
+                lblJugador3.setText(jugadores.get(2).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(2).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar3.getWidth(), lblAvatar3.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar3.setIcon(iconoRedimensionado);
+            }
+            if (i == 3) {
+                lblJugador4.setText(jugadores.get(3).getNombre());
+                ImageIcon icon = new ImageIcon(getClass().getResource("/avatares/" + jugadores.get(3).getAvatar()));
+                ImageIcon iconoRedimensionado = new ImageIcon(icon.getImage().getScaledInstance(lblAvatar4.getWidth(), lblAvatar4.getHeight(), Image.SCALE_SMOOTH));
+                lblAvatar4.setIcon(iconoRedimensionado);
+            }
+        }
+    }
 
 
 
@@ -45,19 +83,24 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        primerLugar = new javax.swing.JPanel();
+        tercer_lugar = new javax.swing.JPanel();
         lblAvatar3 = new javax.swing.JLabel();
         lblJugador3 = new javax.swing.JLabel();
-        segundoLugar = new javax.swing.JPanel();
+        lblPuntuacion3 = new javax.swing.JLabel();
+        primer_lugar = new javax.swing.JPanel();
         lblAvatar1 = new javax.swing.JLabel();
         lblJugador1 = new javax.swing.JLabel();
-        tercerLugar = new javax.swing.JPanel();
+        lblPuntuacion1 = new javax.swing.JLabel();
+        cuarto_lugar = new javax.swing.JPanel();
         lblAvatar4 = new javax.swing.JLabel();
         lblJugador4 = new javax.swing.JLabel();
-        cuartoLugar = new javax.swing.JPanel();
+        lblPuntuacion4 = new javax.swing.JLabel();
+        segundo_lugar = new javax.swing.JPanel();
         lblAvatar2 = new javax.swing.JLabel();
         lblJugador2 = new javax.swing.JLabel();
+        lblPuntuacion2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 255));
@@ -92,109 +135,42 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout primerLugarLayout = new javax.swing.GroupLayout(primerLugar);
-        primerLugar.setLayout(primerLugarLayout);
-        primerLugarLayout.setHorizontalGroup(
-            primerLugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(primerLugarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblAvatar3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblJugador3, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        primerLugarLayout.setVerticalGroup(
-            primerLugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(primerLugarLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblJugador3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, primerLugarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAvatar3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        tercer_lugar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tercer_lugar.add(lblAvatar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 6, 66, 58));
+        tercer_lugar.add(lblJugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 187, 28));
+        tercer_lugar.add(lblPuntuacion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 60, 20));
 
-        jPanel1.add(primerLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 480, 70));
+        jPanel1.add(tercer_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 480, 70));
 
-        javax.swing.GroupLayout segundoLugarLayout = new javax.swing.GroupLayout(segundoLugar);
-        segundoLugar.setLayout(segundoLugarLayout);
-        segundoLugarLayout.setHorizontalGroup(
-            segundoLugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(segundoLugarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        segundoLugarLayout.setVerticalGroup(
-            segundoLugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(segundoLugarLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, segundoLugarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        primer_lugar.setBackground(new java.awt.Color(255, 204, 0));
+        primer_lugar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        primer_lugar.add(lblAvatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 6, 66, 58));
+        primer_lugar.add(lblJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 187, 28));
+        primer_lugar.add(lblPuntuacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 60, 20));
 
-        jPanel1.add(segundoLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 480, 70));
+        jPanel1.add(primer_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 480, 70));
 
-        javax.swing.GroupLayout tercerLugarLayout = new javax.swing.GroupLayout(tercerLugar);
-        tercerLugar.setLayout(tercerLugarLayout);
-        tercerLugarLayout.setHorizontalGroup(
-            tercerLugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tercerLugarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblAvatar4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblJugador4, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        tercerLugarLayout.setVerticalGroup(
-            tercerLugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tercerLugarLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblJugador4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tercerLugarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAvatar4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        cuarto_lugar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        cuarto_lugar.add(lblAvatar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 6, 66, 58));
+        cuarto_lugar.add(lblJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 187, 28));
+        cuarto_lugar.add(lblPuntuacion4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 60, 20));
 
-        jPanel1.add(tercerLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 480, 70));
+        jPanel1.add(cuarto_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 480, 70));
 
-        javax.swing.GroupLayout cuartoLugarLayout = new javax.swing.GroupLayout(cuartoLugar);
-        cuartoLugar.setLayout(cuartoLugarLayout);
-        cuartoLugarLayout.setHorizontalGroup(
-            cuartoLugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cuartoLugarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        cuartoLugarLayout.setVerticalGroup(
-            cuartoLugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cuartoLugarLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cuartoLugarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        segundo_lugar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        segundo_lugar.add(lblAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 6, 66, 58));
+        segundo_lugar.add(lblJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 187, 28));
+        segundo_lugar.add(lblPuntuacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 60, 20));
 
-        jPanel1.add(cuartoLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 480, 70));
+        jPanel1.add(segundo_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 480, 70));
 
-        jLabel3.setFont(new java.awt.Font("Britannic Bold", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Britannic Bold", 1, 36)); // NOI18N
         jLabel3.setText("PUNTUACIÓN FINAL");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 220, 60));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 340, 60));
+
+        jLabel4.setFont(new java.awt.Font("Myanmar Text", 0, 18)); // NOI18N
+        jLabel4.setText("Felicidades ahora eres vocal");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 680));
 
@@ -257,12 +233,13 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
      * 
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel cuartoLugar;
+    private javax.swing.JPanel cuarto_lugar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAvatar1;
     private javax.swing.JLabel lblAvatar2;
@@ -272,8 +249,12 @@ public class FrmSalaPuntuacion extends javax.swing.JFrame {
     private javax.swing.JLabel lblJugador2;
     private javax.swing.JLabel lblJugador3;
     private javax.swing.JLabel lblJugador4;
-    private javax.swing.JPanel primerLugar;
-    private javax.swing.JPanel segundoLugar;
-    private javax.swing.JPanel tercerLugar;
+    private javax.swing.JLabel lblPuntuacion1;
+    private javax.swing.JLabel lblPuntuacion2;
+    private javax.swing.JLabel lblPuntuacion3;
+    private javax.swing.JLabel lblPuntuacion4;
+    private javax.swing.JPanel primer_lugar;
+    private javax.swing.JPanel segundo_lugar;
+    private javax.swing.JPanel tercer_lugar;
     // End of variables declaration//GEN-END:variables
 }

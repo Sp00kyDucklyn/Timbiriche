@@ -98,7 +98,7 @@ public class FrmJuego extends javax.swing.JFrame {
         if (jugadores.isEmpty()) {
             return;
         }
-
+        this.byebye();
         for (int i = 0; i < jugadores.size(); i++) {
             if (i == 0) {
                 lblJugador1.setText(jugadores.get(0).getNombre() + ":");
@@ -151,6 +151,31 @@ public class FrmJuego extends javax.swing.JFrame {
         }
         tablero.repaint();
     }
+    
+    public boolean seAcabo(){
+        return tablero.yAhoraTodoCambio();
+    }
+    
+    public void byebye() {
+        // Limpia los textos de los JLabels
+        lblJugador1.setText("");
+        lblJugador2.setText("");
+        lblJugador3.setText("");
+        lblJugador4.setText("");
+        
+        lblPuntacion1.setText("");
+        lblPuntacion2.setText("");
+        lblPuntacion3.setText("");
+        lblPuntacion4.setText("");
+        
+        // Limpia los iconos de los JLabels
+        lblAvatar1.setIcon(null);
+        lblAvatar2.setIcon(null);
+        lblAvatar3.setIcon(null);
+        lblAvatar4.setIcon(null);
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -179,6 +204,7 @@ public class FrmJuego extends javax.swing.JFrame {
         lblAvatar4 = new javax.swing.JLabel();
         lblPuntacion4 = new javax.swing.JLabel();
         lblJugador4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(682, 402));
@@ -264,6 +290,14 @@ public class FrmJuego extends javax.swing.JFrame {
 
         getContentPane().add(jugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 280, 150, -1));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -318,6 +352,10 @@ public class FrmJuego extends javax.swing.JFrame {
         tablero.pintarLineaPanthom(evt);
     }//GEN-LAST:event_ELPEPEpanelMouseMoved
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       presentadorJ.terminarPartida();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 //    /**
 //     * @param args the command line arguments
 //     */
@@ -362,6 +400,7 @@ public class FrmJuego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ELPEPEpanel;
     private javax.swing.JLabel Fondo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jugador1;
     private javax.swing.JPanel jugador2;
     private javax.swing.JPanel jugador3;
