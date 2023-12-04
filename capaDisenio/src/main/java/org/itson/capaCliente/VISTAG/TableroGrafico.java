@@ -236,13 +236,6 @@ public class TableroGrafico extends JPanel {
         }
     }
 
-    /**
-     * Verifica si algún cuadro ha sido reclamado en el tablero.
-     */
-    public void verificarReclamado() {
-        // Implementación de la lógica para verificar si algún cuadro ha sido reclamado
-        // y realizar las acciones correspondientes.
-    }
 
     /**
      * Obtiene el objeto Tablero asociado a la instancia.
